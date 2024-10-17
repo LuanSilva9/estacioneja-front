@@ -1,0 +1,9 @@
+@media screen and (max-width: 999px) {
+    .links-desktop {
+        display: none !important;
+    }
+
+    .links-mobile {
+        display: flex;
+    }
+}
