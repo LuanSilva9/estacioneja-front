@@ -11,12 +11,45 @@
 }
 
 .hero-section h2 {
-    font-size: 40px;
+    color: rgb(255, 255, 255);
+    font-size: 65px;
     text-align: center;
 }
 
+.hero-section h2 span:nth-child(1) {
+    color: orange;
+}
+
+
+.hero-section h2 span:nth-child(2) {
+    color: rgb(39, 245, 39);
+}
+
 .hero-section p {
+    color: #f0f0f0;
+    font-size: 22px;
     width: 90%;
     text-align: center;
+    max-width: 700px;
+}
+
+.hero-section .input .input-search {
+    width: 90%;
     max-width: 550px;
+    height: 50px;
+    padding-left: 24px;
+    border: 2px solid white;
+    outline: 0;
+
+}
+
+.hero-section .input {
+    width: 90%;
+    max-width: 550px;
+    display: flex;
+}
+
+.hero-section .input button {
+    border: 0;
+    width: 70px;
 }

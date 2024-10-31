@@ -1,4 +1,5 @@
-import { Button } from 'react-bootstrap'
+import { FaSearch } from "react-icons/fa";
+
 import './Home.css'
 
 
@@ -6,12 +7,13 @@ export default function Home() {
     return (
         <main className='home'>
             <section className='hero-section'>
-                <h2>Estacione com Facilidade e Segurança</h2>
+                <h2>Estacione com <span>Facilidade</span> e <span>Segurança</span></h2>
                 <p>Reserve sua vaga antecipadamente, faça check-in automático e aproveite a conveniência do Estacionejá. Simples, rápido e eficiente!</p>
 
-                <Button className='btn btn-primary' href="#saiba-mais">
-                    Saiba mais
-                </Button>
+                <div className="input">
+                    <input type="text" className='input-search' name="input-main" placeholder='Descubra alguns de nossos estacionamentos'/>
+                    <button className="btn btn-success rounded-0"><FaSearch/></button>
+                </div>
             </section>
 
             <section className="saiba-mais" id="saiba-mais">
