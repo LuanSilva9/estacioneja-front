@@ -10,10 +10,10 @@ export default function Home() {
                 <h2>Estacione com <span>Facilidade</span> e <span>Segurança</span></h2>
                 <p>Reserve sua vaga antecipadamente, faça check-in automático e aproveite a conveniência do Estacionejá. Simples, rápido e eficiente!</p>
 
-                <div className="input">
-                    <input type="text" className='input-search' name="input-main" placeholder='Descubra alguns de nossos estacionamentos'/>
-                    <button className="btn btn-success rounded-0"><FaSearch/></button>
-                </div>
+                <form  className="input">
+                    <input type="text" className='input-search' name="search" placeholder='Descubra alguns de nossos estacionamentos'/>
+                    <button type="submit" className="btn btn-success rounded-0"><FaSearch/></button>
+                </form>
             </section>
 
             <section className="saiba-mais" id="saiba-mais">
