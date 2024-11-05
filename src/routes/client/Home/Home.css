@@ -2,7 +2,7 @@
     background: url(/public/assets/bg-park.png) no-repeat center center;
     background-attachment: fixed;
     background-size: cover;
-    height: 500px;
+    height: 750px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,7 +33,7 @@
     max-width: 700px;
 }
 
-.hero-section .input .input-search {
+.hero-section .searcher .input-search {
     width: 90%;
     max-width: 550px;
     height: 50px;
@@ -43,13 +43,36 @@
 
 }
 
-.hero-section .input {
+.hero-section .searcher {
     width: 90%;
     max-width: 550px;
     display: flex;
 }
 
-.hero-section .input button {
+.hero-section .searcher button {
     border: 0;
     width: 70px;
+}
+
+.saiba-mais {
+    text-align: center;
+    padding: 30px;
+    border-top: 5px solid rgb(54 183 123);
+}
+
+.saiba-mais h2 {
+    color: rgb(54 183 123);
+    font-size: 40px;
+}
+
+.text-cards {
+    display: flex;    
+    justify-content: center;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.text-cards p {
+    width: 300px;
+    text-align: start;
 }
