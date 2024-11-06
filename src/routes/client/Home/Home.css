@@ -17,7 +17,7 @@
 }
 
 .hero-section h2 span:nth-child(1) {
-    color: orange;
+    color: #ff6b00;
 }
 
 
@@ -57,22 +57,142 @@
 .saiba-mais {
     text-align: center;
     padding: 30px;
-    border-top: 5px solid rgb(54 183 123);
 }
 
 .saiba-mais h2 {
-    color: rgb(54 183 123);
+    color: #ff6b00;
     font-size: 40px;
 }
 
 .text-cards {
     display: flex;    
     justify-content: center;
-    gap: 50px;
+    flex-wrap: wrap;
+    gap: 10px;
     margin-top: 40px;
 }
 
 .text-cards p {
+    padding: 10px;
+    box-shadow: 0px 0px 4px #afafaf;
     width: 300px;
-    text-align: start;
+    text-align: center;
+    font-style: italic;
+    color: #5f5f5f;
+}
+
+.para-empresas {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    gap: 30px;
+    border-top: 3px solid rgb(54 183 123);
+    transition: .3s;
+}
+
+.para-empresas:hover {
+    border-top: 3px solid #ff6b00;
+}
+
+.para-empresas img {
+    width: 400px;
+}
+
+.para-empresas .text-left {
+    width: 90%;
+    max-width: 700px;
+}
+
+.para-empresas .text-left h2 {
+    color: rgb(54 183 123) ;
+    font-size: 40px;
+}
+
+.para-empresas .text-left p {
+    line-height: 1.9rem;
+    text-align: justify;
+}
+
+.para-estudantes {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    gap: 30px;
+}
+
+.para-estudantes img {
+    width: 600px;
+}
+
+.para-estudantes .text-right {
+    width: 90%;
+    max-width: 700px;
+}
+
+.para-estudantes .text-right h2 {
+    color: #ff6b00;
+    font-size: 40px;
+}
+
+.para-estudantes .text-right p {
+    line-height: 1.9rem;
+    text-align: justify;
+}
+
+.parceiros {
+    background: #fff;
+    padding: 40px 15px;
+    color: #202020;
+    display: flex;
+    flex-direction: column;
+}
+
+.parceiros .text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+}
+
+.parceiros h2 {
+    font-size: 3.8rem;
+}
+
+.parceiros p {
+    font-size: 20px;
+}
+
+.img-parceiros {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.img-parceiros img {
+    width: 50px;
+}
+
+.onde-nos-encontrar {
+    background: #0e0e0e;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.onde-nos-encontrar h2 {
+    font-size: 3.3rem;
+    color: #fc8a39;
+}
+
+.onde-nos-encontrar p {
+    font-size: 20px;
+    font-weight: 300;
+    color: #d8d8d8;
 }

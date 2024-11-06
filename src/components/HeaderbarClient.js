@@ -65,7 +65,7 @@ export default function HeaderbarClient() {
                     <img src='/logo.svg' className='logo' alt='logo-marca' />
                 </Navbar.Brand>
 
-                <Nav className='links-desktop d-flex gap-3'>
+                <Nav className='links-desktop d-flex align-items-center gap-3'>
                     {
                         linksItemMap.map((link, index) => <Nav.Link style={{ color: '#CECECE' }} key={index} href={link.href}> {link.label}</Nav.Link>)
                     }
