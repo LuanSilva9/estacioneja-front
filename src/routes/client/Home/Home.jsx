@@ -5,7 +5,6 @@ import './Home.css'
 
 
 export default function Home() {
-
     return (
         <main className='home'>
             <section className='hero-section'>
@@ -63,7 +62,7 @@ export default function Home() {
                     <p>Estamos disponiveis nesse endereço!!!</p>
                 </div>
 
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d917.6883011183678!2d-54.21281053036625!3d-23.069507864839316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x948b8f089277ab95%3A0x63db902ee8dd285c!2sInstituto%20Federal%20de%20Mato%20Grosso%20do%20Sul%20-%20Campus%20Navira%C3%AD!5e0!3m2!1spt-BR!2sbr!4v1730919356381!5m2!1spt-BR!2sbr" width="600" height="450" style={{"border": "0", "borderRadius": "3px"}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d917.6883011183678!2d-54.21281053036625!3d-23.069507864839316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x948b8f089277ab95%3A0x63db902ee8dd285c!2sInstituto%20Federal%20de%20Mato%20Grosso%20do%20Sul%20-%20Campus%20Navira%C3%AD!5e0!3m2!1spt-BR!2sbr!4v1730919356381!5m2!1spt-BR!2sbr" width="600" height="450" style={{ "border": "0", "borderRadius": "3px" }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </section>
 
             <section className="parceiros">
@@ -77,12 +76,52 @@ export default function Home() {
                     <img src="/assets/camera.svg" alt="ufms" />
                     <img src="/assets/camera.svg" alt="ifms" />
                     <img src="/assets/camera.svg" alt="ufms" />
-                    <img src="/assets/camera.svg" alt="ifms" />
-                    <img src="/assets/camera.svg" alt="ufms" />
-                    <img src="/assets/camera.svg" alt="ifms" />
-                    <img src="/assets/camera.svg" alt="ufms" />
-                    <img src="/assets/camera.svg" alt="ifms" />
-                    <img src="/assets/camera.svg" alt="ufms" />
+                </div>
+            </section>
+
+            <section className="feedbacks-e-testemunhos">
+                <h2>Testemunhos e Depoimentos</h2>
+
+                <div className="testemunhos">
+                    <div className="testemunho-single">
+                        <div className="profile">
+                            <img src="/assets/user1.avif" alt="João Moreira" />
+                            <h4>João Moreira</h4>
+                        </div>
+                        <p>“Com o EstacioneJá, nunca mais perdi tempo procurando vaga. Minha rotina na universidade ficou muito mais tranquila!”</p>
+                    </div>
+
+                    <div className="testemunho-single">
+                        <div className="profile">
+                            <img src="/assets/user2.avif" alt="Carla Figueiredo" />
+                            <h4>Carla Figueiredo</h4>
+                        </div>
+                        <p>“O EstacioneJá fez uma grande diferença no meu dia a dia. Reservo minha vaga com antecedência e evito o estresse de chegar atrasada ao trabalho.”</p>
+                    </div>
+
+                    <div className="testemunho-single">
+                        <div className="profile">
+                            <img src="/assets/user3.avif" alt="Lucas Almeida" />
+                            <h4>Lucas Almeida</h4>
+                        </div>
+                        <p>“Trabalho em uma empresa com muitos colaboradores, e o EstacioneJá é a solução perfeita para organizar o estacionamento. Recomendo!”</p>
+                    </div>
+
+                    <div className="testemunho-single">
+                        <div className="profile">
+                            <img src="/assets/user4.avif" alt="Mariana Costa" />
+                            <h4>Mariana Costa</h4>
+                        </div>
+                        <p>“Como estudante, ter uma vaga garantida ao chegar me ajuda a me concentrar no que realmente importa. O EstacioneJá é incrível!”</p>
+                    </div>
+
+                    <div className="testemunho-single">
+                        <div className="profile">
+                            <img src="/assets/user5.avif" alt="Renato Pereira" />
+                            <h4>Renato Pereira</h4>
+                        </div>
+                        <p>“A praticidade do EstacioneJá é impressionante. A reserva é rápida, e o check-in é super fácil. Excelente serviço!”</p>
+                    </div>
                 </div>
             </section>
         </main>
