@@ -1,31 +1,25 @@
 .nos {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    padding: 50px;
+    flex-direction: column;
     background: #ffffff;
-    color: #303030;
+    color: #222;
+    padding: 40px;
 
 }
 
 .nos h2 {
-    font-size: 50px;
-    color: rgb(20, 153, 91) ;
-    max-width: 500px;
-    width: 90%;
+    max-width: 1200px;
+    width: 99%;
+    font-size: 4rem;
+    color: rgb(54 183 123);;
 }
 
 .nos p {
-    max-width: 500px;
-    width: 90%;
+    text-align: justify;
+    max-width: 1200px;
     font-size: 20px;
-}
-
-.nos .line {
-    width: 2px;
-    height: 200px;
-    background: #616161;
 }
 
 .info {
@@ -47,31 +41,23 @@
 .historia {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     padding: 50px;
-    background: #272727;
+    background: #222;
     color: #ffffff;
 }
 
 .historia h2 {
-    max-width: 500px;
+    max-width: 1200px;
     width: 99%;
     font-size: 4rem;
-    color: rgb(233, 131, 36) ;
+    color: #ff6b00;
 }
 
 .historia p {
     text-align: justify;
-    max-width: 500px;
+    max-width: 1200px;
     width: 99%;
-    font-size: 18px;
-}
-
-@media screen and (max-width: 1100px) {
-    .nos .line {
-        display: none;
-    }
+    font-size: 20px;
 }
