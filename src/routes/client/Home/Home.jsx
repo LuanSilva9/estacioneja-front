@@ -72,10 +72,7 @@ export default function Home() {
                 </div>
 
                 <div className="img-parceiros">
-                    <img src="/assets/camera.svg" alt="ifms" />
-                    <img src="/assets/camera.svg" alt="ufms" />
-                    <img src="/assets/camera.svg" alt="ifms" />
-                    <img src="/assets/camera.svg" alt="ufms" />
+                    <img src="/assets/ifms-cor.png" alt="ifms" />
                 </div>
             </section>
 

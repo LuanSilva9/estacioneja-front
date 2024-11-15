@@ -151,7 +151,7 @@
 
 
 .parceiros h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 .parceiros p {
@@ -167,11 +167,11 @@
 }
 
 .img-parceiros img {
-    width: 50px;
+    width: 100px;
 }
 
 .onde-nos-encontrar {
-    background: rgb(25, 77, 52);
+    background: #222;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -192,14 +192,15 @@
 
 
 .feedbacks-e-testemunhos {
-    background: #ffffff;
+    background: #1b1b1b;
     box-shadow: 0px -1px 1px #e4e4e4;
-    padding: 30px;
+    padding: 100px 30px;
 }
 
 .feedbacks-e-testemunhos h2 {
     text-align: center;
-    font-size: 3rem;
+    font-size: 2.5rem;
+    color: #fff;
 }
 
 .testemunhos {
@@ -223,7 +224,7 @@
     display: flex;
     flex-flow: column nowrap;
     gap: 30px;
-    background: rgba(241, 241, 241, 0.301);
+    background: rgba(255, 255, 255, 0.822);
     border-radius: 8px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.205);
     backdrop-filter: blur(5px);
