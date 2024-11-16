@@ -1,55 +1,16 @@
 import { useState } from 'react';
 
+import { RiMenuFill } from "react-icons/ri";
+
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
-import { RiMenuFill, RiFunctionFill } from "react-icons/ri";
-import { IoHome, IoTelescopeSharp, IoIdCardSharp, IoExtensionPuzzleSharp } from "react-icons/io5";
-import { MdSettingsInputAntenna } from "react-icons/md"
-import { FaCarSide } from "react-icons/fa";
+import { linksItemMap } from '../constants/Bars/ItemsbarUser';
 
-
-import Dropdown from 'react-bootstrap/Dropdown';
-
-const linksItemMap = [
-    {
-        label: 'Principal',
-        href: '/',
-        icon: IoHome,
-    },
-    {
-        label: 'Sobre nós',
-        href: '/sobre-nos',
-        icon: IoTelescopeSharp,
-    },
-
-    {
-        label: 'Politica de privacidade',
-        href: '/politica',
-        icon: IoExtensionPuzzleSharp,
-    },
-]
-
-const dropdownContentMap = [
-    {
-        label: 'Reserva de Vagas',
-        href: '/funcionalidades/reserva-vagas',
-        icon: FaCarSide,
-    },
-    {
-        label: 'Sistemas de Check-in',
-        href: '/funcionalidades/check-in',
-        icon: IoIdCardSharp,
-    },
-    {
-        label: 'Rastreamento de Vagas',
-        href: '/funcionalidades/rastreamento-vagas',
-        icon: MdSettingsInputAntenna,
-    },
-]
+import { Link } from 'react-router-dom';
 
 
 export default function HeaderbarClient() {
@@ -59,7 +20,7 @@ export default function HeaderbarClient() {
     const handleShow = () => setShow(true);
 
     return (
-        <Navbar style={{ background: '#1E1E1E' }} className="p-0 m-0" data-bs-theme="dark">
+        <Navbar style={{ background: '#222' }} className="p-0 m-0" data-bs-theme="dark">
             <Container>
                 <Navbar.Brand href="/">
                     <img src='/logo.svg' className='logo' alt='logo-marca' />
@@ -67,25 +28,14 @@ export default function HeaderbarClient() {
 
                 <Nav className='links-desktop d-flex align-items-center gap-3'>
                     {
-                        linksItemMap.map((link, index) => <Nav.Link style={{ color: '#CECECE' }} key={index} href={link.href}> {link.label}</Nav.Link>)
+                        linksItemMap.map((link, index) => <Nav.Link key={index}> <Link to={link.href} style={{ color: '#CECECE', textDecoration: 'none' }}>{link.icon != null ? <link.icon /> : null} {link.label}</Link></Nav.Link>)
                     }
 
-                    <Dropdown>
-                        <Dropdown.Toggle variant='link' className='text-decoration-none' style={{ color: '#CECECE' }} id="dropdown-basic">
-                            Funcionalidades
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu>
-                            {
-                                dropdownContentMap.map((dropdown_item, index) => <Dropdown.Item key={index} href={dropdown_item.href}>{dropdown_item.icon != null ? <dropdown_item.icon /> : null} {dropdown_item.label}</Dropdown.Item>)
-                            }
-                        </Dropdown.Menu>
-                    </Dropdown>
                 </Nav>
 
-                <Nav className='links-desktop d-flex gap-2'>
-                    <Button variant='success' href="/cadastrar">Começar Agora</Button>
-                    <Nav.Link href="/login" className='text-decoration-underline' style={{ color: '#70DC94', fontWeight: 500 }}>Tenho Conta</Nav.Link>
+                <Nav className='links-desktop d-flex align-items-center gap-4'>
+                    <Link  to="/cadastrar" className='btn btn-success'>Começar Agora</Link>
+                    <Link  to="/login" className='text-decoration-underline' style={{ color: "#2ecf84", fontWeight: 500 }}>Tenho Conta</Link>
                 </Nav>
 
                 <Nav className='links-mobile'>
@@ -105,21 +55,9 @@ export default function HeaderbarClient() {
                         <Nav className='d-flex flex-column gap-3'>
                             {
                                 linksItemMap.map((link, index) => {
-                                    return <Nav.Link key={index} href={link.href}>{link.icon != null ? <link.icon /> : null} {link.label}</Nav.Link>
+                                    return <Nav.Link key={index}> <Link to={link.href} style={{ color: '#222', textDecoration: 'none' }}>{link.icon != null ? <link.icon /> : null} {link.label}</Link></Nav.Link>
                                 })
                             }
-
-                            <Dropdown>
-                                <Dropdown.Toggle variant='link' className='text-dark p-0 text-decoration-none text-start' id="dropdown-basic">
-                                    <RiFunctionFill /> Funcionalidades
-                                </Dropdown.Toggle>
-
-                                <Dropdown.Menu>
-                                    {
-                                        dropdownContentMap.map((dropdown_item, index) => <Dropdown.Item key={index} href={dropdown_item.href}>{dropdown_item.icon != null ? <dropdown_item.icon /> : null} {dropdown_item.label}</Dropdown.Item>)
-                                    }
-                                </Dropdown.Menu>
-                            </Dropdown>
                         </Nav>
 
                         <Nav className='d-flex flex-column gap-2'>
@@ -128,9 +66,6 @@ export default function HeaderbarClient() {
                         </Nav>
                     </Offcanvas.Body>
                 </Offcanvas>
-
-
-
             </Container>
         </Navbar>
     )

@@ -1,25 +1,20 @@
 .nos {
+    height: 200px;
+    background: url(/public/assets/bg-park.png) center/cover no-repeat;
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
-    background: #ffffff;
-    color: #222;
-    padding: 40px;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 30px;
 
 }
 
 .nos h2 {
-    max-width: 1200px;
-    width: 99%;
-    font-size: 4rem;
-    color: rgb(54 183 123);;
-}
-
-.nos p {
-    text-align: justify;
-    max-width: 1200px;
-    font-size: 20px;
+    font-size: 2rem;
+    color: rgb(255, 255, 255);
 }
 
 .info {

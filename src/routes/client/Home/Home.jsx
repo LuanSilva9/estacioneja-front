@@ -3,10 +3,13 @@ import { FaSearch } from "react-icons/fa";
 
 import './Home.css'
 
+import HeaderbarClient from "../../../components/HeaderbarClient";
 
 export default function Home() {
     return (
         <main className='home'>
+            <HeaderbarClient/>
+
             <section className='hero-section'>
                 <h2>Estacione com <span>Facilidade</span> e <span>Segurança</span></h2>
                 <p>Reserve sua vaga antecipadamente, faça check-in automático e aproveite a conveniência do Estacionejá. Simples, rápido e eficiente!</p>
@@ -72,6 +75,9 @@ export default function Home() {
                 </div>
 
                 <div className="img-parceiros">
+                    <img src="/assets/ifms-cor.png" alt="ifms" />
+                    <img src="/assets/ifms-cor.png" alt="ifms" />
+                    <img src="/assets/ifms-cor.png" alt="ifms" />
                     <img src="/assets/ifms-cor.png" alt="ifms" />
                 </div>
             </section>

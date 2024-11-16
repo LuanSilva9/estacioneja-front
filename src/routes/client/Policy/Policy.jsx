@@ -1,8 +1,12 @@
+import HeaderbarClient from '../../../components/HeaderbarClient';
+
 import './Policy.css';
 
 export default function Policy() {
     return (
         <main className='policy'>
+            <HeaderbarClient/>
+            
             <section className='policy-title'>
                 <h2>Política de Privacidade</h2>
             </section>

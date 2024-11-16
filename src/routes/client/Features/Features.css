@@ -1,0 +1,58 @@
+.feature-reservation {
+    font-family: 'Arial', sans-serif;
+    padding: 70px 10px;
+    border-radius: 10px;
+    max-width: 1400px;
+    background-color: #ffffff; 
+    color: #333; 
+    margin: auto;
+}
+
+.feature-reservation h2 {
+    font-size: 2.5rem;
+    color: #22b644;
+    font-weight: 500;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #cccc;
+}
+
+.feature-reservation h3 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #666666;
+}
+
+.feature-reservation p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.feature-reservation ul {
+    list-style: circle;
+    padding-left: 20px;
+    margin-top: 0.5rem;
+}
+
+.feature-reservation li {
+    margin-bottom: 0.5rem;
+}
+
+.manual {
+    padding-left: 15px;
+}
+
+.manual .img {
+    width: 95%;
+    max-width: 700px;
+    height: 500px;
+    margin: 0 auto;
+    background: #ccc;
+    display: grid;
+    place-items:center;
+}
+
+.manual .img img {
+    width: 50px;
+    height: 50px;
+}

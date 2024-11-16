@@ -1,13 +1,14 @@
+import HeaderbarClient from '../../../components/HeaderbarClient'
+
 import './AboutUs.css'
 
 export default function AboutUs() {
     return (
         <main className='about-us'>
+            <HeaderbarClient/>
+
             <section className='nos'>
                 <h2>Sobre o Estacionejá</h2>
-                <p>
-                    O Estacionejá é um projeto inovador de faculdade, criado para facilitar o dia a dia de pessoas que precisam de uma solução eficiente e moderna para o gerenciamento de vagas de estacionamento. Nossa plataforma oferece uma experiência prática e intuitiva para estudantes, profissionais e empresas.
-                </p>
             </section>
 
             <section className='info'>
