@@ -1,3 +1,4 @@
+import FooterClient from '../../../components/FooterClient';
 import HeaderbarClient from '../../../components/HeaderbarClient';
 
 import './Policy.css';
@@ -69,6 +70,8 @@ export default function Policy() {
                 </div>
 
             </section>
+
+            <FooterClient/>
         </main>
     );
 }

@@ -1,0 +1,135 @@
+.texts {
+    display: grid;
+    place-items: center;
+    place-content: center;
+    width: 100vw;
+    gap: 15px;
+
+}
+
+.texts img {
+    width: 200px;
+    padding: 5px 0px;
+    border-bottom: 1px solid #ccc;
+}
+
+.texts .texts-selected {
+    max-width: 700px;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+.texts .texts-selected h2 {
+    color: rgb(46, 155, 101);
+    font-style: italic;
+    font-size: 30px;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding: 40px;
+    gap: 20px;
+}
+
+.category {
+    width: 200px;
+    height: 200px;
+    padding: 20px 0px;
+    margin: 14px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid #ccc;
+    color: #5f5f5f;
+    cursor: pointer;
+}
+
+.diviser {
+    display: grid;
+    place-content: center;
+    height: 200px;
+}
+
+.category h2 {
+    font-size: 20px;
+}
+
+.icon {
+    font-size: 50px;
+}
+
+.buttons-submit {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    justify-items: center;
+    justify-content: center; 
+}
+
+.cards .card-single {
+    display: flex;
+    flex-direction: row;
+}
+
+.tag-role {
+    border-radius: 4px;
+    padding: 2px 5px;
+}
+
+.sign-up-company {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sign-up-company .form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sign-up-company .image-side, .sign-up-company .form {
+    width: 50%;
+}
+
+.sign-up-company .image-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Judson';
+    font-size: large;
+    color: #fff;
+    height: 100vh;
+    background: url(/public/assets/bgForm.jpg) no-repeat center center;
+}
+
+.sign-up-company .form form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+    gap: 30px;
+}
+
+.form-text h2 {
+    color: rgb(47, 155, 46);
+    font-size: 50px;
+}
+
+.form-text img {
+    user-select: none;
+}
+
+.form-text p {
+    font-size: 20px;
+}
+
+.inputs .input {
+    width: 500px;
+}

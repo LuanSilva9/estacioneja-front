@@ -1,3 +1,4 @@
+import FooterClient from '../../../components/FooterClient'
 import HeaderbarClient from '../../../components/HeaderbarClient'
 
 import './AboutUs.css'
@@ -49,6 +50,8 @@ export default function AboutUs() {
                     Hoje, o Estacionejá continua a evoluir, trazendo novos recursos e expandindo seu impacto para além dos muros da faculdade, com o objetivo de melhorar a mobilidade e organização em locais com alta demanda de estacionamento.
                 </p>
             </section>
+
+            <FooterClient/>
         </main>
 
     )

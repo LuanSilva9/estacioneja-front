@@ -8,7 +8,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
-import { linksItemMap } from '../constants/Bars/ItemsbarUser';
+import { linksItemMap } from '../constants/menu/ItemsbarUser';
 
 import { Link } from 'react-router-dom';
 
@@ -61,8 +61,8 @@ export default function HeaderbarClient() {
                         </Nav>
 
                         <Nav className='d-flex flex-column gap-2'>
-                            <Button variant='success'>Começar Agora</Button>
-                            <Nav.Link href="/login" className='text-success text-decoration-underline text-center'>Tenho Conta</Nav.Link>
+                            <Link  to="/cadastrar" className='btn btn-success'>Começar Agora</Link>
+                            <Link  to="/login" className='text-decoration-underline text-center text-success' style={{ fontWeight: 500 }}>Tenho Conta</Link>
                         </Nav>
                     </Offcanvas.Body>
                 </Offcanvas>

@@ -1,5 +1,6 @@
 html, body {
     font-family: "Jost", sans-serif;
+    overflow-x: hidden;
 }
 
 .logo {
@@ -10,4 +11,5 @@ html, body {
 .links-mobile {
     display: none;
 }
+
 

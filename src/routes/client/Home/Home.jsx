@@ -4,6 +4,7 @@ import { FaSearch } from "react-icons/fa";
 import './Home.css'
 
 import HeaderbarClient from "../../../components/HeaderbarClient";
+import FooterClient from "../../../components/FooterClient";
 
 export default function Home() {
     return (
@@ -127,6 +128,8 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+
+            <FooterClient/>
         </main>
     )
 }

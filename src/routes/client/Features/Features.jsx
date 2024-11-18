@@ -2,6 +2,7 @@ import React from 'react';
 
 import HeaderbarClient from "../../../components/HeaderbarClient";
 import './Features.css';
+import FooterClient from '../../../components/FooterClient';
 
 export default function Features() {
    
@@ -64,6 +65,8 @@ export default function Features() {
                     </p>
                 </div>
             </section>
+
+            <FooterClient/>
         </main>
     );
 }
