@@ -8,8 +8,6 @@ import './App.css';
 import './MobileFormat.css';
 import './fonts.css'
 
-import FooterClient from './components/FooterClient';
-
 export default function App() {
   return (
     <BrowserRouter>

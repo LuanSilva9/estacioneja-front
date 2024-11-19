@@ -1,13 +1,28 @@
 import { Autocomplete, Box, Grid, TextField, Typography } from "@mui/material";
 
-import { companys } from "../../constants/Companys";
 
-import { ufs, citys } from "../../constants/Citys";
+import { companys } from "../../../constants/Companys";
 
-import './SignUp.css';
+import '../SignUp.css';
+
 import { Link } from "react-router-dom";
 
+import { MdNavigateNext } from "react-icons/md";
+
+import { useState } from "react";
+
+// import {companyContext} from '../../../context/companyContext';
+
+
+const ufs = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"];
+
 export default function SignUpCompany() {
+
+    // const [empresaNome, setEmpresaNome] = useState(companyContext.companyName);
+    // const [empresaCidade, setEmpresaCidade] = useState(companyContext.companyCity);
+    // const [empresaUf, setEmpresaUf] = useState(companyContext.companyUf);
+    // const [empresaEndereco, setEmpresaEndereco] = useState(companyContext.companyAdress);
+
     return (
         <section className="sign-up-company">
             <div className="form">
@@ -71,13 +86,11 @@ export default function SignUpCompany() {
 
                             <Grid item xs={12} sx={{ mt: 3 }}>
                                 <Box display="flex" justifyContent="space-between">
-                                    <Link to="/cadastrar"  className="btn">Voltar</Link>
-                                    <Link to="/cadastrar/empresa/passo-2" className="btn btn-primary">Proximo Passo</Link>
+                                    <Link to="/cadastrar"  className="btn btn-dark">Voltar</Link>
+                                    <Link to="/cadastrar/empresa/passo-2" className="btn btn-primary">Proximo Passo <MdNavigateNext/></Link>
                                 </Box>
                             </Grid>
                     </Grid>
-
-
                 </form>
             </div>
 

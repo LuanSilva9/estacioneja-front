@@ -14,7 +14,8 @@ const companys = [
         companyRepresentative: "Adroaldo Taguti",
         companyAdress: "Av. Campo Grande, 1978 - Jardim Progresso",
         companyType: "EMPRESA"
-    }
+    },
+    
 ]
 
 export { companys }

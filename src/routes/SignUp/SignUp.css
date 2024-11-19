@@ -104,6 +104,7 @@
     font-size: large;
     color: #fff;
     height: 100vh;
+    background-size: cover;
     background: url(/public/assets/bgForm.jpg) no-repeat center center;
 }
 
@@ -132,4 +133,24 @@
 
 .inputs .input {
     width: 500px;
+}
+
+@media screen and (max-width: 1100px) {
+    .sign-up-company .image-side {
+        display: none;
+    }
+    .sign-up-company .form {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-height: 890px) {
+    .sign-up-company .image-side {
+        display: none;
+    }
+    .sign-up-company .form {
+        width: 100%;
+    }
+
 }
