@@ -74,7 +74,7 @@ export default function SignUpCompanyPayment() {
                         <Grid item xs={12} sx={{ mt: 3 }}>
                             <Box display="flex" justifyContent="space-between">
                                 <Link to="/cadastrar/empresa/passo-2" className="btn btn-dark">Voltar</Link>
-                                <Link to="/cadastrar/empresa/finish" className="btn btn-primary">Finalizar cadastro <MdNavigateNext /></Link>
+                                <Link to="/administrator" className="btn btn-primary">Finalizar cadastro <MdNavigateNext /></Link>
                             </Box>
                         </Grid>
                     </Grid>

@@ -1,3 +1,5 @@
+import { Divider } from "@mui/material";
+
 import EJHistory from "../../../components/EJ/EJHistory";
 import EJParkModel from "../../../components/EJ/EJParkModel";
 import EJReservation from "../../../components/EJ/EJReservation";
@@ -25,6 +27,8 @@ export default function ClientApp() {
                     <EJParkModel MapperJsonPark={park}/>
                     <EJParkModel MapperJsonPark={park}/>
                 </div>
+
+                <Divider/>
             </div>
 
             <div className="historys">
@@ -36,6 +40,8 @@ export default function ClientApp() {
                     <EJHistory MapperJsonHistory={history}/>
                     <EJHistory MapperJsonHistory={history}/>
                 </div>
+
+                <Divider/>
             </div>
 
             <FooterClient/>
