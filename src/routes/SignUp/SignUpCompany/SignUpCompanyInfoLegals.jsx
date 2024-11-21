@@ -52,8 +52,8 @@ export default function SignUpInfoLegals() {
                         </Grid>
                             <Grid item xs={12} sx={{ mt: 3 }}>
                                 <Box display="flex" justifyContent="space-between">
-                                    <Link to="/cadastrar/empresa/passo-1"  className="btn btn-dark">Voltar</Link>
-                                    <Link to="/cadastrar/empresa/passo-2" className="btn btn-primary">Proximo Passo <MdNavigateNext/></Link>
+                                    <Link to="/cadastrar/empresa/passo-2"  className="btn btn-dark">Voltar</Link>
+                                    <Link to="/cadastrar/empresa/passo-3" className="btn btn-primary">Proximo Passo <MdNavigateNext/></Link>
                                 </Box>
                             </Grid>
                     </Grid>
