@@ -18,7 +18,10 @@ export default function HeaderbarClient({ linksItemMap, logged }) {
     const [show, setShow] = useState(false);
     const [anchorEl, setAnchorEl] = React.useState(null);
 
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+        setAnchorEl(null); // Resetando o estado do menu
+    };
+
     const handleShow = () => setShow(true);
 
     const open = Boolean(anchorEl);
@@ -26,6 +29,8 @@ export default function HeaderbarClient({ linksItemMap, logged }) {
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
+
+    const handleCloseOc = () => setShow(false);
 
     return (
         <Navbar style={{ background: '#222' }} className="p-0 m-0" data-bs-theme="dark">
@@ -41,8 +46,9 @@ export default function HeaderbarClient({ linksItemMap, logged }) {
                                 {
                                     linksItemMap && linksItemMap.map((link, index) => (
                                         <Nav.Link key={index}> 
-                                            <Link to={link.href} style={{ color: '#CECECE', textDecoration: 'none' }}>
+                                            <Link to={link.href} className='d-flex align-items-center gap-1' style={{ color: '#CECECE', textDecoration: 'none' }}>
                                                 {link.icon != null ? <link.icon /> : null} 
+                                                 
                                                 {link.label}
                                             </Link>
                                         </Nav.Link>
@@ -73,7 +79,7 @@ export default function HeaderbarClient({ linksItemMap, logged }) {
                                 anchorEl={anchorEl}
                                 id="account-menu"
                                 open={open}
-                                onClose={handleClose}
+                                onClose={handleClose} 
                                 onClick={handleClose}
                                 slotProps={{
                                     paper: {
@@ -121,7 +127,7 @@ export default function HeaderbarClient({ linksItemMap, logged }) {
                     </Button>
                 </Nav>
 
-                <Offcanvas show={show} onHide={handleClose} backdrop="static">
+                <Offcanvas show={show} onHide={handleCloseOc} backdrop="static">
                     <Offcanvas.Header closeButton>
                         <Offcanvas.Title>
                             <img src='/logo-white.svg' className='logo' alt='logo-marca' />
