@@ -1,6 +1,7 @@
 const companys = [
     {
         companyName: "Instituto Federal",
+        companyNameFormated: "instituto-federal",
         companyCity: "Navirai",
         companyUf: "MS",
         companyRepresentative: "Wagner Antoniassi",
@@ -9,6 +10,7 @@ const companys = [
     },
     {
         companyName: "Copasul",
+        companyNameFormated: "copasul",
         companyCity: "Navirai",
         companyUf: "MS",
         companyRepresentative: "Adroaldo Taguti",
