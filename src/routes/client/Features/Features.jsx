@@ -4,11 +4,13 @@ import HeaderbarClient from "../../../components/HeaderbarClient";
 import './Features.css';
 import FooterClient from '../../../components/FooterClient';
 
+import { menuUser } from '../../../constants/menu/menuUser';
+
 export default function Features() {
    
     return (
         <main className="features">
-            <HeaderbarClient/>
+            <HeaderbarClient linksItemMap={menuUser}/>
             
             <section className="feature-reservation">
                 <div className="manual">

@@ -1,6 +1,9 @@
 import { Button } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
 
+import { menuUser } from '../../../constants/menu/menuUser';
+
+
 import './Home.css'
 
 import HeaderbarClient from "../../../components/HeaderbarClient";
@@ -9,7 +12,7 @@ import FooterClient from "../../../components/FooterClient";
 export default function Home() {
     return (
         <main className='home'>
-            <HeaderbarClient/>
+            <HeaderbarClient linksItemMap={menuUser}/>
 
             <section className='hero-section'>
                 <h2>Estacione com <span>Facilidade</span> e <span>Segurança</span></h2>

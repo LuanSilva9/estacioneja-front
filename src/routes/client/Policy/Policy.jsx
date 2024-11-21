@@ -1,12 +1,14 @@
 import FooterClient from '../../../components/FooterClient';
 import HeaderbarClient from '../../../components/HeaderbarClient';
 
+import { menuUser } from '../../../constants/menu/menuUser';
+
 import './Policy.css';
 
 export default function Policy() {
     return (
         <main className='policy'>
-            <HeaderbarClient/>
+            <HeaderbarClient linksItemMap={menuUser}/>
             
             <section className='policy-title'>
                 <h2>Política de Privacidade</h2>

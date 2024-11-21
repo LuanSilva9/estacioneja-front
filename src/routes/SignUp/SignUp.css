@@ -81,15 +81,19 @@
     padding: 2px 5px;
 }
 
-.sign-up-company {
+.sign-up-company, .sign-up-client {
     display: flex;
     justify-content: space-between;
 }
 
-.sign-up-company .form {
+.sign-up-company .form, .sign-up-client .form {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.sign-up-client {
+    width: 100%;
 }
 
 .sign-up-company .image-side, .sign-up-company .form {
@@ -108,7 +112,7 @@
     background: url(/public/assets/bgForm.jpg) no-repeat center center;
 }
 
-.sign-up-company .form form {
+.sign-up-company .form form, .sign-up-client .form form {
     display: flex;
     flex-direction: column;
     justify-content: center;

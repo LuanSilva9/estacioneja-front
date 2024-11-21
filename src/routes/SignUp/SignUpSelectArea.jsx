@@ -97,7 +97,7 @@ export default function SignUpSelectArea() {
             </div>
             
             <div className="buttons-submit">
-                <Link className={`btn btn-success ${!checked ? `disabled` : ``}`} to={`./${category.path}/passo-1`}>Proximo passo</Link>
+                <Link className={`btn btn-success ${!checked ? `disabled` : ``}`} to={`./${category.path}`}>Proximo passo</Link>
             </div>
 
             <FooterClient/>

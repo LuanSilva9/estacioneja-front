@@ -2,7 +2,7 @@ import { IoHome, IoTelescopeSharp, IoIdCardSharp, IoExtensionPuzzleSharp } from 
 import { MdSettingsInputAntenna } from "react-icons/md"
 import { FaCarSide } from "react-icons/fa";
 
-const linksItemMap = [
+const menuUser = [
     {
         label: 'Principal',
         href: '/',
@@ -27,4 +27,5 @@ const linksItemMap = [
 ]
 
 
-export { linksItemMap };
+
+export { menuUser };
