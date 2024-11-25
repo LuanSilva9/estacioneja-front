@@ -1,10 +1,10 @@
-import { Divider } from "@mui/material";
-
 import EJHistory from "../../../components/EJ/EJHistory";
 import EJParkModel from "../../../components/EJ/EJParkModel";
 import EJReservation from "../../../components/EJ/EJReservation";
+import EJVinclePark from "../../../components/EJ/EJVinclePark.jsx";
 import FooterClient from "../../../components/FooterClient";
-import HeaderbarClient from "../../../components/HeaderbarClient";
+import HeaderbarClient from "../../../components/HeaderbarClient.js";
+
 import { history } from "../../../constants/MapperJsonHistory";
 import { park } from "../../../constants/MapperJsonPark";
 
@@ -15,7 +15,7 @@ import './Client.css'
 export default function ClientApp() {
     return (
         <main className="clientApp">
-            <HeaderbarClient linksItemMap={false} logged={true}/>
+            <HeaderbarClient/>
             <EJReservation MapperJsonReservation={reservation}/>
 
             <div className="parkVincles">
@@ -23,12 +23,8 @@ export default function ClientApp() {
 
                 <div className="cardsParks">
                     <EJParkModel MapperJsonPark={park}/>
-                    <EJParkModel MapperJsonPark={park}/>
-                    <EJParkModel MapperJsonPark={park}/>
-                    <EJParkModel MapperJsonPark={park}/>
+                    <EJVinclePark/>
                 </div>
-
-                <Divider/>
             </div>
 
             <div className="historys">
@@ -40,8 +36,6 @@ export default function ClientApp() {
                     <EJHistory MapperJsonHistory={history}/>
                     <EJHistory MapperJsonHistory={history}/>
                 </div>
-
-                <Divider/>
             </div>
 
             <FooterClient/>
