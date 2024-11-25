@@ -1,6 +1,10 @@
 html, body {
     font-family: "Jost", sans-serif;
+}
+
+body {
     overflow-x: hidden;
+    padding-right: 0px !important;
 }
 
 .logo {
@@ -12,4 +16,14 @@ html, body {
     display: none;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
 
+::-webkit-scrollbar-track {
+    background: #222;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(255, 94, 0);
+}
