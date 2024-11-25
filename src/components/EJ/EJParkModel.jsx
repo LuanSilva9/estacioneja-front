@@ -1,7 +1,6 @@
 import { Button } from "react-bootstrap";
 
 export default function EJParkModel({ MapperJsonPark }) {
-    console.log(MapperJsonPark);
     return (
         <div className="park">
             <h3>{MapperJsonPark.companyName}</h3>

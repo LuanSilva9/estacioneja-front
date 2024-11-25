@@ -9,7 +9,7 @@ import './MobileFormat.css';
 import './fonts.css'
 
 export default function App() {
-  console.log(process.env.REACT_APP_AUTH_KEY);
+  //  console.log(process.env.REACT_APP_AUTH_KEY);
 
   return (
     <BrowserRouter>
