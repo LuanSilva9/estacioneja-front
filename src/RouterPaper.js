@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Router, Routes } from "react-router-dom";
 
 import Home from "./routes/client/Home/Home";
 import AboutUs from "./routes/client/AboutUs/AboutUs";
@@ -10,32 +10,64 @@ import SignUpCompanyInfoLegals from "./routes/SignUp/SignUpCompany/SignUpCompany
 import SignUpCompanyPayment from "./routes/SignUp/SignUpCompany/SignUpCompanyPayment";
 import SignUpClient from "./routes/SignUp/SignUpClient/SignUpClient";
 import ClientApp from "./routes/client/Client/ClientApp";
+import Login from "./routes/Login/Login";
+import { CompanyProvider } from "./contexts/CompanyContext";
+import { UserProvider } from "./contexts/UserContext";
 
 
 export default function RouterPaper() {
     return (
         <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/sobre-nos" element={<AboutUs/>}/>
-            <Route path="/politica" element={<Policy/>}/>
-            <Route path="/funcionalidades" element={<Features/>}/>
-            
+            <Route path="/" element={<Home />} />
+            <Route path="/sobre-nos" element={<AboutUs />} />
+            <Route path="/politica" element={<Policy />} />
+            <Route path="/funcionalidades" element={<Features />} />
+
+
+
+            {/* Cadastro - Selecionar Perfil */}
+            <Route path="/cadastrar" element={<SignUpSelectArea/>}/>
 
             {/* Cadastro para empresa */}
-            <Route path="/cadastrar" element={<SignUpSelectArea/>}/>
-            <Route path="/cadastrar/empresa/" element={<SignUpCompany/>}/>
-            <Route path="/cadastrar/empresa/passo-2" element={<SignUpCompanyInfoLegals/>}/>
-            <Route path="/cadastrar/empresa/passo-3" element={<SignUpCompanyPayment/>}/>
+            <Route 
+                path="/cadastrar/empresa/*" 
+                element={
+                    <CompanyProvider>
+                        <Routes>
+                            <Route path="/" element={<SignUpCompany />} />
+                            <Route path="passo-2" element={<SignUpCompanyInfoLegals />} />
+                            <Route path="passo-3" element={<SignUpCompanyPayment />} />
+                        </Routes>
+                    </CompanyProvider>
+                } 
+            />
 
-            {/* Cadastro para aluno */}
 
-            <Route path="/cadastrar/aluno/" element={<SignUpClient type="student"/>}/>
+            {/* Cadastro para aluno e funcionario funcionario  */}
+            <Route
+                path="/cadastrar/*"
+                element={
+                    <UserProvider>
+                        <Routes>
+                            <Route path="aluno" element={<SignUpClient type="student" />} />
+                            <Route path="funcionario" element={<SignUpClient type="employee" />} />
+                        </Routes>
+                    </UserProvider>
+                }
+            />
 
-            {/* Cadastro para funcionario */}
+            
 
-            <Route path="/cadastrar/funcionario/" element={<SignUpClient type="employee" />}/>
+            {/* Pagina inicial cliente*/}
+            <Route path="/client" element={<ClientApp />} />
 
-            <Route path="/client" element={<ClientApp/>}/>
+            {/* Painel do estacionamento */}
+            <Route path="/client/:nome-estacionamento/painel" element={<ClientApp />} />
+
+
+            {/* Login */}
+            <Route path="/login" element={<Login />} />
+
         </Routes>
     )
 }
