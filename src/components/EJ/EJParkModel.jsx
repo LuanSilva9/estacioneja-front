@@ -6,7 +6,7 @@ export default function EJParkModel({ MapperJsonPark }) {
             <h3>{MapperJsonPark.companyName}</h3>
             <p>{MapperJsonPark.parkSlots} vagas disponiveis</p>
 
-            <Button variant="dark" href={MapperJsonPark.pathPark}>Acessar Estacionamento</Button>
+            <Button variant="dark" href={`/client/${MapperJsonPark.pathPark}`}>Acessar Estacionamento</Button>
         </div>
     )
 }
