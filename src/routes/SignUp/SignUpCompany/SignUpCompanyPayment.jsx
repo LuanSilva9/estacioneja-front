@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Divider, Grid, Typography } from "@mui/material";
 
 import '../SignUp.css';
 
@@ -25,15 +25,15 @@ export default function SignUpCompanyPayment() {
                 <form>
                     <div className="form-text">
                         <img src="/logo-white.svg" alt="logo-estacioneja" className="logo" />
-                        <h2>Adicionar forma de pagamento</h2>
+                        <h2>Selecionar Plano / Pacote </h2>
                     </div>
 
-                    <Grid container spacing={2} sx={{ mb: 1 }}>
-                        <Grid item xs={12}>
-                            <Typography textAlign={"start"} sx={{ fontSize: "17px", fontWeight: "bold" }}>Selecione a forma de pagamento</Typography>
+                    <Grid container spacing={2} sx={{ mb: 1, display: 'flex', gap: 1 }}>
+                        <Grid item xs={12} sx={{ mb: 3 }}>
+                            <Divider>Planos</Divider>
                         </Grid>
 
-                        <div className="paymentMethods" onClick={() => handleMarkPayments(1)} style={selectedCategory === 1 ? styleCategory : null}>
+                        <Grid item className="paymentMethods" onClick={() => handleMarkPayments(1)} style={selectedCategory === 1 ? styleCategory : null}>
                             <div className="textLefts">
                                 <h4>Pacote Super</h4>
                                 <p>Esse pacote é bom para estacionamentos grandes (+ 100 vagas)</p>
@@ -43,9 +43,9 @@ export default function SignUpCompanyPayment() {
                                 <h4>1300,00R$</h4>
                                 <p>Instalação + Suporte</p>
                             </div>
-                        </div>
+                        </Grid>
 
-                        <div className="paymentMethods" onClick={() => handleMarkPayments(2)} style={selectedCategory === 2 ? styleCategory : null}>
+                        <Grid item className="paymentMethods" onClick={() => handleMarkPayments(2)} style={selectedCategory === 2 ? styleCategory : null}>
                             <div className="textLefts">
                                 <h4>Pacote Medio</h4>
                                 <p>Feito para estacionamentos de até 70 vagas</p>
@@ -55,9 +55,9 @@ export default function SignUpCompanyPayment() {
                                 <h4>1000,00R$</h4>
                                 <p>Instalação + Suporte</p>
                             </div>
-                        </div>
+                        </Grid>
 
-                        <div className="paymentMethods" onClick={() => handleMarkPayments(3)} style={selectedCategory === 3 ? styleCategory : null}>
+                        <Grid item className="paymentMethods" onClick={() => handleMarkPayments(3)} style={selectedCategory === 3 ? styleCategory : null}>
                             <div className="textLefts">
                                 <h4>Pacote Minimo</h4>
                                 <p>Feito para estacionamentos de até 30 vagas</p>
@@ -67,7 +67,7 @@ export default function SignUpCompanyPayment() {
                                 <h4>400,00R$</h4>
                                 <p>Instalação + Suporte</p>
                             </div>
-                        </div>
+                        </Grid>
 
 
 
@@ -81,7 +81,7 @@ export default function SignUpCompanyPayment() {
                 </form>
             </div>
 
-            <div className="image-side"></div>
+            <div className="image-side" style={{background: "url(/assets/image_2_generated_by_ai.png) no-repeat center center"}}></div>
         </section>
     )
 }

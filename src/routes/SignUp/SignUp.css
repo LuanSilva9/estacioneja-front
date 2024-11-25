@@ -93,8 +93,14 @@
     align-items: center;
 }
 
+.client {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .sign-up-client {
-    width: 100%;
+    width: 60%;
 }
 
 .sign-up-company .image-side, .sign-up-company .form {
@@ -102,15 +108,8 @@
 }
 
 .sign-up-company .image-side {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Judson';
-    font-size: large;
-    color: #fff;
     height: 100vh;
     background-size: cover;
-    background: url(/public/assets/bgForm.jpg) no-repeat center center;
 }
 
 .sign-up-company .form form, .sign-up-client .form form {
@@ -141,7 +140,8 @@
 }
 
 .paymentMethods {
-    border: 1px solid #fff;
+    cursor: pointer;
+    border: 1px solid #a8a8a8;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -184,4 +184,10 @@
         width: 100%;
     }
 
+}
+
+@media screen and (max-width: 920px) {
+    .sign-up-client {
+        width: 90%;
+    }
 }

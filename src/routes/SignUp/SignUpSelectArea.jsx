@@ -82,7 +82,7 @@ export default function SignUpSelectArea() {
                         CategoryAdmin.map((category, i) => 
                             <div key={i + CategoryUser.length}  className="category" onClick={() => handleCategory(category, i + CategoryUser.length)} style={selectedCategory === i + CategoryUser.length ? styleCategory : null}>
 
-                                    <category.icon className="icon"/>
+                                <category.icon className="icon"/>
 
                                 <h2>{category.label}</h2>
 
@@ -97,6 +97,7 @@ export default function SignUpSelectArea() {
             </div>
             
             <div className="buttons-submit">
+                <Link className={`btn btn-danger`} to="/">Voltar</Link>
                 <Link className={`btn btn-success ${!checked ? `disabled` : ``}`} to={`./${category.path}`}>Proximo passo</Link>
             </div>
 
