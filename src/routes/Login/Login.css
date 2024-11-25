@@ -1,0 +1,30 @@
+.login {
+    display: flex;
+}
+
+.login .image-side {
+    width: 50%;
+    height: 100vh;
+    background-size: cover;
+}
+
+.content-login {
+    background: #ffffff;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+
+.content-login .form {
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    gap: 30px;
+}
+
+.content-login .form .form-text img {
+    width: 300px;
+}
