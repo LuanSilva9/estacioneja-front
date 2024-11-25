@@ -12,9 +12,11 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
+import { Navigate } from 'react-router-dom';
 
-export default function HeaderbarClient() {
+export default function HeaderbarClient({ userProps }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const [isLoggedOut, setIsLoggedOut] = React.useState(false);
 
     const handleClose = () => {
         setAnchorEl(null);
@@ -26,6 +28,16 @@ export default function HeaderbarClient() {
         setAnchorEl(event.currentTarget);
     };
 
+    function logout() {
+        localStorage.removeItem('userData');
+        localStorage.removeItem('sessionId');
+        setIsLoggedOut(true);
+    }
+
+    if (isLoggedOut) {
+        return <Navigate to="/" />;
+    }
+
     return (
         <Navbar style={{ background: '#222', width: "100vw" }} className="p-0 m-0" data-bs-theme="dark">
             <Container>
@@ -34,18 +46,21 @@ export default function HeaderbarClient() {
                 </Navbar.Brand>
 
 
-                <Nav className='d-flex align-items-center gap-1'>
-                    <Button variant='text' style={{ color: "#2ecf84", fontWeight: 500, fontSize: "20px" }}><FaBell /></Button>
-                    <IconButton
-                        onClick={handleClick}
-                        size="small"
-                        sx={{ ml: 2 }}
-                        aria-controls={open ? 'account-menu' : undefined}
-                        aria-haspopup="true"
-                        aria-expanded={open ? 'true' : undefined}
-                    >
-                        <Avatar sx={{ width: 32, height: 32 }} src="/assets/avatar.jpg"></Avatar>
-                    </IconButton>
+                <Nav className='d-flex align-items-center gap-2'>
+                        <IconButton
+                            onClick={handleClick}
+                            size="small"
+                            sx={{ ml: 2 }}
+                            aria-controls={open ? 'account-menu' : undefined}
+                            aria-haspopup="true"
+                            aria-expanded={open ? 'true' : undefined}
+                        >
+                            <Avatar sx={{ width: 48, height: 48 }} src={userProps.userImage || null}></Avatar>
+
+                        </IconButton>
+                        
+                        <Button variant='text' style={{ color: "#ccc", fontWeight: 500, fontSize: "25px" }}><FaBell /></Button>
+
 
                     <Menu
                         anchorEl={anchorEl}
@@ -88,7 +103,7 @@ export default function HeaderbarClient() {
                         <MenuItem href="/" onClick={handleClose}>Perfil</MenuItem>
                         <MenuItem href="/" onClick={handleClose}>Configuracoes</MenuItem>
                         <Divider />
-                        <MenuItem href="/" onClick={handleClose} sx={{color: 'red'}}>Sair</MenuItem>
+                        <MenuItem onClick={logout} sx={{color: 'red'}}>Sair</MenuItem>
                     </Menu>
                 </Nav>
 

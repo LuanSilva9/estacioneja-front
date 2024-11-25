@@ -1,20 +1,42 @@
+import { useState } from 'react';
+
 import './Login.css';
 
-
-import { Grid, InputAdornment, TextField, Typography } from '@mui/material';
+import { Grid, InputAdornment, TextField } from '@mui/material';
 
 import { Button } from 'react-bootstrap';
 import { RiAccountCircleFill } from 'react-icons/ri';
 import { TbLockFilled } from 'react-icons/tb';
 import { Link, useNavigate } from 'react-router-dom';
+import { useUser } from '../../contexts/UserContext';
+import { users } from '../../cache/Users';
 
 export default function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const { userData, updateUserData } = useUser();
+
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
 
-    navigate("/client")
+    try {
+      const user = users.find((user) => user.userEmail === email && user.userPassword === password);
+
+      if (user) {
+        updateUserData(user);
+        
+        localStorage.setItem("sessionId", process.env.REACT_APP_AUTH_KEY);
+        
+        navigate("/client");
+      } else {
+        alert("Usuário não encontrado!");
+      }
+    } catch (e) {
+      alert("Ocorreu um erro ao tentar autenticar.");
+    }
   }
 
   return (
@@ -35,6 +57,7 @@ export default function Login() {
                 label="Seu e-mail"
                 type="email"
                 variant="outlined"
+                onChange={(e) => setEmail(e.target.value)}
                 slotProps={{
                   input: {
                     startAdornment: (
@@ -56,6 +79,7 @@ export default function Login() {
                 label="Sua Senha"
                 variant="outlined"
                 type='password'
+                onChange={(e) => setPassword(e.target.value)}
                 slotProps={{
                   input: {
                     startAdornment: (

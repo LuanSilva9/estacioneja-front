@@ -18,6 +18,7 @@ export const CompanyProvider = ({ children }) => {
         companyType: '',
         companyStructsInstalled: false,
         companyParkSlots: '',
+        companyParkSlotsFilled: [],
         companyAccess: {
             email: '',
             password: '',

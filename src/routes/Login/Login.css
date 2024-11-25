@@ -28,3 +28,23 @@
 .content-login .form .form-text img {
     width: 300px;
 }
+
+@media screen and (max-height: 890px) {
+    .login .image-side {
+        display: none;
+    }
+    .content-login {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 1050px) {
+    .login .image-side {
+        display: none;
+    }
+    .content-login {
+        width: 100%;
+    }
+
+}

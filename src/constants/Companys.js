@@ -4,8 +4,10 @@ const companys = [
     {
         companyName: "Instituto Federal",
         companyNameFormated: "instituto-federal",
+        companyLogo: '/assets/ifms-cor.png',
         companyCity: citys[0],
         companyRepresentative: "Wagner Antoniassi",
+        companyParkImageMap: '/assets/ParkMapperImg.svg',
         companyAddress: {
             street: 'R. Hilda, 203',
             neighborhood: 'Conj. Hab. Boa Vista'
@@ -14,6 +16,8 @@ const companys = [
         companyType: "ESCOLA",
         companyStructsInstalled: true,
         companyParkSlots: 100,
+        companyParkSlotsFilled: 0,
+
         companyAcess: {
             email: 'contato@ifms.edu.br',
             password: 'senha123'
@@ -22,8 +26,10 @@ const companys = [
     {
         companyName: "Copasul",
         companyNameFormated: "copasul",
+        companyLogo: '/assets/camera.svg',
         companyCity: citys[0],
         companyRepresentative: "Adroaldo Taguti",
+        companyParkImageMap: '/assets/ParkMapperImg.svg',
         companyAddress: {
             street: 'Av. Campo Grande, 1978',
             neighborhood: 'Jardim Progresso'
@@ -32,6 +38,8 @@ const companys = [
         companyType: "EMPRESA",
         companyStructsInstalled: true,
         companyParkSlots: 100,
+        companyParkSlotsFilled: 0,
+
         companyAcess: {
             email: 'contato@copasul.com.br',
             password: 'senha456'
@@ -40,8 +48,10 @@ const companys = [
     {
         companyName: "Escola Municipal Ayrton Senna",
         companyNameFormated: "escola-municipal-ayrton-senna",
+        companyLogo: '/assets/camera.svg',
         companyCity: citys[2],
         companyRepresentative: "Sonia Rodrigues",
+        companyParkImageMap: '/assets/ParkMapperImg.svg',
         companyAddress: {
             street: 'Rua João Rosa Góes, 1500',
             neighborhood: 'Centro'
@@ -50,6 +60,8 @@ const companys = [
         companyType: "ESCOLA",
         companyStructsInstalled: true,
         companyParkSlots: 50,
+        companyParkSlotsFilled: 0,
+
         companyAcess: {
             email: 'contato@ayrtonsenna.ms.gov.br',
             password: 'senha789'
@@ -58,8 +70,10 @@ const companys = [
     {
         companyName: "SESC",
         companyNameFormated: "sesc",
+        companyLogo: '/assets/camera.svg',
         companyCity: citys[1],
         companyRepresentative: "Carlos Alberto",
+        companyParkImageMap: '/assets/ParkMapperImg.svg',
         companyAddress: {
             street: 'Av. Afonso Pena, 4321',
             neighborhood: 'Amambaí'
@@ -68,6 +82,8 @@ const companys = [
         companyType: "EMPRESA",
         companyStructsInstalled: true,
         companyParkSlots: 150,
+        companyParkSlotsFilled: 0,
+
         companyAcess: {
             email: 'contato@sesc.com.br',
             password: 'senha1011'
@@ -76,8 +92,10 @@ const companys = [
     {
         companyName: "Prefeitura Municipal",
         companyNameFormated: "prefeitura-municipal",
+        companyLogo: '/assets/camera.svg',
         companyCity: citys[0],
         companyRepresentative: "Roberto Silva",
+        companyParkImageMap: '/assets/ParkMapperImg.svg',
         companyAddress: {
             street: 'Praça dos Poderes, 1',
             neighborhood: 'Centro'
@@ -86,6 +104,8 @@ const companys = [
         companyType: "OUTROS",
         companyStructsInstalled: true,
         companyParkSlots: 300,
+        companyParkSlotsFilled: 0,
+
         companyAcess: {
             email: 'contato@prefeitura.navirai.ms.gov.br',
             password: 'senha1213'
@@ -94,8 +114,10 @@ const companys = [
     {
         companyName: "Banco do Brasil",
         companyNameFormated: "banco-do-brasil",
+        companyLogo: '/assets/camera.svg',
         companyCity: citys[1],
         companyRepresentative: "Marcos Pereira",
+        companyParkImageMap: '/assets/ParkMapperImg.svg',
         companyAddress: {
             street: 'Av. Mato Grosso, 5678',
             neighborhood: 'Centro'
@@ -104,6 +126,8 @@ const companys = [
         companyType: "EMPRESA",
         companyStructsInstalled: true,
         companyParkSlots: 200,
+        companyParkSlotsFilled: 0,
+
         companyAcess: {
             email: 'contato@bb.com.br',
             password: 'senha1415'
@@ -112,8 +136,10 @@ const companys = [
     {
         companyName: "Universidade Estadual",
         companyNameFormated: "universidade-estadual",
+        companyLogo: '/assets/camera.svg',
         companyCity: citys[2],
         companyRepresentative: "Paula Rezende",
+        companyParkImageMap: '/assets/ParkMapperImg.svg',
         companyAddress: {
             street: 'Av. Weimar Torres, 2000',
             neighborhood: 'Cidade Universitária'
@@ -122,6 +148,8 @@ const companys = [
         companyType: "ESCOLA",
         companyStructsInstalled: true,
         companyParkSlots: 500,
+        companyParkSlotsFilled: 0,
+
         companyAcess: {
             email: 'contato@universidade.ms.gov.br',
             password: 'senha1617'
@@ -132,8 +160,10 @@ const companys = [
 const emptyCompany =  {
     companyName: "",
     companyNameFormated: "",
+    companyLogo: '',
     companyCity: null,
     companyRepresentative: "",
+    companyParkImageMap: '',
     companyAddress: {
         street: '',
         neighborhood: ''
@@ -142,7 +172,9 @@ const emptyCompany =  {
     companyType: '',
     companyStructsInstalled: false,
     companyParkSlots: '',
+    companyParkSlotsFilled: '',
     companyAcess: null
 }
+
 
 export { companys, emptyCompany };

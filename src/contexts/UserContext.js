@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const UserContext = createContext();
 
@@ -7,6 +7,7 @@ export const UserProvider = ({ children }) => {
         userName: '',
         userEmail: '',
         userPassword: '',
+        userImage: '',
         userCity: {
             name: '',
             uf: '',
@@ -15,11 +16,22 @@ export const UserProvider = ({ children }) => {
         userPhone: '',
         userCompanyVincles: [],
         userReservation: [],
-
     });
 
+    useEffect(() => {
+        const storedUserData = localStorage.getItem('userData');
+        if (storedUserData) {
+            setUserData(JSON.parse(storedUserData));
+        }
+    }, []);
+
+ 
     const updateUserData = (newData) => {
-        setUserData((prevData) => ({ ...prevData, ...newData }));
+        setUserData((prevData) => {
+            const updatedData = { ...prevData, ...newData };
+            localStorage.setItem('userData', JSON.stringify(updatedData)); 
+            return updatedData;
+        });
     };
 
     return (

@@ -97,6 +97,116 @@
     gap: 25px;
 }
 
+.info-company {
+    display: flex;
+    max-width: 1500px;
+    padding: 10px;
+    width: 90%;
+    margin: 20px auto;
+    color: #333333;
+    gap: 20px;
+
+    border-bottom: 1px solid #757575;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.info-company h2 {
+    font-size: 20px;
+}
+
+.info-legals-company {
+    text-align: end;
+}
+
+.info-park {
+    display: flex;
+    max-width: 1500px;
+    padding: 10px;
+    width: 90%;
+    margin: 20px auto;
+    color: #333333;
+    gap: 20px;
+    border-bottom: 1px solid #757575;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.map-park img {
+    width: 600px;
+}
+
+.graph {
+    width: 800px;
+    margin-top: 25px;
+}
+
+.atividade {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 30px;
+}
+
+.atividade-btns {
+    display: flex;
+    gap: 10px;
+}
+
+.card-company {
+    display: flex;
+    border: 1px solid #3333;
+    border-radius: 5px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.card-company .info-card-company {
+    text-align: end;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.card-company img {
+    max-width: auto;
+    height: 100px;
+    object-fit: cover;
+}
+
+.parks {
+    display: flex;
+    max-width: 1500px;
+    padding: 10px;
+    width: 100%;
+    margin: 20px auto;
+    color: #333333;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.parks .parks-form, .parks .parks-vincles{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+@media screen and (max-width: 685px) {
+    .info-company {
+        flex-direction: column;
+    }   
+
+    .info-company div {
+        text-align: center;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .park, .vincle {
         width: 100%;
