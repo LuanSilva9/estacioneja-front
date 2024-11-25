@@ -1,12 +1,13 @@
 import { Button } from "react-bootstrap";
 
 export default function EJParkModel({ MapperJsonPark }) {
+    console.log(MapperJsonPark);
     return (
         <div className="park">
             <h3>{MapperJsonPark.companyName}</h3>
-            <p>{MapperJsonPark.parkSlots} vagas disponiveis</p>
+            <p>{MapperJsonPark.companyParkSlots} vagas disponiveis</p>
 
-            <Button variant="dark" href={`/client/${MapperJsonPark.pathPark}`}>Acessar Estacionamento</Button>
+            <Button variant="dark" href={`/client/estacionamento/${MapperJsonPark.companyNameFormated}`}>Acessar Estacionamento</Button>
         </div>
     )
 }
