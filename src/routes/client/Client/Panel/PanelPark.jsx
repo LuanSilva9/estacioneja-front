@@ -5,6 +5,8 @@ import HeaderbarClient from "../../../../components/HeaderbarClient";
 import EJInfoCompany from "../../../../components/EJ/EJInfoCompany";
 import EJInfoPark from "../../../../components/EJ/EJInfoPark";
 
+import FooterClient from '../../../../components/FooterClient'
+
 export default function PanelPark() {
     const { userData, updateUserData } = useUser();
     const { "nome-estacionamento": nomeEstacionamento } = useParams();
@@ -27,6 +29,7 @@ export default function PanelPark() {
             <EJInfoCompany MapperCompany={selectedPark}/>
             <EJInfoPark MapperPark={selectedPark}/>
 
+            <FooterClient/>
         </main>
     );
 }

@@ -59,6 +59,7 @@ export default function EJInfoPark({ MapperPark }) {
                     <Button className="rounded-0">Falar com o suporte</Button>
                 </div>
             </div>
+
         </div>
     );
 }
