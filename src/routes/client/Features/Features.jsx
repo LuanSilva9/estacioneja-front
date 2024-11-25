@@ -1,16 +1,16 @@
 import React from 'react';
 
-import HeaderbarClient from "../../../components/HeaderbarClient";
-import './Features.css';
-import FooterClient from '../../../components/FooterClient';
+import HeaderbarGuest from "../../../components/HeaderbarGuest";
 
-import { menuUser } from '../../../constants/menu/menuUser';
+import './Features.css';
+
+import FooterClient from '../../../components/FooterClient';
 
 export default function Features() {
    
     return (
         <main className="features">
-            <HeaderbarClient linksItemMap={menuUser}/>
+            <HeaderbarGuest/>
             
             <section className="feature-reservation">
                 <div className="manual">

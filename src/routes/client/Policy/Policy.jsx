@@ -1,5 +1,5 @@
 import FooterClient from '../../../components/FooterClient';
-import HeaderbarClient from '../../../components/HeaderbarClient';
+import HeaderbarClient from '../../../components/HeaderbarGuest';
 
 import { menuUser } from '../../../constants/menu/menuUser';
 

@@ -1,12 +1,12 @@
 import FooterClient from '../../../components/FooterClient'
-import HeaderbarClient from '../../../components/HeaderbarClient'
+import HeaderbarGuest from '../../../components/HeaderbarGuest'
 
 import './AboutUs.css'
 
 export default function AboutUs() {
     return (
         <main className='about-us'>
-            <HeaderbarClient/>
+            <HeaderbarGuest/>
 
             <section className='nos'>
                 <h2>Sobre o Estacionejá</h2>
