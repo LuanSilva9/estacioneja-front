@@ -15,14 +15,6 @@ import './Client.css'
 export default function ClientApp() {
     const { userData, updateUserData } = useUser();
 
-    if(!localStorage.getItem('sessionId') || localStorage.getItem('sessionId') != process.env.REACT_APP_AUTH_KEY) {
-        return (
-            <>
-                <h2>Você não pode acessar isso!!!!</h2>
-            </>
-        )
-    }
-
     return (
         <main className="clientApp">
             <HeaderbarClient userProps={userData}/>

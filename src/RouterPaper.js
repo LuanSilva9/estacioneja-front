@@ -17,11 +17,18 @@ import { CompanyProvider } from './contexts/CompanyContext';
 import { UserProvider } from './contexts/UserContext';
 import PanelPark from './routes/client/Client/Panel/PanelPark';
 import SearchPark from './routes/client/Client/Panel/SearchPark';
+import Admin from './routes/admin/Admin';
 
 function isAuth() {
     const sessionId = localStorage.getItem('sessionId');
 
-    return sessionId && sessionId === process.env.REACT_APP_AUTH_KEY;
+    return sessionId && sessionId === process.env.REACT_APP_AUTH_KEY_USER;
+}
+
+function isAdmin() {
+    const sessionId = localStorage.getItem('sessionId');
+
+    return sessionId && sessionId === process.env.REACT_APP_AUTH_KEY_COMPANY;
 }
 
 
@@ -33,7 +40,15 @@ function PublicRouter({ children }) {
 }
 
 function PrivateRouter({ children }) {
-    if(!isAuth()) {
+    if (!isAuth()) {
+        return <Navigate to="/" />;
+    }
+
+    return children;
+}
+
+function AdminRouter({ children }) {
+    if(!isAuth() || !isAdmin()) {
         return <Navigate to="/" />;
     }
 
@@ -86,22 +101,25 @@ export default function RouterPaper() {
             <Route
                 path="/*"
                 element={
-                    <UserProvider>
-                        <Routes>
+                    
+                        <UserProvider>
+                            <Routes>
                                 <Route path="/login" element={
-                                    <PublicRouter>
-                                        <Login />
-                                    </PublicRouter>
+                            
+                                        <PublicRouter>
+                                            <Login />
+                                        </PublicRouter>
+                 
                                 } />
 
-                            
+
                                 <Route path="/client" element={
                                     <PrivateRouter>
                                         <ClientApp />
                                     </PrivateRouter>
                                 } />
-                        </Routes>
-                    </UserProvider>
+                            </Routes>
+                        </UserProvider>
                 }
             />
 
@@ -109,7 +127,7 @@ export default function RouterPaper() {
             <Route path="/client/estacionamento/:nome-estacionamento" element={
                 <UserProvider>
                     <PrivateRouter>
-                        <PanelPark/>
+                        <PanelPark />
                     </PrivateRouter>
                 </UserProvider>
             } />
@@ -118,10 +136,19 @@ export default function RouterPaper() {
             <Route path="/client/pesquisar-estacionamentos" element={
                 <UserProvider>
                     <PrivateRouter>
-                        <SearchPark/>
+                        <SearchPark />
                     </PrivateRouter>
                 </UserProvider>
             } />
+
+
+            <Route path="/administrator," element={
+                <CompanyProvider>
+                    <AdminRouter>
+                        <Admin/>
+                    </AdminRouter>
+                </CompanyProvider>
+            }/>
         </Routes>
     );
 }

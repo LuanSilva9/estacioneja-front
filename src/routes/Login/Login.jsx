@@ -10,13 +10,14 @@ import { TbLockFilled } from 'react-icons/tb';
 import { Link, useNavigate } from 'react-router-dom';
 import { useUser } from '../../contexts/UserContext';
 import { users } from '../../cache/Users';
+import { companys } from '../../constants/Companys';
+import { useCompany } from '../../contexts/CompanyContext';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const { userData, updateUserData } = useUser();
-
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
@@ -24,14 +25,15 @@ export default function Login() {
 
     try {
       const user = users.find((user) => user.userEmail === email && user.userPassword === password);
-
       if (user) {
         updateUserData(user);
         
-        localStorage.setItem("sessionId", process.env.REACT_APP_AUTH_KEY);
+        localStorage.setItem("sessionId", process.env.REACT_APP_AUTH_KEY_USER);
         
         navigate("/client");
-      } else {
+
+      } 
+      else {
         alert("Usuário não encontrado!");
       }
     } catch (e) {
