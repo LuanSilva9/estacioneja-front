@@ -36,6 +36,10 @@ function PublicRouter({ children }) {
     if (isAuth()) {
         return <Navigate to="/client" />;
     }
+    if(isAdmin()) {
+        return <Navigate to="/administrator" />;
+    }
+
     return children;
 }
 
@@ -48,7 +52,7 @@ function PrivateRouter({ children }) {
 }
 
 function AdminRouter({ children }) {
-    if(!isAuth() || !isAdmin()) {
+    if (!isAdmin()) {
         return <Navigate to="/" />;
     }
 
@@ -101,27 +105,26 @@ export default function RouterPaper() {
             <Route
                 path="/*"
                 element={
-                    
-                        <UserProvider>
-                            <Routes>
-                                <Route path="/login" element={
-                            
-                                        <PublicRouter>
-                                            <Login />
-                                        </PublicRouter>
-                 
-                                } />
+                    <UserProvider>
+                        <Routes>
+                            <Route path="/login" element={
+                                <CompanyProvider>
+                                    <PublicRouter>
+                                        <Login />
+                                    </PublicRouter>
+                                </CompanyProvider>
+                            } />
 
-
-                                <Route path="/client" element={
-                                    <PrivateRouter>
-                                        <ClientApp />
-                                    </PrivateRouter>
-                                } />
-                            </Routes>
-                        </UserProvider>
+                            <Route path="/client" element={
+                                <PrivateRouter>
+                                    <ClientApp />
+                                </PrivateRouter>
+                            } />
+                        </Routes>
+                    </UserProvider>
                 }
             />
+
 
             {/* Painel do estacionamento */}
             <Route path="/client/estacionamento/:nome-estacionamento" element={
@@ -142,13 +145,13 @@ export default function RouterPaper() {
             } />
 
 
-            <Route path="/administrator," element={
+            <Route path="/administrator" element={
                 <CompanyProvider>
                     <AdminRouter>
-                        <Admin/>
+                        <Admin />
                     </AdminRouter>
                 </CompanyProvider>
-            }/>
+            } />
         </Routes>
     );
 }

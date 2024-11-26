@@ -4,7 +4,7 @@ const companys = [
     {
         companyName: "Instituto Federal",
         companyNameFormated: "instituto-federal",
-        companyLogo: '/assets/ifms-cor.png',
+        companyLogo: '/assets/ifms.png',
         companyCity: citys[0],
         companyRepresentative: "Wagner Antoniassi",
         companyParkImageMap: '/assets/ParkMapperImg.svg',
@@ -18,7 +18,7 @@ const companys = [
         companyParkSlots: 100,
         companyParkSlotsFilled: 0,
 
-        companyAcess: {
+        companyAccess: {
             email: 'contato@ifms.edu.br',
             password: 'senha123'
         }
@@ -40,7 +40,7 @@ const companys = [
         companyParkSlots: 100,
         companyParkSlotsFilled: 0,
 
-        companyAcess: {
+        companyAccess: {
             email: 'contato@copasul.com.br',
             password: 'senha456'
         }
@@ -62,7 +62,7 @@ const companys = [
         companyParkSlots: 50,
         companyParkSlotsFilled: 0,
 
-        companyAcess: {
+        companyAccess: {
             email: 'contato@ayrtonsenna.ms.gov.br',
             password: 'senha789'
         }
@@ -84,7 +84,7 @@ const companys = [
         companyParkSlots: 150,
         companyParkSlotsFilled: 0,
 
-        companyAcess: {
+        companyAccess: {
             email: 'contato@sesc.com.br',
             password: 'senha1011'
         }
@@ -106,7 +106,7 @@ const companys = [
         companyParkSlots: 300,
         companyParkSlotsFilled: 0,
 
-        companyAcess: {
+        companyAccess: {
             email: 'contato@prefeitura.navirai.ms.gov.br',
             password: 'senha1213'
         }
@@ -128,7 +128,7 @@ const companys = [
         companyParkSlots: 200,
         companyParkSlotsFilled: 0,
 
-        companyAcess: {
+        companyAccess: {
             email: 'contato@bb.com.br',
             password: 'senha1415'
         }
@@ -150,7 +150,7 @@ const companys = [
         companyParkSlots: 500,
         companyParkSlotsFilled: 0,
 
-        companyAcess: {
+        companyAccess: {
             email: 'contato@universidade.ms.gov.br',
             password: 'senha1617'
         }
@@ -173,7 +173,7 @@ const emptyCompany =  {
     companyStructsInstalled: false,
     companyParkSlots: '',
     companyParkSlotsFilled: '',
-    companyAcess: null
+    companyAccess: null
 }
 
 

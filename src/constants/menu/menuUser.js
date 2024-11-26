@@ -1,5 +1,4 @@
 import { IoHome, IoTelescopeSharp, IoIdCardSharp, IoExtensionPuzzleSharp } from "react-icons/io5";
-import { MdSettingsInputAntenna } from "react-icons/md"
 import { FaCarSide } from "react-icons/fa";
 
 const menuUser = [

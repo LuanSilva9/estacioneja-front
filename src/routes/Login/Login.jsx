@@ -17,6 +17,7 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const { companyData, updateCompanyData } = useCompany();
   const { userData, updateUserData } = useUser();
   const navigate = useNavigate();
 
@@ -25,14 +26,24 @@ export default function Login() {
 
     try {
       const user = users.find((user) => user.userEmail === email && user.userPassword === password);
+      const company = companys.find((company) => company.companyAccess.email === email && company.companyAccess.password === password);
+
       if (user) {
         updateUserData(user);
         
         localStorage.setItem("sessionId", process.env.REACT_APP_AUTH_KEY_USER);
         
+
         navigate("/client");
 
       } 
+      else if(company) {
+        updateCompanyData(company);
+
+        localStorage.setItem("sessionId", process.env.REACT_APP_AUTH_KEY_COMPANY);
+
+        navigate("/administrator");
+      }
       else {
         alert("Usuário não encontrado!");
       }
