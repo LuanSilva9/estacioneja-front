@@ -16,6 +16,10 @@ body {
     display: none;
 }
 
+.itens-menu-mobile {
+    display: none !important;
+}
+
 ::-webkit-scrollbar {
     width: 10px;
 }

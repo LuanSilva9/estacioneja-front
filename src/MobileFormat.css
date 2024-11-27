@@ -6,4 +6,7 @@
     .links-mobile {
         display: flex;
     }
+    .itens-menu-mobile {
+        display: flex !important;
+    }
 }

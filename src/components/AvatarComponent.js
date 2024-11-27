@@ -5,7 +5,11 @@ import { Navigate } from 'react-router-dom';
 import { Avatar, Divider, IconButton, Menu, MenuItem } from "@mui/material";
 
 import { Button, Nav } from "react-bootstrap";
-import { FaBell } from 'react-icons/fa';
+import { FaBell, FaRegUserCircle } from 'react-icons/fa';
+import { IoSettings, IoSettingsSharp } from 'react-icons/io5';
+import { RiSettings4Fill } from 'react-icons/ri';
+import { MdOutlineSettings } from 'react-icons/md';
+import { menuAdmin } from '../constants/menu/menuAdmin';
 
 export default function AvatarComponent({ avatar, menuItensProfile }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -85,18 +89,21 @@ export default function AvatarComponent({ avatar, menuItensProfile }) {
                         },
                     },
                 }}
+
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-                <MenuItem href="/" onClick={handleClose}>Perfil</MenuItem>
-                <MenuItem href="/" onClick={handleClose}>Configuracoes do perfil</MenuItem>
+                <MenuItem sx={{ display: 'flex', gap: "10px" }} href="/ryjryjry"><FaRegUserCircle /> Perfil</MenuItem>
+                <MenuItem sx={{ display: 'flex', gap: "10px" }} href="/"><RiSettings4Fill /> Configurações</MenuItem>
+                
+                { menuAdmin ? menuAdmin.map((item, index) => <MenuItem sx={{ display: 'flex', gap: "10px" }} className="itens-menu-mobile" href={item.href} key={index}>{item.icon ? <item.icon/> : null}{item.label}</MenuItem>) : null}
 
                 {
-                    menuItensProfile ? menuItensProfile.map((item, index) => <MenuItem href={item.href} key={index}>{item.icon ? <item.icon/> : null} {item.label}</MenuItem>) : null
+                    menuItensProfile ? menuItensProfile.map((item, index) => <MenuItem sx={{ display: 'flex', gap: "10px" }} href={item.href} key={index}>{item.icon ? <item.icon/> : null}{item.label}</MenuItem>) : null
                 }
 
                 <Divider />
-                <MenuItem onClick={logout} sx={{ color: 'red' }}>Sair</MenuItem>
+                <MenuItem onClick={logout} sx={{ color: 'red',  display: 'flex', gap: "10px" }}>Sair</MenuItem>
             </Menu>
         </Nav>
     )
