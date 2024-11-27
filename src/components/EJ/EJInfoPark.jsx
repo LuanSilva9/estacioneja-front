@@ -8,7 +8,7 @@ export default function EJInfoPark({ MapperPark }) {
     let dataAgo = [];
     let date = new Date();
 
-    for (let i = 0; i < date.getHours(); i++) {
+    for (let i = 0; i <= date.getHours(); i++) {
         dataAgo[i] = `${i}h`;
     }
 
