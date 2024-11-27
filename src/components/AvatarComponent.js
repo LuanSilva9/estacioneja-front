@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 import { Avatar, Divider, IconButton, Menu, MenuItem } from "@mui/material";
 
@@ -94,19 +94,19 @@ export default function AvatarComponent({ avatar, menuItensProfile }) {
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-                <MenuItem sx={{ display: 'flex', gap: "10px" }} href="/ryjryjry"><FaRegUserCircle /> Perfil</MenuItem>
-                <MenuItem sx={{ display: 'flex', gap: "10px" }} href="/"><RiSettings4Fill /> Configurações</MenuItem>
+                <MenuItem><Link className="menu-a-drop" to="/perfil"><FaRegUserCircle /> Perfil</Link></MenuItem>
+                <MenuItem><Link className="menu-a-drop" to="/configuracoes/perfil"><RiSettings4Fill /> Configurações</Link></MenuItem>
                 
                 {
-                    isAdmin() ? menuAdmin ? menuAdmin.map((item, index) => <MenuItem sx={{ display: 'flex', gap: "10px" }} className="itens-menu-mobile" href={item.href} key={index}>{item.icon ? <item.icon/> : null}{item.label}</MenuItem>) : null : null
+                    isAdmin() ? menuAdmin ? menuAdmin.map((item, index) => <MenuItem className="itens-menu-mobile" key={index}><Link className="menu-a-drop" to={item.href}>{item.icon ? <item.icon/> : null}{item.label}</Link></MenuItem>) : null : null
                 }
 
                 {
-                    menuItensProfile ? menuItensProfile.map((item, index) => <MenuItem sx={{ display: 'flex', gap: "10px" }} href={item.href} key={index}>{item.icon ? <item.icon/> : null}{item.label}</MenuItem>) : null
+                    menuItensProfile ? menuItensProfile.map((item, index) => <MenuItem key={index}><Link className="menu-a-drop" to={item.href}>{item.icon ? <item.icon/> : null}{item.label}</Link></MenuItem>) : null
                 }
 
                 <Divider />
-                <MenuItem onClick={logout} sx={{ color: 'red',  display: 'flex', gap: "10px" }}>Sair</MenuItem>
+                <MenuItem onClick={logout} sx={{ color: 'red'}}>Sair</MenuItem>
             </Menu>
         </Nav>
     )

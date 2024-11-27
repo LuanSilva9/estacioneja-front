@@ -1,8 +1,8 @@
 import { MdSpaceDashboard } from "react-icons/md";
-import { RxSpaceBetweenHorizontally } from "react-icons/rx";
 import { PiCheckFatFill } from "react-icons/pi";
 import { IoIosPaper } from "react-icons/io";
 import { FaCarAlt, FaIdCardAlt } from "react-icons/fa";
+import { LuAlignHorizontalSpaceAround } from "react-icons/lu";
 
 const menuAdmin = [
     {
@@ -13,7 +13,7 @@ const menuAdmin = [
     {
         label: 'Reservas',
         href: '/reservas',
-        icon: RxSpaceBetweenHorizontally,
+        icon: LuAlignHorizontalSpaceAround,
     },
 
     {

@@ -42,7 +42,7 @@ export default function Login() {
 
         localStorage.setItem("sessionId", process.env.REACT_APP_AUTH_KEY_COMPANY);
 
-        navigate("/administrator");
+        navigate("/dashboard");
       }
       else {
         alert("Usuário não encontrado!");

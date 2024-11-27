@@ -37,7 +37,7 @@ function PublicRouter({ children }) {
         return <Navigate to="/client" />;
     }
     if(isAdmin()) {
-        return <Navigate to="/administrator" />;
+        return <Navigate to="/dashboard" />;
     }
 
     return children;
@@ -145,7 +145,7 @@ export default function RouterPaper() {
             } />
 
 
-            <Route path="/administrator" element={
+            <Route path="/dashboard" element={
                 <CompanyProvider>
                     <AdminRouter>
                         <Admin />

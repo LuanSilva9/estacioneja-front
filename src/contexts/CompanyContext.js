@@ -21,7 +21,10 @@ export const CompanyProvider = ({ children }) => {
         },
         companyCnpj: '',
         companyType: '',
-        companyStructsInstalled: false,
+        companyStructs: {
+            structsInstalled: false,
+            structsHealth: ''
+        },
         companyParkSlots: '',
         companyParkSlotsFilled: '',
         companyAccess: {

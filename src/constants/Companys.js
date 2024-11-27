@@ -14,7 +14,10 @@ const companys = [
         },
         companyCnpj: '10673078001100',
         companyType: "ESCOLA",
-        companyStructsInstalled: true,
+        companyStructs: {
+            structsInstalled: true,
+            structsHealth: 100,
+        },
         companyParkSlots: 100,
         companyParkSlotsFilled: 0,
 
@@ -36,7 +39,10 @@ const companys = [
         },
         companyCnpj: '0390212900083',
         companyType: "EMPRESA",
-        companyStructsInstalled: true,
+        companyStructs: {
+            structsInstalled: true,
+            structsHealth: 50,
+        },
         companyParkSlots: 100,
         companyParkSlotsFilled: 0,
 
@@ -58,7 +64,10 @@ const companys = [
         },
         companyCnpj: '10293847560129',
         companyType: "ESCOLA",
-        companyStructsInstalled: true,
+        companyStructs: {
+            structsInstalled: true,
+            structsHealth: 100,
+        },
         companyParkSlots: 50,
         companyParkSlotsFilled: 0,
 
@@ -80,7 +89,10 @@ const companys = [
         },
         companyCnpj: '04236718000192',
         companyType: "EMPRESA",
-        companyStructsInstalled: true,
+        companyStructs: {
+            structsInstalled: true,
+            structsHealth: 100,
+        },
         companyParkSlots: 150,
         companyParkSlotsFilled: 0,
 
@@ -102,7 +114,10 @@ const companys = [
         },
         companyCnpj: '11773657000150',
         companyType: "OUTROS",
-        companyStructsInstalled: true,
+        companyStructs: {
+            structsInstalled: true,
+            structsHealth: 100,
+        },
         companyParkSlots: 300,
         companyParkSlotsFilled: 0,
 
@@ -124,7 +139,10 @@ const companys = [
         },
         companyCnpj: '28790357000187',
         companyType: "EMPRESA",
-        companyStructsInstalled: true,
+        companyStructs: {
+            structsInstalled: true,
+            structsHealth: 100,
+        },
         companyParkSlots: 200,
         companyParkSlotsFilled: 0,
 
@@ -146,7 +164,10 @@ const companys = [
         },
         companyCnpj: '33736995000100',
         companyType: "ESCOLA",
-        companyStructsInstalled: true,
+        companyStructs: {
+            structsInstalled: true,
+            structsHealth: 100,
+        },
         companyParkSlots: 500,
         companyParkSlotsFilled: 0,
 
@@ -170,7 +191,7 @@ const emptyCompany =  {
     },
     companyCnpj: '',
     companyType: '',
-    companyStructsInstalled: false,
+    companyStructsInstalled: true,
     companyParkSlots: '',
     companyParkSlotsFilled: '',
     companyAccess: null
