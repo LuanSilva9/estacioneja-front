@@ -24,6 +24,7 @@ export default function EJInfoPark({ MapperPark }) {
                 pointRadius: 5, 
                 pointHoverRadius: 7, 
                 fill: true, 
+                tension: 0.2
             },
         ],
     };
