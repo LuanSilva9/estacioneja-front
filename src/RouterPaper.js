@@ -25,7 +25,7 @@ function isAuth() {
     return sessionId && sessionId === process.env.REACT_APP_AUTH_KEY_USER;
 }
 
-function isAdmin() {
+export function isAdmin() {
     const sessionId = localStorage.getItem('sessionId');
 
     return sessionId && sessionId === process.env.REACT_APP_AUTH_KEY_COMPANY;

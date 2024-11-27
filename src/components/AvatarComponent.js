@@ -10,6 +10,7 @@ import { IoSettings, IoSettingsSharp } from 'react-icons/io5';
 import { RiSettings4Fill } from 'react-icons/ri';
 import { MdOutlineSettings } from 'react-icons/md';
 import { menuAdmin } from '../constants/menu/menuAdmin';
+import { isAdmin } from '../RouterPaper';
 
 export default function AvatarComponent({ avatar, menuItensProfile }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -96,7 +97,9 @@ export default function AvatarComponent({ avatar, menuItensProfile }) {
                 <MenuItem sx={{ display: 'flex', gap: "10px" }} href="/ryjryjry"><FaRegUserCircle /> Perfil</MenuItem>
                 <MenuItem sx={{ display: 'flex', gap: "10px" }} href="/"><RiSettings4Fill /> Configurações</MenuItem>
                 
-                { menuAdmin ? menuAdmin.map((item, index) => <MenuItem sx={{ display: 'flex', gap: "10px" }} className="itens-menu-mobile" href={item.href} key={index}>{item.icon ? <item.icon/> : null}{item.label}</MenuItem>) : null}
+                {
+                    isAdmin() ? menuAdmin ? menuAdmin.map((item, index) => <MenuItem sx={{ display: 'flex', gap: "10px" }} className="itens-menu-mobile" href={item.href} key={index}>{item.icon ? <item.icon/> : null}{item.label}</MenuItem>) : null : null
+                }
 
                 {
                     menuItensProfile ? menuItensProfile.map((item, index) => <MenuItem sx={{ display: 'flex', gap: "10px" }} href={item.href} key={index}>{item.icon ? <item.icon/> : null}{item.label}</MenuItem>) : null
