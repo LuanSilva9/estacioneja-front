@@ -23,6 +23,7 @@ export default function AvatarComponent({ avatar, menuItensProfile }) {
 
     function logout() {
         localStorage.removeItem('userData');
+        localStorage.removeItem('companyData');
         localStorage.removeItem('sessionId');
         setIsLoggedOut(true);
     }
@@ -36,7 +37,7 @@ export default function AvatarComponent({ avatar, menuItensProfile }) {
         <Nav className='d-flex align-items-center gap-2'>
             <IconButton
                 onClick={handleClick}
-                size="small"
+                size="large"
                 sx={{ ml: 2 }}
                 aria-controls={open ? 'account-menu' : undefined}
                 aria-haspopup="true"
@@ -75,7 +76,7 @@ export default function AvatarComponent({ avatar, menuItensProfile }) {
                                 position: 'absolute',
                                 top: 0,
                                 right: 14,
-                                width: 10,
+                                width: 14,
                                 height: 10,
                                 bgcolor: 'background.paper',
                                 transform: 'translateY(-50%) rotate(45deg)',

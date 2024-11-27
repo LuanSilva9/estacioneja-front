@@ -25,7 +25,7 @@ const menuItemsProfile = [
         icon: null,
     },
     {
-        label: 'Configurações do estacionamento',
+        label: 'Estacionamento',
         href: '/configuracoes/estacionamento',
         icon: null,
     }

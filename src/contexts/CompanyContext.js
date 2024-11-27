@@ -4,17 +4,22 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 const CompanyContext = createContext();
 
 export const CompanyProvider = ({ children }) => {
-    const [companyData, setCompanyData] = useState({
+    const [companyData, setCompanyData] = useState({    
         companyName: '',
+        companyNameFormated: '',
+        companyLogo: '',
         companyCity: {
             name: '',
             uf: '',
             cep: ''
         },
-        companyStreet: '',
-        companyNeighborhood: '',
+        companyRepresentative: '',
+        companyParkImageMap: '',
+        companyAddress: {
+            street: '',
+            neighborhood: ''
+        },
         companyCnpj: '',
-        companyLegalRepresentative: '',
         companyType: '',
         companyStructsInstalled: false,
         companyParkSlots: '',
@@ -23,7 +28,6 @@ export const CompanyProvider = ({ children }) => {
             email: '',
             password: '',
         },
-        companyPaymentPackage: null
     });
 
     useEffect(() => {

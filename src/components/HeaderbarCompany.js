@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 
 import AvatarComponent from './AvatarComponent';
-import { menuAdmin } from '../constants/menu/menuAdmin';
+import { menuAdmin, menuItemsProfile } from '../constants/menu/menuAdmin';
 import { Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -32,7 +32,7 @@ export default function HeaderbarCompany({ companyProps }) {
                     }
                 </Nav>
 
-                <AvatarComponent avatar={companyProps.companyLogo}/>
+                <AvatarComponent avatar={companyProps.companyLogo} menuItensProfile={menuItemsProfile}/>
                 
 
             </Container>
