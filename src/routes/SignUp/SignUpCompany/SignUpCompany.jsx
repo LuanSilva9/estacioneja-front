@@ -117,8 +117,13 @@ export default function SignUpCompany() {
                                 label="Rua e numero da Empresa"
                                 variant="outlined"
                                 fullWidth
-                                value={companyData.companyStreet}
-                                onChange={(e) => updateCompanyData({ companyStreet: e.target.value })}
+                                value={companyData.companyAddress.street}
+                                onChange={(e) => updateCompanyData({ 
+                                    companyAddress: { 
+                                        ...companyData.companyAddress, 
+                                        street: e.target.value 
+                                    } 
+                                })}
                             />
                         </Grid>
 
@@ -127,8 +132,13 @@ export default function SignUpCompany() {
                                 label="Bairro da empresa"
                                 variant="outlined"
                                 fullWidth
-                                value={companyData.neighborhood}
-                                onChange={(e) => updateCompanyData({ comapnyNeighborhood: e.target.value })}
+                                value={companyData.companyAddress.neighborhood}
+                                onChange={(e) => updateCompanyData({ 
+                                    companyAddress: { 
+                                        ...companyData.companyAddress, 
+                                        neighborhood: e.target.value 
+                                    } 
+                                })}
                             />
                         </Grid>
                     
