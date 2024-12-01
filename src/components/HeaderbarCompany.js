@@ -13,7 +13,7 @@ export default function HeaderbarCompany({ companyProps }) {
 
     return (
         <Navbar style={{ background: '#222', width: "100vw" }} className="p-0 m-0" data-bs-theme="dark">
-            <Container>
+            <Container className='d-flex flex-wrap'>
                 <Navbar.Brand href="/">
                     <img src='/logo.svg' className='logo' alt='logo-marca' />
                 </Navbar.Brand>

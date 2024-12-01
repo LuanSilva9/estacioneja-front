@@ -2,10 +2,14 @@ import { Box, Divider, Grid, Typography } from "@mui/material";
 
 import '../SignUp.css';
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { MdNavigateNext } from "react-icons/md";
 import { useState } from "react";
+import { Packages } from "../../../constants/Packages";
+import { useCompany } from "../../../contexts/CompanyContext";
+import { Button } from "react-bootstrap";
+import { companys } from "../../../constants/Companys";
 
 const styleCategory = {
     border: "1px solid rgb(54 183 123)",
@@ -13,15 +17,39 @@ const styleCategory = {
 }
 
 export default function SignUpCompanyPayment() {
+    const { companyData, updateCompanyData } = useCompany();
     const [selectedCategory, setSelectedCategory] = useState(null);
+    const [selectedPackage, setSelectedPackage] = useState({});
 
-    function handleMarkPayments(index) {
+    const navigate = useNavigate();
+
+    function handleMarkPayments(Package, index) {
+        setSelectedPackage(Package);
         setSelectedCategory(index);
+    }
+
+    function getStyleMark(index) {
+        return selectedCategory == index ? styleCategory : null;
+    }
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        
+        updateCompanyData({
+            ...companyData,
+            companyPackagePayment: selectedPackage 
+        })
+
+        companys.push(companyData);
+
+        localStorage.setItem("sessionId", process.env.REACT_APP_AUTH_KEY_COMPANY);
+
+        navigate("/dashboard");
     }
 
     return (
         <section className="sign-up-company">
-            <div className="form">
+            <div className="form" onSubmit={handleSubmit}>
                 <form>
                     <div className="form-text">
                         <img src="/logo-white.svg" alt="logo-estacioneja" className="logo" />
@@ -33,48 +61,28 @@ export default function SignUpCompanyPayment() {
                             <Divider>Planos</Divider>
                         </Grid>
 
-                        <Grid item className="paymentMethods" onClick={() => handleMarkPayments(1)} style={selectedCategory === 1 ? styleCategory : null}>
-                            <div className="textLefts">
-                                <h4>Pacote Super</h4>
-                                <p>Esse pacote é bom para estacionamentos grandes (+ 100 vagas)</p>
-                            </div>
+                        {
+                            Packages ? Packages.map((Package, index) => <Grid item className="paymentMethods" key={index} onClick={() => handleMarkPayments(Package, index)} style={getStyleMark(index)}>
+                                                        <div className="textLefts">
+                                                            <h4>{Package.text.title}</h4>
+                                                            <p>{Package.text.subTitle}</p>
+                                                        </div>
 
-                            <div className="textRight">
-                                <h4>1300,00R$</h4>
-                                <p>Instalação + Suporte</p>
-                            </div>
-                        </Grid>
-
-                        <Grid item className="paymentMethods" onClick={() => handleMarkPayments(2)} style={selectedCategory === 2 ? styleCategory : null}>
-                            <div className="textLefts">
-                                <h4>Pacote Medio</h4>
-                                <p>Feito para estacionamentos de até 70 vagas</p>
-                            </div>
-
-                            <div className="textRight">
-                                <h4>1000,00R$</h4>
-                                <p>Instalação + Suporte</p>
-                            </div>
-                        </Grid>
-
-                        <Grid item className="paymentMethods" onClick={() => handleMarkPayments(3)} style={selectedCategory === 3 ? styleCategory : null}>
-                            <div className="textLefts">
-                                <h4>Pacote Minimo</h4>
-                                <p>Feito para estacionamentos de até 30 vagas</p>
-                            </div>
-
-                            <div className="textRight">
-                                <h4>400,00R$</h4>
-                                <p>Instalação + Suporte</p>
-                            </div>
-                        </Grid>
+                                                        <div className="textRight">
+                                                            <h4>{parseFloat(Package.cost_total)}R$ + {Package.cost_support_per_mounth} (Suporte)</h4>
+                                                            <p>Instalação + Suporte</p>
+                                                        </div>
+                                                    </Grid>
+                                                    ) 
+                                     : null
+                            }
 
 
 
                         <Grid item xs={12} sx={{ mt: 3 }}>
                             <Box display="flex" justifyContent="space-between">
                                 <Link to="/cadastrar/empresa/passo-2" className="btn btn-dark">Voltar</Link>
-                                <Link to="/administrator" className="btn btn-primary">Finalizar cadastro <MdNavigateNext /></Link>
+                                <Button type="submit" className="btn btn-primary">Finalizar cadastro <MdNavigateNext /></Button>
                             </Box>
                         </Grid>
                     </Grid>

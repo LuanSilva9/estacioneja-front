@@ -1,3 +1,4 @@
+import { Divider } from "@mui/material";
 import HeaderbarCompany from "../../components/HeaderbarCompany";
 
 import { useCompany } from "../../contexts/CompanyContext";
@@ -14,8 +15,10 @@ export default function Admin() {
 
             <div className="admin_company_title">
                 <h2>Olá, equipe {companyData.companyName}!</h2>
-                <p>Dashboard / Painel de Administração</p>
+            
+                <Divider>Dashboard / Painel de Administração</Divider>
             </div>
+
 
             <Dashboard/>
         </main>

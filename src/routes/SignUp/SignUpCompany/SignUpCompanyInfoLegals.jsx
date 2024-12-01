@@ -1,19 +1,28 @@
 import { Box, Divider, Grid, InputAdornment, TextField, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdNavigateNext } from "react-icons/md";
 import { useCompany } from "../../../contexts/CompanyContext";
 import { TbLockFilled } from "react-icons/tb";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { RiUserLocationFill } from "react-icons/ri";
 import { MdNumbers } from "react-icons/md";
+import { formatString } from "../getNameFormatted";
+import { Button } from "react-bootstrap";
 
 export default function SignUpInfoLegals() {
     const { companyData, updateCompanyData } = useCompany();
+    const navigate = useNavigate();
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+
+        navigate("../passo-3");
+    }
 
     return (
         <section className="sign-up-company">
             <div className="form">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="form-text">
                         <img src="/logo-white.svg" alt="logo-estacioneja" className="logo" />
                         <h2>Informações Legais e Acesso</h2>
@@ -28,6 +37,7 @@ export default function SignUpInfoLegals() {
 
                         <Grid item xs={12}>
                             <TextField
+                                required
                                 label="CNPJ da empresa"
                                 variant="outlined"
                                 slotProps={{
@@ -51,6 +61,7 @@ export default function SignUpInfoLegals() {
 
                         <Grid item xs={12}>
                             <TextField
+                                required
                                 label="Nome do Representante"
                                 variant="outlined"
                                 slotProps={{
@@ -74,6 +85,8 @@ export default function SignUpInfoLegals() {
 
                         <Grid item xs={6}>
                             <TextField
+                            
+                                required
                                 label="E-mail"
                                 type="email"
                                 variant="outlined"
@@ -93,13 +106,13 @@ export default function SignUpInfoLegals() {
                                         password: companyData.companyAccess.password
                                     }
                                 })}
-                                required
                                 fullWidth
                             />
                         </Grid>
 
                         <Grid item xs={6}>
                             <TextField
+                                required
                                 label="Senha"
                                 variant="outlined"
                                 type="password"
@@ -119,7 +132,6 @@ export default function SignUpInfoLegals() {
                                         password: event.target.value
                                     }
                                 })}
-                                required
                                 fullWidth
                             />
                         </Grid>
@@ -127,7 +139,7 @@ export default function SignUpInfoLegals() {
                         <Grid item xs={12} sx={{ mt: 3 }}>
                             <Box display="flex" justifyContent="space-between">
                                 <Link to="/cadastrar/empresa/" className="btn btn-dark">Voltar</Link>
-                                <Link to="/cadastrar/empresa/passo-3" className="btn btn-primary">Proximo Passo <MdNavigateNext /></Link>
+                                <Button type="submit" className="btn btn-primary">Proximo Passo <MdNavigateNext /></Button>
                             </Box>
                         </Grid>
                     </Grid>

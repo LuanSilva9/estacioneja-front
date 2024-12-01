@@ -19,7 +19,15 @@ const companys = [
             structsHealth: 100,
         },
         companyParkSlots: 100,
-        companyParkSlotsFilled: 0,
+        companyParkSlotsFilled: 50,
+        companyPackagePayment: {
+        cost_total: 2900,
+        cost_support_per_mounth: 250,
+            text: {
+                title: 'Pacote Super',
+                subTitle: 'Esse pacote é feito para estacionamentos grandes (+ 100 Vagas)'
+            }
+        },
 
         companyAccess: {
             email: 'contato@ifms.edu.br',
@@ -45,6 +53,14 @@ const companys = [
         },
         companyParkSlots: 100,
         companyParkSlotsFilled: 0,
+        companyPackagePayment: {
+            cost_total: 2900,
+            cost_support_per_mounth: 250,
+            text: {
+                title: 'Pacote Super',
+                subTitle: 'Esse pacote é feito para estacionamentos grandes (+ 100 Vagas)'
+            }
+        },
 
         companyAccess: {
             email: 'contato@copasul.com.br',
@@ -70,6 +86,14 @@ const companys = [
         },
         companyParkSlots: 50,
         companyParkSlotsFilled: 0,
+        companyPackagePayment: {
+            cost_total: 2900,
+            cost_support_per_mounth: 250,
+            text: {
+                title: 'Pacote Super',
+                subTitle: 'Esse pacote é feito para estacionamentos grandes (+ 100 Vagas)'
+            }
+        },
 
         companyAccess: {
             email: 'contato@ayrtonsenna.ms.gov.br',
@@ -95,6 +119,14 @@ const companys = [
         },
         companyParkSlots: 150,
         companyParkSlotsFilled: 0,
+        companyPackagePayment: {
+            cost_total: 2900,
+            cost_support_per_mounth: 250,
+            text: {
+                title: 'Pacote Super',
+                subTitle: 'Esse pacote é feito para estacionamentos grandes (+ 100 Vagas)'
+            }
+        },
 
         companyAccess: {
             email: 'contato@sesc.com.br',
@@ -120,6 +152,14 @@ const companys = [
         },
         companyParkSlots: 300,
         companyParkSlotsFilled: 0,
+        companyPackagePayment: {
+            cost_total: 2900,
+            cost_support_per_mounth: 250,
+            text: {
+                title: 'Pacote Super',
+                subTitle: 'Esse pacote é feito para estacionamentos grandes (+ 100 Vagas)'
+            }
+        },
 
         companyAccess: {
             email: 'contato@prefeitura.navirai.ms.gov.br',
@@ -145,6 +185,14 @@ const companys = [
         },
         companyParkSlots: 200,
         companyParkSlotsFilled: 0,
+        companyPackagePayment: {
+            cost_total: 2900,
+            cost_support_per_mounth: 250,
+            text: {
+                title: 'Pacote Super',
+                subTitle: 'Esse pacote é feito para estacionamentos grandes (+ 100 Vagas)'
+            }
+        },
 
         companyAccess: {
             email: 'contato@bb.com.br',
@@ -170,6 +218,14 @@ const companys = [
         },
         companyParkSlots: 500,
         companyParkSlotsFilled: 0,
+        companyPackagePayment: {
+            cost_total: 2900,
+            cost_support_per_mounth: 250,
+            text: {
+                title: 'Pacote Super',
+                subTitle: 'Esse pacote é feito para estacionamentos grandes (+ 100 Vagas)'
+            }
+        },
 
         companyAccess: {
             email: 'contato@universidade.ms.gov.br',
@@ -179,23 +235,40 @@ const companys = [
 ];
 
 const emptyCompany =  {
-    companyName: "",
-    companyNameFormated: "",
-    companyLogo: '',
-    companyCity: null,
-    companyRepresentative: "",
-    companyParkImageMap: '',
-    companyAddress: {
-        street: '',
-        neighborhood: ''
-    },
-    companyCnpj: '',
-    companyType: '',
-    companyStructsInstalled: true,
-    companyParkSlots: '',
-    companyParkSlotsFilled: '',
-    companyAccess: null
-}
-
+        companyName: '',
+        companyNameFormated: '',
+        companyLogo: '',
+        companyCity: {
+            name: '',
+            uf: '',
+            cep: ''
+        },
+        companyRepresentative: '',
+        companyParkImageMap: '',
+        companyAddress: {
+            street: '',
+            neighborhood: ''
+        },
+        companyCnpj: '',
+        companyType: '',
+        companyStructs: {
+            structsInstalled: false,
+            structsHealth: ''
+        },
+        companyParkSlots: '',
+        companyParkSlotsFilled: '',
+        companyPackagePayment: {
+            cost_total: '',
+            cost_support_for_mounth: '',
+            text: {
+                title: '',
+                subTitle: ''
+            }
+        },
+        companyAccess: {
+            email: '',
+            password: '',
+        },
+    }
 
 export { companys, emptyCompany };

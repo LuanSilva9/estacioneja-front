@@ -1,37 +1,11 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { emptyCompany } from '../constants/Companys';
 
 const CompanyContext = createContext();
 
 export const CompanyProvider = ({ children }) => {
-    const [companyData, setCompanyData] = useState({    
-        companyName: '',
-        companyNameFormated: '',
-        companyLogo: '',
-        companyCity: {
-            name: '',
-            uf: '',
-            cep: ''
-        },
-        companyRepresentative: '',
-        companyParkImageMap: '',
-        companyAddress: {
-            street: '',
-            neighborhood: ''
-        },
-        companyCnpj: '',
-        companyType: '',
-        companyStructs: {
-            structsInstalled: false,
-            structsHealth: ''
-        },
-        companyParkSlots: '',
-        companyParkSlotsFilled: '',
-        companyAccess: {
-            email: '',
-            password: '',
-        },
-    });
+    const [companyData, setCompanyData] = useState(emptyCompany);
 
     useEffect(() => {
         const storedCompanyData = localStorage.getItem('companyData');

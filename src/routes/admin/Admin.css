@@ -5,27 +5,73 @@
 }
 
 .admin_company {
-    background: rgb(230, 230, 230);
+    background: rgb(255, 255, 255);
 }
 
-.graph-dashboard {
-    max-width: 1700px;
+.graph-overview {
+    max-width: 1500px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.dashboard {
+    display: grid;
+    place-items: center;
+}
+
+
+.graph-health {
     margin: 0 auto;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
-    gap: 2px;
+    align-items: center;
+    gap: 12px;
 }
 
 .servicos {
-    width: 300px;
+    width: 100%;
+    max-width: 450px;
     height: 150px;
     display: flex;
-    place-items: center;
-    place-content: center;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex-wrap: wrap;
     gap: 10px;
     font-size: 27px;
     color: #fff;
     font-weight: 500;
 
+}
+
+.custos {
+    width: 100%;
+    max-width: 450px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 27px;
+    color: #4d4d4d;
+    font-weight: 500;
+    background: #ffffff;
+    border: 1px solid #969696;
+}
+
+.graph-motors {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.graph-frequency {
+    border: 1px solid #4d4d4d;
+    display: flex;
+    padding: 10px;
 }

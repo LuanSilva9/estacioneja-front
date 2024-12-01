@@ -5,22 +5,31 @@ import { companys } from "../../../constants/Companys";
 
 import '../SignUp.css';
 
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 import { MdNavigateNext } from "react-icons/md";
 
 import { useCompany } from "../../../contexts/CompanyContext";
 import { citys } from "../../../constants/Citys";
+import { Button } from "react-bootstrap";
 
 const type = ["EMPRESA", "ESCOLA", "OUTROS"]
 
 export default function SignUpCompany() {
     const { companyData, updateCompanyData } = useCompany();
 
+    const navigate = useNavigate();
+
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        navigate("../passo-2");
+    }
+
     return (
         <section className="sign-up-company">
             <div className="form">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="form-text">
                         <img src="/logo-white.svg" alt="logo-estacioneja" className="logo" />
                         <h2>Venha ser EstacioneJá!</h2>
@@ -33,6 +42,7 @@ export default function SignUpCompany() {
 
                         <Grid item xs={12}>
                             <TextField
+                                required
                                 label="Nome da empresa"
                                 variant="outlined"
                                 fullWidth
@@ -48,7 +58,8 @@ export default function SignUpCompany() {
                                 value={companyData.companyCity.name}
                                 options={citys}
                                 getOptionLabel={(option) => option.name || ''}
-                                renderInput={(params) => <TextField {...params} label="Cidade da empresa" variant="outlined" fullWidth />}
+                                renderInput={(params) => <TextField
+                                        required {...params} label="Cidade da empresa" variant="outlined" fullWidth />}
                                 onChange={(event, newValue) => {
                                     updateCompanyData({
                                         companyCity: newValue ? {
@@ -91,7 +102,7 @@ export default function SignUpCompany() {
                         <Grid item xs={8}>
                             <Autocomplete
                                 options={type}
-                                renderInput={(params) => <TextField {...params} label="Selecionar Tipo" variant="outlined" fullWidth />}
+                                renderInput={(params) => <TextField required {...params} label="Selecionar Tipo" variant="outlined" fullWidth />}
                                 value={companyData.companyType.toLowerCase()}
                                 onChange={(event, newValue) => updateCompanyData({ companyType: newValue })}
                             />
@@ -99,6 +110,7 @@ export default function SignUpCompany() {
 
                         <Grid item xs={4}>
                             <TextField
+                                required
                                 label="Vagas do estacionamento"
                                 variant="outlined"
                                 type="number"
@@ -114,6 +126,7 @@ export default function SignUpCompany() {
 
                         <Grid item xs={6}>
                             <TextField
+                                required
                                 label="Rua e numero da Empresa"
                                 variant="outlined"
                                 fullWidth
@@ -129,6 +142,7 @@ export default function SignUpCompany() {
 
                         <Grid item xs={6}>
                             <TextField
+                                required
                                 label="Bairro da empresa"
                                 variant="outlined"
                                 fullWidth
@@ -145,7 +159,7 @@ export default function SignUpCompany() {
                         <Grid item xs={12} sx={{ mt: 3 }}>
                             <Box display="flex" justifyContent="space-between">
                                 <Link to="/cadastrar"  className="btn btn-dark">Voltar</Link>
-                                <Link to="/cadastrar/empresa/passo-2" className="btn btn-primary">Proximo Passo <MdNavigateNext/></Link>
+                                <Button type="submit" className="btn btn-primary">Proximo Passo <MdNavigateNext/></Button>
                             </Box>
                         </Grid>
                     </Grid>
