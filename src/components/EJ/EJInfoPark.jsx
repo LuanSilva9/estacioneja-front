@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 
 ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Tooltip, Legend);
 
-export default function EJInfoPark({ MapperPark }) {
+export default function EJInfoPark({ MapperPark, no_controls }) {
     let dataAgo = [];
     let date = new Date();
 
@@ -50,7 +50,8 @@ export default function EJInfoPark({ MapperPark }) {
                     <Line className="graph" data={data} options={options} />
                 </div>
 
-                <div className="atividade-btns">
+                {
+                    !no_controls ? <div className="atividade-btns">
                     <Button
                         className="rounded-0"
                         disabled={MapperPark.companyParkSlotsFilled === MapperPark.companyParkSlots}
@@ -58,7 +59,8 @@ export default function EJInfoPark({ MapperPark }) {
                         Fazer uma reserva
                     </Button>
                     <Button className="rounded-0">Falar com o suporte</Button>
-                </div>
+                </div> : null
+                }
             </div>
 
         </div>
