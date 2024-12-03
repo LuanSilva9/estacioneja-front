@@ -12,7 +12,7 @@ import { MdOutlineSettings } from 'react-icons/md';
 import { menuAdmin } from '../constants/menu/menuAdmin';
 import { isAdmin } from '../RouterPaper';
 
-export default function AvatarComponent({ avatar, menuItensProfile }) {
+export default function AvatarComponent({ avatar, menuItensProfile, styles }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [isLoggedOut, setIsLoggedOut] = React.useState(false);
 
@@ -48,11 +48,11 @@ export default function AvatarComponent({ avatar, menuItensProfile }) {
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
             >
-                <Avatar sx={{ width: 48, height: 48 }} src={avatar || null}></Avatar>
+                <Avatar sx={{ width: 48, height: 48 }} className={styles ? styles.avatar : null} src={avatar || null}></Avatar>
 
             </IconButton>
 
-            <Button variant='text' style={{ color: "#ccc", fontWeight: 500, fontSize: "25px" }}><FaBell /></Button>
+            <Button variant='text' style={{ color: styles ? styles.color : '#ccc', fontWeight: 500, fontSize: "25px" }}><FaBell /></Button>
 
 
             <Menu

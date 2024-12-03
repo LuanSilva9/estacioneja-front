@@ -24,13 +24,19 @@ export default function EJInfoPark({ MapperPark, no_controls }) {
                 pointRadius: 5, 
                 pointHoverRadius: 7, 
                 fill: true, 
-                tension: 0.2
+                tension: 0.1
             },
         ],
     };
 
     const options = {
+        plugins: {
+            legend: {
+              position: "bottom",
+            },
+        },
         scales: {
+            
             y: {
                 beginAtZero: true, 
             },
@@ -47,7 +53,7 @@ export default function EJInfoPark({ MapperPark, no_controls }) {
             <div className="atividade">
                 <div className="atividade-info">
                     <h2>Atividade</h2>
-                    <Line className="graph" data={data} options={options} />
+                    <Line className="graph" style={{margin: '0px'}} data={data} options={options} />
                 </div>
 
                 {

@@ -14,8 +14,8 @@ const ChartFrequency = (props) => {
         label: "Frequencia de Vagas",
         data: dataChart,
         backgroundColor: [
-          "rgba(255, 99, 132, 0.8)",
-          "rgba(54, 162, 235, 0.8)",
+          "#198754",
+          "#df2b2b",
         ],
         borderWidth: 1,
       },

@@ -5,6 +5,7 @@ import { MdOutlineHourglassTop } from "react-icons/md";
 
 import ChartFrequency from "../../components/chart/ChartFrequency";
 import EJInfoPark from "../../components/EJ/EJInfoPark";
+import ChartInfoUsers from "../../components/chart/ChartInfoUsers";
 
 export default function Dashboard() {
     const { companyData } = useCompany();
@@ -19,7 +20,7 @@ export default function Dashboard() {
         }
 
         if (health > 75) {
-            return { icon: FaRegSmile, style: { background: "#0c9a12" }, label: `${health}%` };
+            return { icon: FaRegSmile, style: { background: "#43dd49" }, label: `${health}%` };
         } else if (health >= 50) {
             return { icon: FaRegMeh, style: { background: "#ffd700" }, label: `${health}%`, call: true };
         } else {
@@ -52,21 +53,19 @@ export default function Dashboard() {
                 <div className="graph-motors">
                     <h2>Estatisticas do estacionamento</h2>
 
-                    <ChartFrequency dataChart={[parseInt(companyParkSlots), parseInt(companyParkSlotsFilled)]} />
+                    <div className="stats">
+                        <ChartFrequency dataChart={[parseInt(companyParkSlots), parseInt(companyParkSlotsFilled)]} />
+                        <ChartInfoUsers/>
+                    </div>
                     
                 </div>
             </div>
             
             <Divider></Divider>
 
-            <div className="maps">
-
-                <h2>Estacionamento da Empresa</h2>
-
-                <EJInfoPark MapperPark={companyData} no_controls={true}/>
+            <EJInfoPark MapperPark={companyData} no_controls={true}/>
 
 
-            </div>
             
         </section>
     );

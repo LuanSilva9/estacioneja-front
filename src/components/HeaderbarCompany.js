@@ -12,17 +12,17 @@ import { Link } from 'react-router-dom';
 export default function HeaderbarCompany({ companyProps }) {
 
     return (
-        <Navbar style={{ background: '#222', width: "100vw" }} className="p-0 m-0" data-bs-theme="dark">
+        <Navbar style={{background: "#fff"}} className="p-0 m-0" variant="light">
             <Container className='d-flex flex-wrap'>
                 <Navbar.Brand href="/">
-                    <img src='/logo.svg' className='logo' alt='logo-marca' />
+                    <img src='/logo-white.svg' className='logo' alt='logo-marca' />
                 </Navbar.Brand>
 
                 <Nav className='links-desktop d-flex align-items-center gap-3'>
                     {
                         menuAdmin && menuAdmin.map((link, index) => (
                             <Nav.Link key={index}>
-                                <Link to={link.href} className='d-flex align-items-center gap-1' style={{ color: '#CECECE', textDecoration: 'none' }}>
+                                <Link to={link.href} className='d-flex align-items-center gap-1' style={{ color: '#4d4d4d', textDecoration: 'none' }}>
                                     {link.icon != null ? <link.icon /> : null}
 
                                     {link.label}
@@ -32,7 +32,7 @@ export default function HeaderbarCompany({ companyProps }) {
                     }
                 </Nav>
 
-                <AvatarComponent avatar={companyProps.companyLogo} menuItensProfile={menuItemsProfile}/>
+                <AvatarComponent styles={{ avatar: "rounded rounded-2", color: "#4d4d4d" }} avatar={companyProps.companyLogo} menuItensProfile={menuItemsProfile}/>
                 
 
             </Container>
