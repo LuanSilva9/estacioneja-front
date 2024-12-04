@@ -20,7 +20,7 @@ export default function Dashboard() {
         }
 
         if (health > 75) {
-            return { icon: FaRegSmile, style: { background: "#43dd49" }, label: `${health}%` };
+            return { icon: FaRegSmile, style: { background: "rgb(25 135 84)" }, label: `${health}%` };
         } else if (health >= 50) {
             return { icon: FaRegMeh, style: { background: "#ffd700" }, label: `${health}%`, call: true };
         } else {
@@ -46,7 +46,7 @@ export default function Dashboard() {
                     )}
                 
                     <div className="custos">
-                        R$ {companyData.companyPackagePayment.cost_total} 
+                        R${parseFloat(companyData.companyPackagePayment.cost_total).toFixed(2)} 
                     </div>
                 </div>
 
@@ -65,7 +65,7 @@ export default function Dashboard() {
 
             <EJInfoPark MapperPark={companyData} no_controls={true}/>
 
-
+            
             
         </section>
     );

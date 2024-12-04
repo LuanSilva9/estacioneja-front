@@ -6,24 +6,35 @@ import { Avatar, Divider, IconButton, Menu, MenuItem } from "@mui/material";
 
 import { Button, Nav } from "react-bootstrap";
 import { FaBell, FaRegUserCircle } from 'react-icons/fa';
-import { IoSettings, IoSettingsSharp } from 'react-icons/io5';
 import { RiSettings4Fill } from 'react-icons/ri';
-import { MdOutlineSettings } from 'react-icons/md';
 import { menuAdmin } from '../constants/menu/menuAdmin';
 import { isAdmin } from '../RouterPaper';
+import EJNotifyBox from './EJ/EJNotifyBox';
 
 export default function AvatarComponent({ avatar, menuItensProfile, styles }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorNotifyBox, setAnchorNotifyBox] = React.useState(null);
     const [isLoggedOut, setIsLoggedOut] = React.useState(false);
 
+
+    
+    const open = Boolean(anchorEl);
+    const openNotifyBox = Boolean(anchorNotifyBox);
+    
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    
     const handleClose = () => {
         setAnchorEl(null);
     };
 
-    const open = Boolean(anchorEl);
-
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
+    const handleClickNotify = (event) => {
+        setAnchorNotifyBox(event.currentTarget);
+    };
+    
+    const handleCloseNotify = () => {
+        setAnchorNotifyBox(null);
     };
 
     function logout() {
@@ -43,16 +54,25 @@ export default function AvatarComponent({ avatar, menuItensProfile, styles }) {
             <IconButton
                 onClick={handleClick}
                 size="large"
-                sx={{ ml: 2 }}
                 aria-controls={open ? 'account-menu' : undefined}
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
             >
-                <Avatar sx={{ width: 48, height: 48 }} className={styles ? styles.avatar : null} src={avatar || null}></Avatar>
+                <Avatar sx={{ width: 48, height: 48, objectFit: 'cover' }} className={styles ? styles.avatar : null} src={avatar || null}></Avatar>
 
             </IconButton>
 
-            <Button variant='text' style={{ color: styles ? styles.color : '#ccc', fontWeight: 500, fontSize: "25px" }}><FaBell /></Button>
+            <IconButton
+                onClick={handleClickNotify}
+                size="large"
+                aria-controls={open ? 'notify-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+            >
+                <Button variant='text' style={{ color: styles ? styles.color : '#ccc', fontWeight: 500, fontSize: "25px" }}><FaBell /></Button>
+
+            </IconButton>
+            
 
 
             <Menu
@@ -107,6 +127,33 @@ export default function AvatarComponent({ avatar, menuItensProfile, styles }) {
 
                 <Divider />
                 <MenuItem onClick={logout} sx={{ color: 'red'}}>Sair</MenuItem>
+            </Menu>
+
+            <Menu
+                anchorEl={anchorNotifyBox}
+                id="notify-menu"
+                open={openNotifyBox}
+                onClose={handleCloseNotify}
+                onClick={handleCloseNotify}
+                
+                slotProps={{
+                    paper: {
+                        elevation: 0,
+                        sx: {
+                            
+                            overflow: 'visible',
+                            mt: 1.0,
+                            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+                            width: 300,
+                            
+                        },
+                    },
+                }}
+
+                transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+                anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+            >
+                <EJNotifyBox/>
             </Menu>
         </Nav>
     )

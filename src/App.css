@@ -44,3 +44,11 @@ body {
 ::-webkit-scrollbar-thumb {
     background: rgb(255, 94, 0);
 }
+
+.notify-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+}
