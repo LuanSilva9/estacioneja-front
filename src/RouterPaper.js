@@ -18,6 +18,8 @@ import { UserProvider } from './contexts/UserContext';
 import PanelPark from './routes/client/Client/Panel/PanelPark';
 import SearchPark from './routes/client/Client/Panel/SearchPark';
 import Admin from './routes/admin/Admin';
+import ReservationStepper from './routes/client/Client/Reservation/ReservationStepper';
+import { ReservationProvider } from './contexts/ReservationContext';
 
 function isAuth() {
     const sessionId = localStorage.getItem('sessionId');
@@ -134,6 +136,18 @@ export default function RouterPaper() {
                     </PrivateRouter>
                 </UserProvider>
             } />
+
+            {/* Reserva de Vaga */}
+            <Route path="/client/estacionamento/:nome-estacionamento/reserva" element={
+                <UserProvider>
+                    <PrivateRouter>
+                        <ReservationProvider>
+                            <ReservationStepper />
+                        </ReservationProvider>
+                    </PrivateRouter>
+                </UserProvider>
+            } />
+
 
             {/* Vincular novo estacionamento */}
             <Route path="/client/pesquisar-estacionamentos" element={

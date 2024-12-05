@@ -1,6 +1,7 @@
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, LineElement, PointElement, Tooltip, Legend } from "chart.js";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Tooltip, Legend);
 
@@ -43,6 +44,8 @@ export default function EJInfoPark({ MapperPark, no_controls }) {
         },
     };
 
+    console.log(MapperPark)
+
     return (
         <div className="info-park">
             <div className="map-park">
@@ -58,14 +61,16 @@ export default function EJInfoPark({ MapperPark, no_controls }) {
 
                 {
                     !no_controls ? <div className="atividade-btns">
-                    <Button
-                        className="rounded-0"
-                        disabled={MapperPark.companyParkSlotsFilled === MapperPark.companyParkSlots}
-                    >
-                        Fazer uma reserva
-                    </Button>
-                    <Button className="rounded-0">Falar com o suporte</Button>
-                </div> : null
+                                        <Link
+                                            className="btn btn-primary rounded-0"
+                                            disabled={MapperPark.companyParkSlotsFilled === MapperPark.companyParkSlots}
+                                            to={`reserva`}
+                                        >
+                                            Fazer uma reserva
+                                        </Link>
+                                        <Link className="btn btn-primary rounded-0" to={`suporte`}>Falar com o suporte</Link>
+                                    </div>
+                    : null
                 }
             </div>
 
