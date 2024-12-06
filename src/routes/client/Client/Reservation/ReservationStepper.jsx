@@ -86,7 +86,7 @@ export default function ReservationStepper() {
                             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                                 <Button
                                     color="inherit"
-                                    disabled={[0, 2].includes(activeStep)}
+                                    
                                     onClick={handleBack}
                                     sx={{
                                         mr: 1,
