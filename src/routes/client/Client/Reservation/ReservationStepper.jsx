@@ -1,19 +1,25 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Backdrop, Box, Button, CircularProgress, Paper, Stack, Step, StepButton, Stepper, Typography } from '@mui/material';
+import { Backdrop, Box, Button, CircularProgress, Divider, Grid, Paper, Stack, Step, StepButton, Stepper, Typography } from '@mui/material';
+
+import HeaderbarClient from '../../../../components/HeaderbarClient';
 
 import { useReservation } from '../../../../contexts/ReservationContext';
+import { useUser } from '../../../../contexts/UserContext';
+import ReservationConfigureData from './ReservationConfigureData';
 
-const steps = ['Início', 'Verificação', 'Dados complementares', 'Tirar foto'];
+const steps = ['Preencher dados', 'Confirmar reserva'];
 
 export default function ReservationStepper() {
     let navigate = useNavigate();
+
+    const { userData, updateUserData } = useUser();
     const { reservationData, updateReservationData } = useReservation()
     const [activeStep, setActiveStep] = React.useState(0);
 
     const stepComponents = React.useMemo(() => {
         return [
-                                
+            <ReservationConfigureData />
         ];
     }, []);
 
@@ -31,7 +37,7 @@ export default function ReservationStepper() {
 
     const handleNext = (event) => {
         event.preventDefault();
-        
+
         switch (activeStep) {
             case (steps.length - 1):
                 break;
@@ -42,70 +48,67 @@ export default function ReservationStepper() {
 
     const buttonLabel = React.useMemo(() => {
         switch (activeStep) {
-            case 0: return "Enviar código";
-            case 1: return "Verificar código";
-            case (steps.length - 1): return "Finalizar";
-            default: return "Avançar";
+            case (steps.length - 1): return { label: "Finalizar", type: "submit" };
+            default: return { label: "Avançar", type: "button" };
         }
     }, [activeStep]);
 
+    function handleSubmit(e) {
+        console.log(e);
+    }
 
     return (
-        <Paper elevation={1} sx={{ mt: 3, p: 3 }}>
-                    <Stepper activeStep={activeStep} alternativeLabel>
-                        {steps.map((label, index) => {
-                            return (
-                                <Step key={label}>
-                                    <StepButton color="inherit" onClick={handleStep(index)}>
-                                        {label}
-                                    </StepButton>
-                                </Step>
-                            );
-                        })}
-                    </Stepper>
-                    {activeStep === steps.length ? (
-                        <Stack spacing={2} sx={{ mt: 3, p: 3 }}>
-                            <Typography gutterBottom variant="h5" textAlign="center">
-                                Parab&eacute;ns!
-                            </Typography>
-                            <Typography variant="body1" sx={{ color: 'text.secondary' }} textAlign="center">
-                                Seu cadastro foi realizado com sucesso!
-                            </Typography>
-                            <Typography variant="body1" sx={{ color: 'text.secondary' }} textAlign="center">
-                                Em breve você receberá um e-mail com mais Informações.
-                            </Typography>
-                            <Button
-                                onClick={() => navigate(`/login`)}
-                            >
-                                Clique aqui para acessar o sistema
-                            </Button>
-                        </Stack>
-                    ) : (
-                        <Box sx={{ mt: 3, p: 2 }}>
+        <React.Fragment>
+            <HeaderbarClient userProps={userData} />
+
+            <section className='stepper-form'>
+                <Grid container spacing={2}>
+
+                    <Grid item xs={12}>
+                        <Stepper activeStep={activeStep} alternativeLabel>
+                            {steps.map((label, index) => {
+                                return (
+                                    <Step key={label} variant="success">
+                                        <StepButton  onClick={handleStep(index)}>
+                                            {label}
+                                        </StepButton>
+                                    </Step>
+                                );
+                            })}
+                        </Stepper>
+                    </Grid>
+
+                    <Grid item xs={12}>
+                        <Typography align='center' variant='h4'>Reservar Vaga</Typography>
+                    </Grid>
+
+                    <Grid item xs={12}>
+                        <form onSubmit={handleSubmit}>
                             {stepComponents[activeStep]}
                             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                                 <Button
                                     color="inherit"
-                                    
+
                                     onClick={handleBack}
                                     sx={{
                                         mr: 1,
-                                        display: ([0, 2].includes(activeStep)) ? 'none' : 'flex'
+                                        display: ([0, 4].includes(activeStep)) ? 'none' : 'flex'
                                     }}
                                 >
                                     Voltar
                                 </Button>
                                 <Box sx={{ flex: '1 1 auto' }} />
                                 <Button
-                                    onClick={handleNext}
+                                    onClick={buttonLabel.type == "button" ? handleNext : null}
+                                    type={buttonLabel.type}
                                 >
-                                   {buttonLabel}
+                                    {buttonLabel.label}
                                 </Button>
                             </Box>
-                        </Box>
-                    )}
-
-                    <h2>{ activeStep }</h2>
-                </Paper>
+                        </form>
+                    </Grid>
+                </Grid>
+            </section>
+        </React.Fragment>
     )
 }
