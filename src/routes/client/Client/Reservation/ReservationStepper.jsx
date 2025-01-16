@@ -69,7 +69,7 @@ export default function ReservationStepper() {
                             {steps.map((label, index) => {
                                 return (
                                     <Step key={label} variant="success">
-                                        <StepButton  onClick={handleStep(index)}>
+                                        <StepButton onClick={handleStep(index)}>
                                             {label}
                                         </StepButton>
                                     </Step>

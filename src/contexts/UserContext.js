@@ -8,6 +8,7 @@ export const UserProvider = ({ children }) => {
         userEmail: '',
         userPassword: '',
         userImage: '',
+        userVeicles: [],
         userCity: {
             name: '',
             uf: '',

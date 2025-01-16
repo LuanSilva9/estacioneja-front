@@ -10,6 +10,15 @@ var users = [
             "cep": "79950-000"
         },
         "userPhone": "(11) 99999-9999",
+        "userVeicles": [
+            {
+                "type": 'CARRO',
+                "sign": 'AAA-0000',
+                "model": 'Bugatti',
+                "color": 'Azul',
+                "name": 'Chiron',
+            }
+        ],
         "userCompanyVincles": [
             {
                 companyName: "SESC",

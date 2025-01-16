@@ -21,6 +21,7 @@ import Admin from './routes/admin/Admin';
 import ReservationStepper from './routes/client/Client/Reservation/ReservationStepper';
 import { ReservationProvider } from './contexts/ReservationContext';
 import ReservationConfigureData from './routes/client/Client/Reservation/ReservationConfigureData';
+import VeiclesForm from './routes/client/Client/Profile/VeiclesForm';
 
 function isAuth() {
     const sessionId = localStorage.getItem('sessionId');
@@ -134,6 +135,15 @@ export default function RouterPaper() {
                 <UserProvider>
                     <PrivateRouter>
                         <PanelPark />
+                    </PrivateRouter>
+                </UserProvider>
+            } />
+
+            {/* Cadastro de veiculos */}
+            <Route path="/client/perfil/veiculos" element={
+                <UserProvider>
+                    <PrivateRouter>
+                        <VeiclesForm />
                     </PrivateRouter>
                 </UserProvider>
             } />

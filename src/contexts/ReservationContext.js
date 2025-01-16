@@ -4,10 +4,10 @@ const ReservationContext = createContext();
 
 export const ReservationProvider = ({ children }) => {
     const [reservationData, setReservationData] = useState({
-        reservationTimeStamp: '',
+        reservationDay: '',
         reservationDateEntry: '',
         reservationDateExit: '',
-        reservationUser: null,
+        reservationVeicle: null,
         reservationPark: null,
     });
 
