@@ -1,3 +1,16 @@
+.reservation-card::-webkit-scrollbar {
+    height: 8px;
+}
+
+.reservation-card::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+.reservation-card::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
+
 .reservation {
     display: flex;
     max-width: 1200px;
@@ -8,13 +21,7 @@
     color: #333333;
     border-radius: 5px;
     flex-direction: column;
-    gap: 10px;
-}
-
-.painel-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    gap: 30px;
 }
 
 .parkVincles {
@@ -25,6 +32,7 @@
     margin: 20px auto;
     color: #333333;
     border-radius: 5px;
+    justify-content: start;
     flex-direction: column;
     gap: 20px;
 }
@@ -48,6 +56,11 @@
 
 }
 
+.vincular {
+    display: flex;
+    justify-content: center;
+}
+
 .history {
     margin:  0;
     padding: 15px;
@@ -64,36 +77,30 @@
     gap: 20px;
 }
 
-.cardsParks .park {
-    height: 200px;
-    padding: 30px;
-    border: 1px solid #3333;
-}
-
-.vincle {
-    height: 200px;
-    padding: 30px;
-    display: grid;
-    place-items: center;
-    place-content: center;
-    border: 1px solid #3333;
-    background: #414141;
-    color: #fff;
-}
-
 .control {
     display: flex;
-    justify-content: space-between;
-
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-.control h4 {
-    font-size: 20px;
+.card-info-icon {
+    font-size: 40px;
+}
+
+.card-info-single {
+    padding: 20px;
+    width: 250px;
+    height: 200px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .btnControl {
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     gap: 25px;
 }
 
@@ -219,6 +226,20 @@
     margin: 0 auto;
 }
 
+.data-show-single {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+.confirmData-icon {
+    font-size: 30px;
+    color: rgb(54, 54, 54);
+}
 
 
 @media screen and (max-width: 685px) {
