@@ -1,12 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Backdrop, Box, Button, CircularProgress, Divider, Grid, Paper, Stack, Step, StepButton, Stepper, Typography } from '@mui/material';
+import {  Box, Button, Grid, Step, StepButton, Stepper, Typography } from '@mui/material';
 
 import HeaderbarClient from '../../../../components/HeaderbarClient';
 
 import { useReservation } from '../../../../contexts/ReservationContext';
 import { useUser } from '../../../../contexts/UserContext';
 import ReservationConfigureData from './ReservationConfigureData';
+import ReservationConfirmData from './ReservationConfirmData';
+import dayjs from 'dayjs';
 
 const steps = ['Preencher dados', 'Confirmar reserva'];
 
@@ -15,11 +17,31 @@ export default function ReservationStepper() {
 
     const { userData, updateUserData } = useUser();
     const { reservationData, updateReservationData } = useReservation()
+
+    const [errors, setErrors] = React.useState({});
     const [activeStep, setActiveStep] = React.useState(0);
+    
+    const validateFields = () => {
+        const { reservationVeicle, reservationDay, reservationDateEntry, reservationDateExit } = reservationData;
+        const errors = {};
+    
+        if (!reservationVeicle) errors.reservationVeicle = "Selecione um veículo.";
+        if (!reservationDay) errors.reservationDay = "Escolha um dia.";
+        if (!reservationDateEntry) errors.reservationDateEntry = "Informe o horário de entrada.";
+        if (!reservationDateExit) errors.reservationDateExit = "Informe o horário de saída.";
+        if (reservationDateEntry && reservationDateExit && dayjs(reservationDateEntry).isAfter(dayjs(reservationDateExit))) {
+            errors.dateRange = "O horário de entrada não pode ser maior que o horário de saída.";
+        }
+    
+        setErrors(errors);
+
+        return Object.keys(errors).length === 0; 
+    };
 
     const stepComponents = React.useMemo(() => {
         return [
-            <ReservationConfigureData />
+            <ReservationConfigureData />,
+            <ReservationConfirmData />
         ];
     }, []);
 
@@ -37,24 +59,35 @@ export default function ReservationStepper() {
 
     const handleNext = (event) => {
         event.preventDefault();
-
-        switch (activeStep) {
-            case (steps.length - 1):
-                break;
-            default:
-                nextStep();
+    
+        if (validateFields()) {
+            nextStep(); 
         }
     };
 
     const buttonLabel = React.useMemo(() => {
         switch (activeStep) {
-            case (steps.length - 1): return { label: "Finalizar", type: "submit" };
+            case (steps.length - 1): return { label: "Concluir Reserva", type: "submit" };
             default: return { label: "Avançar", type: "button" };
         }
     }, [activeStep]);
 
     function handleSubmit(e) {
-        console.log(e);
+        e.preventDefault();
+
+        // Validacao / Regra de negocio para reserva de vaga
+
+        updateUserData({
+            ...userData,
+            userReservation: [
+                ...userData.userReservation,
+                reservationData
+            ]
+        });
+
+        localStorage.removeItem('reservationData');
+
+        navigate("/client");
     }
 
     return (
@@ -79,21 +112,20 @@ export default function ReservationStepper() {
                     </Grid>
 
                     <Grid item xs={12}>
-                        <Typography align='center' variant='h4'>Reservar Vaga</Typography>
+                        <Typography align='center' variant='h4'>{activeStep === 1 ? "Confirmar reserva" : "Reservar Vaga"}</Typography>
                     </Grid>
+
 
                     <Grid item xs={12}>
                         <form onSubmit={handleSubmit}>
                             {stepComponents[activeStep]}
                             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                                <Button
-                                    color="inherit"
-
-                                    onClick={handleBack}
-                                    sx={{
-                                        mr: 1,
-                                        display: ([0, 4].includes(activeStep)) ? 'none' : 'flex'
-                                    }}
+                                <Button color="inherit" onClick={handleBack} sx={{
+                                    mr: 1,
+                                    display: ([0, 4].includes(activeStep)) ? 'none' : 'flex',
+                                    bgcolor: "error.light", 
+                                    color: "white"
+                                }}
                                 >
                                     Voltar
                                 </Button>
@@ -101,12 +133,15 @@ export default function ReservationStepper() {
                                 <Button
                                     onClick={buttonLabel.type == "button" ? handleNext : null}
                                     type={buttonLabel.type}
+                                    variant='filled'
+                                    sx={{ bgcolor: "success.main", color: "white" }}
                                 >
                                     {buttonLabel.label}
                                 </Button>
                             </Box>
                         </form>
                     </Grid>
+
                 </Grid>
             </section>
         </React.Fragment>
