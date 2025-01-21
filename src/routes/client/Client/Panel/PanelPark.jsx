@@ -22,6 +22,10 @@ export default function PanelPark() {
         return <h2>Estacionamento nao encontrado!</h2>;
     }
 
+    if(localStorage.getItem('parkSelected')) {
+        localStorage.removeItem('parkSelected');
+    }
+
     return (
         <main className="painel">
             <HeaderbarClient userProps={userData}/>
