@@ -5,8 +5,8 @@ const ReservationContext = createContext();
 export const ReservationProvider = ({ children }) => {
     const [reservationData, setReservationData] = useState({
         reservationDay: '',
-        reservationDateEntry: '',
-        reservationDateExit: '',
+        reservationDateEntry: null,
+        reservationDateExit: null,
         reservationVeicle: null,
         reservationPark: null,
     });
