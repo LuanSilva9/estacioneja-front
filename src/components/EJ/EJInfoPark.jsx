@@ -13,6 +13,10 @@ export default function EJInfoPark({ MapperPark, no_controls }) {
         dataAgo[i] = `${i}h`;
     }
 
+    function generateStoragePark() {
+        localStorage.setItem('parkSelected', JSON.stringify(MapperPark))
+    }
+
     const data = {
         labels: dataAgo,
         datasets: [
@@ -65,6 +69,7 @@ export default function EJInfoPark({ MapperPark, no_controls }) {
                                             className="btn btn-primary rounded-0"
                                             disabled={MapperPark.companyParkSlotsFilled === MapperPark.companyParkSlots}
                                             to={`reserva`}
+                                            onClick={generateStoragePark}
                                         >
                                             Fazer uma reserva
                                         </Link>
