@@ -20,7 +20,7 @@ export default function HeaderbarGuest() {
     const handleClose = () => setShow(false);
 
     return (
-        <Navbar style={{ background: '#222' }} className="p-0 m-0" data-bs-theme="dark">
+        <Navbar style={{ background: '#222'}} className="p-0 m-0 " data-bs-theme="dark">
             <Container>
                 <Navbar.Brand href="/">
                     <img src='/logo.svg' className='logo' alt='logo-marca' />

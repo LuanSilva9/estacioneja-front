@@ -6,6 +6,8 @@ import './Home.css'
 import HeaderbarGuest from "../../../components/HeaderbarGuest";
 import FooterClient from "../../../components/FooterClient";
 
+import { rootColors } from "../../../constants/pallete";
+
 export default function Home() {
     return (
         <main className='home'>
@@ -17,21 +19,29 @@ export default function Home() {
 
                 <form className="searcher" onSubmit={(e) => e.preventDefault()}>
                     <input type="text" className='input-search' name="search" placeholder='Descubra alguns de nossos estacionamentos' />
-                    <button type="submit" className="btn btn-success rounded-0"><FaSearch /></button>
+                    <button type="submit" className="btn rounded-0" style={{background: rootColors.colorGreenPrimary, color: "white"}}><FaSearch /></button>
                 </form>
             </section>
 
             <section className="saiba-mais" id="saiba-mais">
-                <h2>Saiba Mais!</h2>
+                <h2>Saiba um pouco sobre o <span style={{color: rootColors.colorGreenShade}}>Estacione</span><span style={{color: rootColors.colorOrangePrimary}}>Já</span> </h2>
 
-                <div className="text-cards">
-                    <p>Com o Estacionejá, você não precisa mais se preocupar em encontrar uma vaga ao chegar no estacionamento. Agora, é possível reservar seu espaço com antecedência, diretamente pelo aplicativo. Selecione a data e o horário desejados e tenha a segurança de que um lugar estará disponível, pronto para você.</p>
+                <div className="saiba-mais-cards">
+                    <div className="saiba-mais-cards-single">
+                        <p>Com o Estacionejá, você não precisa mais se preocupar em encontrar uma vaga ao chegar no estacionamento. Agora, é possível reservar seu espaço com antecedência, diretamente pelo aplicativo. Selecione a data e o horário desejados e tenha a segurança de que um lugar estará disponível, pronto para você.</p>
+                    </div>
 
-                    <p>Tenha controle total da ocupação do estacionamento em tempo real. O Estacionejá permite que você monitore o fluxo de vagas disponíveis, observe horários de pico e tome decisões com base em dados precisos. Acompanhe tudo de maneira clara e transparente, garantindo mais eficiência e segurança para você e para a administração do estacionamento.</p>
+                    <div className="saiba-mais-cards-single">
+                        <p>Tenha controle total da ocupação do estacionamento em tempo real. O Estacionejá permite que você monitore o fluxo de vagas disponíveis, observe horários de pico e tome decisões com base em dados precisos. Acompanhe tudo de maneira clara e transparente, garantindo mais eficiência e segurança para você e para a administração do estacionamento.</p>
+                    </div>
 
-                    <p>O Estacionejá utiliza a tecnologia IoT para garantir uma experiência ainda mais prática e integrada. Nosso sistema permite que o portão do estacionamento seja aberto automaticamente quando você estiver próximo e com uma vaga reservada. Tudo isso sem a necessidade de intervenção manual, trazendo mais conforto e modernidade ao seu dia a dia.</p>
+                    <div className="saiba-mais-cards-single">
+                        <p>O Estacionejá utiliza a tecnologia IoT para garantir uma experiência ainda mais prática e integrada. Nosso sistema permite que o portão do estacionamento seja aberto automaticamente quando você estiver próximo e com uma vaga reservada. Tudo isso sem a necessidade de intervenção manual, trazendo mais conforto e modernidade ao seu dia a dia.</p>
+                    </div>
 
-                    <p>O Estacionejá pensa em todos os perfis de usuários. Para quem chega de carro, o portão se abre automaticamente ao detectar sua presença, caso tenha uma reserva ativa. Já para pedestres, o acesso é simples e rápido pelo aplicativo, permitindo a entrada segura a pé.</p>
+                    <div className="saiba-mais-cards-single">
+                        <p>O Estacionejá pensa em todos os perfis de usuários. Para quem chega de carro, o portão se abre automaticamente ao detectar sua presença, caso tenha uma reserva ativa. Já para pedestres, o acesso é simples e rápido pelo aplicativo, permitindo a entrada segura a pé.</p>
+                    </div>
                 </div>
             </section>
 

@@ -17,12 +17,12 @@
 }
 
 .hero-section h2 span:nth-child(1) {
-    color: #ff6b00;
+    color: var(--color-orange-primary);
 }
 
 
 .hero-section h2 span:nth-child(2) {
-    color: rgb(54 183 123);
+    color: var(--color-green-primary);
 }
 
 .hero-section p {
@@ -56,30 +56,37 @@
 
 .saiba-mais {
     text-align: center;
-    padding: 20px;
+    padding: 30px;
+}
+
+.saiba-mais-cards {
+    display: flex;
+    margin: 20px 0;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.saiba-mais-cards-single {
+    max-width: 400px;
+    padding: 40px 25px;
+    font-size: 19px;
+    text-align: start;
+    background: var(--color-green-shade);
+    color: #fff;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+.saiba-mais-cards-single:hover {
+    background: var(--color-green-primary);
 }
 
 .saiba-mais h2 {
-    color: #ff6b00;
+    color: var(--color-green-shade);
     font-size: 40px;
 }
 
-.text-cards {
-    display: flex;    
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 40px;
-}
-
-.text-cards p {
-    padding: 10px;
-    box-shadow: 0px 0px 4px #afafaf;
-    width: 300px;
-    text-align: center;
-    font-style: italic;
-    color: #5f5f5f;
-}
 
 .para-empresas {
     display: flex;
@@ -87,12 +94,12 @@
     align-items: center;
     flex-wrap: wrap-reverse;
     gap: 30px;
-    border-top: 3px solid rgb(54 183 123);
+    border-top: 3px solid var(--color-green-primary);
     transition: .3s;
 }
 
 .para-empresas:hover {
-    border-top: 3px solid #ff6b00;
+    border-top: 3px solid var(--color-orange-primary);
 }
 
 .para-empresas img {
@@ -105,7 +112,7 @@
 }
 
 .para-empresas .text-left h2 {
-    color: rgb(54 183 123) ;
+    color: var(--color-green-primary) ;
     font-size: 40px;
 }
 
@@ -133,7 +140,7 @@
 }
 
 .para-estudantes .text-right h2 {
-    color: #ff6b00;
+    color: var(--color-orange-primary);
     font-size: 40px;
 }
 
@@ -181,7 +188,7 @@
 
 .onde-nos-encontrar h2 {
     font-size: 3.3rem;
-    color: #ff6e2a;
+    color: var(--color-orange-primary);
 }
 
 .onde-nos-encontrar p {
