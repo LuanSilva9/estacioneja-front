@@ -1,12 +1,16 @@
 import * as React from 'react';
 
-import { Typography } from "@mui/material";
+import './Client.css'
+
+import { Button,  Typography } from "@mui/material";
+
 import EJHistory from "../../../components/EJ/EJHistory";
 import EJParkModel from "../../../components/EJ/EJParkModel";
 import EJReservation from "../../../components/EJ/EJReservation";
-import EJVinclePark from "../../../components/EJ/EJVinclePark.jsx";
 import FooterClient from "../../../components/FooterClient";
 import HeaderbarClient from "../../../components/HeaderbarClient.js";
+
+import { MdCorporateFare } from "react-icons/md";
 
 import { history } from "../../../constants/MapperJsonHistory";
 
@@ -16,8 +20,7 @@ import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 
-
-import './Client.css'
+import NoLinkedParking from '../../../components/errorPages/NoLinkedParking.jsx';
 
 export default function ClientApp() {
     const { userData, updateUserData } = useUser();
@@ -43,9 +46,11 @@ export default function ClientApp() {
             {
                 userData.userReservation.length != 0 ? (
                     <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
-                        <Tabs sx={{ mt: 5 }} value={value} onChange={handleChange} centered>
+                        <Typography align='center' variant="h4" component="div" sx={{ mt: 5, mb: 3}}>Olá, Confira suas reservas!</Typography>
+
+                        <Tabs value={value} onChange={handleChange} centered TabIndicatorProps={{style: { backgroundColor: "rgb(0, 100, 0)"}}}>
                             {userData.userReservation.map((reservation, index) => (
-                                <Tab key={index} label={`${index+1} - ${reservation.reservationPark.companyName}`} />
+                                <Tab key={index} label={<span style={{ color: "rgb(0, 00, 0)", fontWeight: 500 }}><MdCorporateFare/> {reservation.reservationPark.companyName}</span>} />
                             ))}
                         </Tabs>
                         
@@ -58,17 +63,17 @@ export default function ClientApp() {
 
 
             <div className="parkVincles">
-                <Typography align="center" variant="h4">Estacionamentos Vinculados</Typography>
+                <Typography align="center" variant="h4">Estacionamentos Vinculados </Typography>
 
                 <div className="cardsParks">
                     {
                         userData.userCompanyVincles ? userData.userCompanyVincles.map((park, i) => <EJParkModel key={i} MapperJsonPark={park} />) : null
                     }
-                </div>
-            </div>
 
-            <div className="vincular">
-                <EJVinclePark />
+                    {
+                        userData.userCompanyVincles.length == 0 ? <NoLinkedParking /> : null
+                    }
+                </div>
             </div>
 
             <div className="historys">
