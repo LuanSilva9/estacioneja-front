@@ -15,8 +15,6 @@ export default function AvatarComponent({ avatar, menuItensProfile, styles }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [anchorNotifyBox, setAnchorNotifyBox] = React.useState(null);
     const [isLoggedOut, setIsLoggedOut] = React.useState(false);
-
-
     
     const open = Boolean(anchorEl);
     const openNotifyBox = Boolean(anchorNotifyBox);

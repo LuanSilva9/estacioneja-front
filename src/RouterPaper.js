@@ -22,6 +22,7 @@ import ReservationStepper from './routes/client/Client/Reservation/ReservationSt
 import { ReservationProvider } from './contexts/ReservationContext';
 import ReservationConfigureData from './routes/client/Client/Reservation/ReservationConfigureData';
 import VeiclesForm from './routes/client/Client/Profile/VeiclesForm';
+import Error404 from './components/errorPages/Error404';
 
 function isAuth() {
     const sessionId = localStorage.getItem('sessionId');
@@ -70,6 +71,7 @@ export default function RouterPaper() {
             <Route path="/sobre-nos" element={<AboutUs />} />
             <Route path="/politica" element={<Policy />} />
             <Route path="/funcionalidades" element={<Features />} />
+
 
             {/* Cadastro - Selecionar Perfil */}
             <Route path="/cadastrar" element={<PublicRouter><SignUpSelectArea /></PublicRouter>} />
@@ -176,6 +178,8 @@ export default function RouterPaper() {
                     </AdminRouter>
                 </CompanyProvider>
             } />
+            
+            <Route path="/*" element={<Error404/>}/>
         </Routes>
     );
 }
