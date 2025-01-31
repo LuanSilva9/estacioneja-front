@@ -54,7 +54,7 @@ export default function Login() {
 
   return (
     <main className="login">
-      <div className="image-side" style={{ background: "url(/assets/image_generated_by_ai.png) no-repeat center center" }}></div>
+      <div className="image-side" style={{ background: "url(/assets/bg_park_login.jpg) no-repeat center center", backgroundSize: "cover" }}></div>
 
       <div className="content-login">
         <form className='form' method={"POST"} onSubmit={handleSubmit}>

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
 import { Autocomplete, Box, Button, Divider, Grid, TextField, Typography } from "@mui/material";
+import { MdDelete } from "react-icons/md";
+
 import HeaderbarClient from "../../../../components/HeaderbarClient";
 
 import { useUser } from "../../../../contexts/UserContext";
@@ -8,8 +10,7 @@ import { colorVeicle, modelVeicle } from "../../../../constants/Veicles";
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import CardActionArea from '@mui/material/CardActionArea';
+
 
 export default function VeiclesForm() {
     const { userData, updateUserData } = useUser();
@@ -156,7 +157,7 @@ export default function VeiclesForm() {
             <Grid container spacing={2} sx={{ mb: 1, p: 5, display: "flex", justifyContent: "center", alignItems: "center" }}>
                     {
                         userData.userVeicles.map((veicle, i) => 
-                            <Grid item xs={12}>
+                            <Grid key={i} item xs={12}>
                                 <Card sx={{  borderLeft: "2px solid rgb(47, 155, 46)", boxShadow: '0px 0px 3px #ccc', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                     <Box>
                                         <CardContent>
@@ -171,7 +172,7 @@ export default function VeiclesForm() {
                                     </Box>
 
                                     <Box sx={{ mr: 10 }}>
-                                        <Button variant="outlined" color="error">Deletar</Button>
+                                        <Button variant="outlined" color="error"><MdDelete />{' '} Deletar</Button>
                                     </Box>
                                 </Card>
                             </Grid>

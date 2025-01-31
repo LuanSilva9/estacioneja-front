@@ -1,4 +1,12 @@
 .not-park-vincle {
     color: var(--color-green-shade);
-    
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-park-vincle img {
+    width: 500px;
 }
