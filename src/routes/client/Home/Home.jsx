@@ -12,8 +12,12 @@ import { FaSearch } from "react-icons/fa";
 import { MdPlace } from "react-icons/md";
 import { MdOutlineMapsHomeWork } from "react-icons/md";
 import { MdOutlineLocationCity } from "react-icons/md";
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
+
+    const navigate = useNavigate();
+
     return (
         <main className='home'>
             <HeaderbarGuest />
@@ -28,8 +32,10 @@ export default function Home() {
                 </form>
             </section>
 
+            <div className="preload-images"></div>
+
             <section className="saiba-mais" id="saiba-mais">
-                <h2>Saiba um pouco sobre o <span style={{ color: rootColors.colorGreenShade }}>Estacione</span><span style={{ color: rootColors.colorOrangePrimary }}>Já</span> </h2>
+                <h2>Saiba um pouco sobre o <span style={{ color: rootColors.colorGreenPrimary }}>Estacione</span><span style={{ color: rootColors.colorOrangePrimary }}>Já</span> </h2>
 
                 <div className="saiba-mais-cards">
                     <div className="saiba-mais-cards-single">
@@ -56,16 +62,16 @@ export default function Home() {
                 </div>
 
                 <div className="cards-empresa">
-                    <div className="card-maior card-empresa-single">
+                    <div className="card-maior card-empresa-single" onClick={() => navigate("/para-empresas/staff")}>
                         <h2>Equipe pronta e preparada para lidar com imprevistos</h2>
                     </div>
                     <div className="card-agrupados">
                         <div className="card-agrupados-tr">
-                            <div className="card-menor card-empresa-single card-seguranca">
+                            <div className="card-menor card-empresa-single card-seguranca" onClick={() => navigate("/para-empresas/seguranca")}>
                                 <MdSecurity className="card-menor-icon" />
                                 <h2>Mais praticidade e segurança.</h2>
                             </div>
-                            <div className="card-menor card-empresa-single card-controle">
+                            <div className="card-menor card-empresa-single card-controle" onClick={() => navigate("/para-empresas/controle")}>
                                 <FaLayerGroup className="card-menor-icon" />
                                 <h2>Controle automatizado para uma gestão eficiente de vagas.</h2>
                             </div>
@@ -73,11 +79,11 @@ export default function Home() {
                         </div>
 
                         <div className="card-agrupados-tr">
-                            <div className="card-menor card-empresa-single card-relatorios">
+                            <div className="card-menor card-empresa-single card-relatorios" onClick={() => navigate("/para-empresas/relatorios")}>
                                 <HiDocumentReport className="card-menor-icon" />
                                 <h2>Relatórios completos </h2>
                             </div>
-                            <div className="card-menor card-empresa-single card-dashboard">
+                            <div className="card-menor card-empresa-single card-dashboard" onClick={() => navigate("/para-empresas/dashboards")}>
                                 <MdSpaceDashboard className="card-menor-icon" />
                                 <h2>Dashboards interativos e facil de usar</h2>
                             </div>
@@ -98,7 +104,7 @@ export default function Home() {
 
                 <div className="card-estudantes">
                     <div className="card-estudantes-single">
-                        <img src="/assets/images-freepik/alarme.png" alt="" />
+                        <img src="/assets/images-freepik/rotina.png" alt="" />
 
                         <p>A rotina de trabalho pode ser corrida e cheia de compromissos. Com o Estacionejá, você não precisa perder tempo procurando vagas ao chegar na empresa.</p>
                     </div>

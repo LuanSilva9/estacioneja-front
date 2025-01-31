@@ -39,18 +39,6 @@ export default function AboutUs() {
                 </div>
             </section>
 
-
-            <section className='historia'>
-                <h2>Nossa História</h2>
-
-                <div className="line"></div>
-
-                <p>
-                    O Estacionejá começou como um projeto de faculdade, desenvolvido por estudantes de tecnologia que perceberam a necessidade de uma solução prática para o problema de estacionamento em grandes instituições. Inicialmente pensado para o ambiente universitário, o Estacionejá se mostrou útil em diversos contextos, ganhando o apoio de professores e colegas que viram valor na ideia.
-                    Hoje, o Estacionejá continua a evoluir, trazendo novos recursos e expandindo seu impacto para além dos muros da faculdade, com o objetivo de melhorar a mobilidade e organização em locais com alta demanda de estacionamento.
-                </p>
-            </section>
-
             <FooterClient/>
         </main>
 

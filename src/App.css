@@ -52,3 +52,14 @@ body {
     text-decoration: none;
     color: #333;
 }
+
+.preload-images {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    background: url(/public/assets/images-freepik/tech-bg.png) no-repeat, 
+                url(/public/assets/images-freepik/security-bg.png) no-repeat, 
+                url(/public/assets/images-freepik/relatorios-bg.png) no-repeat, 
+                url(/public/assets/images-freepik/dashboard-bg.png) no-repeat;
+}

@@ -16,8 +16,6 @@ export default function Policy() {
 
             <section className="policy-body">
                 <div className='policy-content'>
-                    <p>Bem-vindo à Política de Privacidade do Estacionejá. Nós valorizamos sua privacidade e estamos comprometidos em proteger suas informações. Esta política descreve como coletamos, utilizamos, compartilhamos e protegemos seus dados pessoais ao utilizar nosso aplicativo.</p>
-
                     <h3>1. Informações que Coletamos</h3>
                     <p>Coletamos as informações de diferentes formas para oferecer uma experiência personalizada e eficiente. As informações que coletamos incluem:</p>
                     <ul>

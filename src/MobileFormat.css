@@ -11,7 +11,7 @@
     }
 }
 
-@media screen and (max-width: 690px) {
+@media screen and (max-width: 780px) {
     .card-menor {
         max-height: 605px; 
         min-height: 400px; 
@@ -38,5 +38,23 @@
     .saiba-mais-cards-single {
         max-width: 600px;
         width: 90%;
+    }
+}
+
+@media screen and (max-width: 1361px) {
+    .card-single-onde-nos-encontrar {
+        justify-content: center;
+        align-items: center;
+        background: var(--color-green-shade);
+        border: 0;
+    }
+    
+    .card-single-onde-nos-encontrar .text-card-onde-nos-encontrar {
+        align-items: center;
+    }
+
+    .card-single-onde-nos-encontrar .text-card-onde-nos-encontrar h4 {
+        color: #fff;
+        font-weight: 400 !important;
     }
 }

@@ -25,10 +25,6 @@ export default function Features() {
                         Para começar, crie sua conta no EstacioneJá. Acesse a página inicial e clique em "Cadastrar". Após preencher as informações necessárias e criar sua conta, você poderá fazer login e acessar todos os recursos do sistema.
                     </p>
 
-                    <div className="img-create-account img">
-                        <img src="/assets/camera.svg" alt="" />
-                    </div>
-
                     <h3>Passo 2: Escolher um Estacionamento Vinculado</h3>
                     <p>
                         Na página inicial, você verá a seção "Estacionamentos Vinculados". Nela, é possível visualizar os estacionamentos disponíveis, cada um com um mapa e detalhes de localização. Selecione o estacionamento desejado e clique em "Reservar".
@@ -54,11 +50,22 @@ export default function Features() {
 
                     <h3>Passo 5: Realizar o Check-In no Estacionamento</h3>
                     <p>
-                        Quando chegar ao estacionamento, você poderá realizar o check-in de duas formas:
+                        Quando chegar ao estacionamento, você poderá realizar o check-in, cada Estacionamento Impoe regras sobre o Check-in, então confira qual é a regra que seu estacionamento segue, no entanto, as mais indicadas por nós são:
                     </p>
                     <ul>
-                        <li><strong>RFID:</strong> Se o seu veículo estiver registrado com uma tag RFID, o check-in será feito automaticamente ao passar pela entrada do estacionamento.</li>
-                        <li><strong>QR Code:</strong> Escaneie o QR code localizado no portão e insira a placa do seu veículo no aplicativo. Se a reserva for confirmada, o portão será automaticamente liberado.</li>
+                        <li>
+                            <strong>QR Code</strong>: É feito chegando ao estacionamento e lendo o QR Code pelo aplicativo.
+                        </li>
+
+                        <li>
+                            <strong>(Auto Check-in/out) Localização</strong>: É feito de maneira automatica quando você chega ao estacionamento, então você apenas precisará confirmar no aplicativo.
+                        </li>
+                        <li>
+                            <strong>(Auto Check-in/out) Portaria</strong>: É feito pelo responsavel pelo portão então não é necessario intervenção do usuario, apenas confirme no aplicativo.
+                        </li>
+                        <li>
+                            <strong>(Auto Check-in/out) RFID:</strong> Com o veiculo habilitado com a tag RFID, o check-in será feito automaticamente ao passar pela entrada do estacionamento. 
+                        </li>
                     </ul>
 
                     <h3>Exportar Reservas</h3>

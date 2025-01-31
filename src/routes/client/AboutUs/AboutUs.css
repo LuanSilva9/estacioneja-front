@@ -32,27 +32,3 @@
     padding: 20px;
 
 }
-
-.historia {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 50px;
-    background: #222;
-    color: #ffffff;
-}
-
-.historia h2 {
-    max-width: 1200px;
-    width: 99%;
-    font-size: 4rem;
-    color: #ff6b00;
-}
-
-.historia p {
-    text-align: justify;
-    max-width: 1200px;
-    width: 99%;
-    font-size: 20px;
-}

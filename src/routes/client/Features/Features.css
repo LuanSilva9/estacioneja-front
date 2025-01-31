@@ -10,7 +10,7 @@
 
 .feature-reservation h2 {
     font-size: 2.5rem;
-    color: #22b644;
+    color: var(--color-green-primary);
     font-weight: 500;
     padding-bottom: 5px;
     border-bottom: 2px solid #cccc;

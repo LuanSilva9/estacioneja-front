@@ -19,18 +19,16 @@
 }
 
 .policy-content {
-    padding: 20px;
     color: #333;
     line-height: 1.6;
     font-size: 1rem;
-    border-left: 4px solid rgb(54 183 123); 
     background-color: #fff;
     border-radius: 5px;
 }
 
 .policy-content h3 {
-    color: #ff6b00;
-    font-size: 1.25rem;
+    color: var(--color-green-primary);
+    font-size: 40px;
     margin-top: 20px;
     margin-bottom: 10px;
 }
@@ -50,11 +48,11 @@
 }
 
 .policy-content a {
-    color: rgb(54 183 123); 
+    color: var(--color-orange-primary); 
     text-decoration: none;
 }
 
 .policy-content a:hover {
-    color: #ff6b00; 
+    color: var(--color-green-primary); 
     text-decoration: underline;
 }

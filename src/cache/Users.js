@@ -3,7 +3,7 @@ var users = [
         "userName": "Luan Freire Alves da Silva",
         "userEmail": "estacioneja@admin.com",
         "userPassword": "12345",
-        "userImage": "/assets/images.png",
+        "userImage": "/assets/profilephoto_adm_acc.png",
         "userCity": {
             "name": "Naviraí",
             "uf": "MS",
