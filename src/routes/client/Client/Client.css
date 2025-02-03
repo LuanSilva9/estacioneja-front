@@ -59,6 +59,7 @@
     padding: 15px;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     border: 1px solid #3333;
 }
 
@@ -260,6 +261,11 @@
     color: rgb(54, 54, 54);
 }
 
+.veiculos-form {
+    max-width: 1200px;
+    margin: 10px auto;
+}
+
 
 @media screen and (max-width: 685px) {
     .info-company {
@@ -279,6 +285,13 @@
 
 @media screen and (max-width: 1225px) {
     .control {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .history  {
+       text-align: center;
         justify-content: center;
     }
 }
