@@ -20,7 +20,7 @@ export default function PanelPark() {
     const selectedPark = parkFinded.length > 0 ? parkFinded[0] : null;
 
     if(!selectedPark) {
-        return <Error404 />
+        return <h2>Estacionamento não encontrado</h2>
     }
 
     if(localStorage.getItem('parkSelected')) {
