@@ -179,7 +179,7 @@ export default function RouterPaper() {
                 </CompanyProvider>
             } />
             
-            <Route path="/*" element={<Error404/>}/>
+            {/* <Route path="/*" element={<PublicRouter><Error404/></PublicRouter>}/> */}
         </Routes>
     );
 }
