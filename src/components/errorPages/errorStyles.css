@@ -1,12 +1,13 @@
-.not-park-vincle {
+.box-error {
     color: var(--color-green-shade);
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 30px;
 }
 
-.not-park-vincle img {
+.box-error img {
     width: 500px;
 }
