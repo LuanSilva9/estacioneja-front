@@ -1,3 +1,4 @@
-const DEFAULT_LOGO = "/assets/camera.svg";
+const EMPTY = '';
+const TOLERANCE = 15;
 
-export { DEFAULT_LOGO };
+export { EMPTY, TOLERANCE };
