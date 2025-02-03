@@ -17,6 +17,7 @@ export const UserProvider = ({ children }) => {
         userPhone: '',
         userCompanyVincles: [],
         userReservation: [],
+        userReservationHistory: [],
     });
 
     useEffect(() => {
