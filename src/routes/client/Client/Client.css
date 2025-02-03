@@ -25,16 +25,9 @@
 }
 
 .parkVincles {
-    display: flex;
     width: 90%;
     max-width: 1200px;
-    padding: 10px 0px;
     margin: 20px auto;
-    color: #333333;
-    border-radius: 5px;
-    justify-content: start;
-    flex-direction: column;
-    gap: 20px;
 }
 
 .historys {
@@ -67,6 +60,32 @@
     display: flex;
     justify-content: space-between;
     border: 1px solid #3333;
+}
+
+.history div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.history .status-code-error {
+    padding: 5px 15px;
+    color: var(--color-orange-primary);
+    border: 1px solid var(--color-orange-primary);
+    border-radius: 50px;
+}
+
+.history .status-code-success {
+    padding: 5px 15px;
+    color: var(--color-green-primary);
+    border: 1px solid var(--color-green-primary);
+    border-radius: 50px;
+}
+
+.history span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .cardsParks {
