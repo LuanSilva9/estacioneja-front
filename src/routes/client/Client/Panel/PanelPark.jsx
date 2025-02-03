@@ -6,6 +6,7 @@ import EJInfoCompany from "../../../../components/EJ/EJInfoCompany";
 import EJInfoPark from "../../../../components/EJ/EJInfoPark";
 
 import FooterClient from '../../../../components/FooterClient'
+import Error404 from "../../../../components/errorPages/Error404";
 
 
 export default function PanelPark() {
@@ -20,7 +21,7 @@ export default function PanelPark() {
     const selectedPark = parkFinded.length > 0 ? parkFinded[0] : null;
 
     if(!selectedPark) {
-        return <h2>Estacionamento não encontrado</h2>;
+        return <Error404/>;
     }
 
     if(localStorage.getItem('parkSelected')) {
