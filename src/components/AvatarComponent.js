@@ -5,11 +5,14 @@ import { Link, Navigate } from 'react-router-dom';
 import { Avatar, Divider, IconButton, Menu, MenuItem } from "@mui/material";
 
 import { Button, Nav } from "react-bootstrap";
-import { FaBell, FaRegUserCircle } from 'react-icons/fa';
-import { RiSettings4Fill } from 'react-icons/ri';
+import { FaBell, FaRegUserCircle, FaUserAlt } from 'react-icons/fa';
+import { RiSettings4Fill, RiSettingsFill } from 'react-icons/ri';
 import { menuAdmin } from '../constants/menu/menuAdmin';
 import { isAdmin } from '../RouterPaper';
 import EJNotifyBox from './EJ/EJNotifyBox';
+import { FaCar, FaCarOn } from 'react-icons/fa6';
+import { BiLogOut } from 'react-icons/bi';
+import { IoCar } from 'react-icons/io5';
 
 export default function AvatarComponent({ avatar, menuItensProfile, styles }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -112,8 +115,9 @@ export default function AvatarComponent({ avatar, menuItensProfile, styles }) {
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-                <MenuItem><Link className="menu-a-drop" to="/perfil"><FaRegUserCircle /> Perfil</Link></MenuItem>
-                <MenuItem><Link className="menu-a-drop" to="/configuracoes/perfil"><RiSettings4Fill /> Configurações</Link></MenuItem>
+                <MenuItem><Link className="menu-a-drop" to="perfil"><FaUserAlt /> Perfil</Link></MenuItem>
+                <MenuItem><Link className="menu-a-drop" to="perfil/veiculos"><FaCar />Veiculos</Link></MenuItem>
+                <MenuItem><Link className="menu-a-drop" to="configuracoes"><RiSettingsFill /> Configurações</Link></MenuItem>
                 
                 {
                     isAdmin() ? menuAdmin ? menuAdmin.map((item, index) => <MenuItem className="itens-menu-mobile" key={index}><Link className="menu-a-drop" to={item.href}>{item.icon ? <item.icon/> : null}{item.label}</Link></MenuItem>) : null : null
@@ -124,7 +128,7 @@ export default function AvatarComponent({ avatar, menuItensProfile, styles }) {
                 }
 
                 <Divider />
-                <MenuItem onClick={logout} sx={{ color: 'red'}}>Sair</MenuItem>
+                <MenuItem onClick={logout} sx={{ color: 'red', gap: 1}}><BiLogOut/>  Sair</MenuItem>
             </Menu>
 
             <Menu
