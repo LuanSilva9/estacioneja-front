@@ -16,11 +16,9 @@ import { IoCar } from 'react-icons/io5';
 
 export default function AvatarComponent({ avatar, menuItensProfile, styles }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
-    const [anchorNotifyBox, setAnchorNotifyBox] = React.useState(null);
     const [isLoggedOut, setIsLoggedOut] = React.useState(false);
     
     const open = Boolean(anchorEl);
-    const openNotifyBox = Boolean(anchorNotifyBox);
     
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -30,13 +28,6 @@ export default function AvatarComponent({ avatar, menuItensProfile, styles }) {
         setAnchorEl(null);
     };
 
-    const handleClickNotify = (event) => {
-        setAnchorNotifyBox(event.currentTarget);
-    };
-    
-    const handleCloseNotify = () => {
-        setAnchorNotifyBox(null);
-    };
 
     function logout() {
         localStorage.removeItem('userData');
@@ -64,14 +55,12 @@ export default function AvatarComponent({ avatar, menuItensProfile, styles }) {
             </IconButton>
 
             <IconButton
-                onClick={handleClickNotify}
                 size="large"
                 aria-controls={open ? 'notify-menu' : undefined}
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
             >
-                <Button variant='text' style={{ color: styles ? styles.color : '#ccc', fontWeight: 500, fontSize: "25px" }}><FaBell /></Button>
-
+                <Button href="/notificacoes" variant='text' style={{ color: styles ? styles.color : '#ccc', fontWeight: 500, fontSize: "25px" }}><FaBell /></Button>
             </IconButton>
             
 
@@ -115,9 +104,9 @@ export default function AvatarComponent({ avatar, menuItensProfile, styles }) {
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-                <MenuItem><Link className="menu-a-drop" to="perfil"><FaUserAlt /> Perfil</Link></MenuItem>
-                <MenuItem><Link className="menu-a-drop" to="perfil/veiculos"><FaCar />Veiculos</Link></MenuItem>
-                <MenuItem><Link className="menu-a-drop" to="configuracoes"><RiSettingsFill /> Configurações</Link></MenuItem>
+                <MenuItem><Link className="menu-a-drop" to="/client/perfil"><FaUserAlt /> Perfil</Link></MenuItem>
+                <MenuItem><Link className="menu-a-drop" to="/client/perfil/veiculos"><FaCar />Veiculos</Link></MenuItem>
+                <MenuItem><Link className="menu-a-drop" to="/client/configuracoes"><RiSettingsFill /> Configurações</Link></MenuItem>
                 
                 {
                     isAdmin() ? menuAdmin ? menuAdmin.map((item, index) => <MenuItem className="itens-menu-mobile" key={index}><Link className="menu-a-drop" to={item.href}>{item.icon ? <item.icon/> : null}{item.label}</Link></MenuItem>) : null : null
@@ -131,32 +120,7 @@ export default function AvatarComponent({ avatar, menuItensProfile, styles }) {
                 <MenuItem onClick={logout} sx={{ color: 'red', gap: 1}}><BiLogOut/>  Sair</MenuItem>
             </Menu>
 
-            <Menu
-                anchorEl={anchorNotifyBox}
-                id="notify-menu"
-                open={openNotifyBox}
-                onClose={handleCloseNotify}
-                onClick={handleCloseNotify}
-                
-                slotProps={{
-                    paper: {
-                        elevation: 0,
-                        sx: {
-                            
-                            overflow: 'visible',
-                            mt: 1.0,
-                            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-                            width: 300,
-                            
-                        },
-                    },
-                }}
-
-                transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-                anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-            >
-                <EJNotifyBox/>
-            </Menu>
+           
         </Nav>
     )
 }
