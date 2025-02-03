@@ -59,8 +59,9 @@ export default function EJParkModel({ MapperJsonPark }) {
         const novoArray = userData.userCompanyVincles.filter((e) => e.companyName !== estacionamento);
     
         if (novoArray.length !== userData.userCompanyVincles.length) {
+            handleClickSnackbar();
             updateUserData({...userData, userCompanyVincles: novoArray });
-        } 
+        }
     }
 
     function generateBackgroundForCards() {
@@ -95,7 +96,6 @@ export default function EJParkModel({ MapperJsonPark }) {
                     <Button
                         onClick={() => {
                             desvincularEstacionamento();
-                            handleClickSnackbar();
                             handleClose();
                         }}
                         color="error"
@@ -106,7 +106,7 @@ export default function EJParkModel({ MapperJsonPark }) {
                 </DialogActions>
             </Dialog>
 
-            <Card sx={{ maxWidth: "1200px", maxHeight: '520px', borderRadius: 0, border: '1px solid #ccc' }}>
+            <Card sx={{ maxWidth: "1200px", maxHeight: '100%', borderRadius: 0, border: '1px solid #ccc' }}>
                 <CardMedia sx={generateBackgroundForCards()} />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div" display={"flex"} alignItems={"center"} gap={2}>
@@ -138,7 +138,7 @@ export default function EJParkModel({ MapperJsonPark }) {
                 </CardActions>
             </Card>
 
-           <Snackbar open={openSnackbar} autoHideDuration={6000}  onClose={handleCloseSnackbar} message="Note archived" action={action}/>
+            <Snackbar open={openSnackbar} onClose={handleCloseSnackbar} message="Snackbar-test" action={action}/>
         </React.Fragment>
     )
 }
