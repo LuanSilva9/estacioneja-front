@@ -10,12 +10,13 @@ import { colorVeicle, modelVeicle } from "../../../../constants/Veicles";
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import { rootColors } from "../../../../constants/pallete";
 
 
 export default function VeiclesForm() {
     const { userData, updateUserData } = useUser();
 
-    const [ veicleObject, setVeicleObject ] = useState({
+    const [veicleObject, setVeicleObject] = useState({
         type: '',
         sign: '',
         model: '',
@@ -37,7 +38,7 @@ export default function VeiclesForm() {
 
         return modelFinded ? modelFinded.models : [];
     };
-    
+
     const submitVeiclesData = (e) => {
         e.preventDefault();
 
@@ -49,18 +50,22 @@ export default function VeiclesForm() {
         })
     }
 
+    function desvincularVeiculo(veicle) {
+
+    }
+
     return (
         <React.Fragment>
             <HeaderbarClient userProps={userData} />
 
-
-            <form onSubmit={submitVeiclesData}>
-                <Grid container spacing={2} sx={{ mb: 1, p: 5, display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <section className="veiculos-form">
+                <form onSubmit={submitVeiclesData}>
+                    <Grid container spacing={2} sx={{ mb: 1, p: 5, display: "flex", justifyContent: "center", alignItems: "center" }}>
                         <Grid item xs={12}>
-                            <Typography align="start" variant="h4" sx={{ color: "rgb(47, 155, 46)", fontWeight: '500' }}>Cadastrar Veiculos</Typography>
+                            <Typography align="start" variant="h4" sx={{ color: rootColors.colorGreenPrimary, fontWeight: '500' }}>Cadastrar Veiculos</Typography>
                         </Grid>
-                        
-                        <Grid item xs={9}>
+
+                        <Grid item xs={6}>
                             <Autocomplete
                                 fullWidth
                                 options={modelVeicle.map((item) => item.type)}
@@ -77,36 +82,36 @@ export default function VeiclesForm() {
                                 onChange={(e, value) => {
                                     setVeicleObject({
                                         ...veicleObject,
-                                        type: value, 
+                                        type: value,
                                     });
                                 }}
                             />
                         </Grid>
 
-                        <Grid item xs={3}>
+                        <Grid item xs={6}>
                             <TextField
                                 fullWidth
                                 required
                                 value={veicleObject.sign}
-                                label="Digite a placa do carro"
+                                label="Digite a placa do veiculo"
                                 inputProps={{
-                                    maxLength: 8, 
+                                    maxLength: 8,
                                 }}
                                 onChange={handleSignVeicle}
-                                
+
                             />
                         </Grid>
-                        
-                        <Grid item xs={9}>
+
+                        <Grid item xs={6}>
                             <Autocomplete
                                 fullWidth
-                                disabled={ veicleObject.type == '' || veicleObject.type == null }
-                                options={getModelByType(veicleObject.type)} 
+                                disabled={veicleObject.type == '' || veicleObject.type == null}
+                                options={getModelByType(veicleObject.type)}
                                 getOptionLabel={(option) => option.toString()}
                                 renderInput={(params) => (
                                     <TextField
                                         {...params}
-                                        label="Selecione a marca do seu veiculo"
+                                        label="Selecione a marca do veiculo"
                                         variant="outlined"
                                         fullWidth
                                     />
@@ -114,13 +119,13 @@ export default function VeiclesForm() {
                                 onChange={(e, value) => {
                                     setVeicleObject({
                                         ...veicleObject,
-                                        model: value, 
+                                        model: value,
                                     });
                                 }}
                             />
                         </Grid>
-                        
-                        <Grid item xs={3}>
+
+                        <Grid item xs={6}>
                             <Autocomplete
                                 fullWidth
                                 value={veicleObject.color}
@@ -145,40 +150,44 @@ export default function VeiclesForm() {
                         </Grid>
 
 
-                        <Grid item >
+                        <Grid item>
                             <Button type="submit" variant="contained" color="success">Adicionar Veiculo</Button>
                         </Grid>
 
-                </Grid>
-            </form>
+                    </Grid>
+                </form>
 
-            <Divider>Veiculos já Cadastrados</Divider>
 
-            <Grid container spacing={2} sx={{ mb: 1, p: 5, display: "flex", justifyContent: "center", alignItems: "center" }}>
+                <Grid container spacing={2} sx={{ mb: 1, p: 5, display: "flex", justifyContent: "center", alignItems: "center" }}>
+                    <Grid item xs={12}>
+                        <Typography align="start" variant="h4" sx={{ color: rootColors.colorGreenPrimary, fontWeight: '500' }}>Seus Veiculos</Typography>
+                    </Grid>
                     {
-                        userData.userVeicles.map((veicle, i) => 
+                        userData.userVeicles.map((veicle, i) =>
                             <Grid key={i} item xs={12}>
-                                <Card sx={{  borderLeft: "2px solid rgb(47, 155, 46)", boxShadow: '0px 0px 3px #ccc', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                <Card sx={{ borderLeft: `2px solid ${rootColors.colorGreenPrimary}`, boxShadow: '0px 0px 3px #ccc', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                     <Box>
                                         <CardContent>
                                             <Typography gutterBottom variant="h4" component="div">
                                                 {veicle.model}, {veicle.name}
                                             </Typography>
-                                            
+
                                             <Typography variant="h6" sx={{ color: 'text.secondary' }}>
                                                 {veicle.color}
                                             </Typography>
                                         </CardContent>
                                     </Box>
 
-                                    <Box sx={{ mr: 10 }}>
-                                        <Button variant="outlined" color="error"><MdDelete />{' '} Deletar</Button>
+                                    <Box sx={{ mr: 5 }}>
+                                        <Button variant="outlined" color="error" onClick={()=> desvincularVeiculo(veicle)}><MdDelete />{' '} Deletar</Button>
                                     </Box>
                                 </Card>
                             </Grid>
                         )
                     }
-            </Grid>
+                </Grid>
+            </section>
+
         </React.Fragment>
     )
 }
