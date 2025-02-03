@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Button, Snackbar, Typography } from "@mui/material";
+import { Avatar, Button, Snackbar, Typography } from "@mui/material";
 
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -14,8 +14,9 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
 
-import { DEFAULT_LOGO } from '../../defaultValues';
+import { EMPTY } from '../../defaultValues';
 import { useUser } from '../../contexts/UserContext';
+import { rootColors } from '../../constants/pallete';
 
 export default function EJParkModel({ MapperJsonPark }) {
     const { userData, updateUserData } = useUser();
@@ -39,7 +40,7 @@ export default function EJParkModel({ MapperJsonPark }) {
 
     const handleCloseSnackbar = (event, reason) => {
         if (reason === 'clickaway') {
-        return;
+            return;
         }
 
         setOpenSnackbar(false);
@@ -63,11 +64,10 @@ export default function EJParkModel({ MapperJsonPark }) {
     }
 
     function generateBackgroundForCards() {
-        if(MapperJsonPark.companyLogo == DEFAULT_LOGO) {
-            return { height: 140, background: '#ccc' }
-        }
-        else {
-            return { height: 140, background: `url(${MapperJsonPark.companyLogo}) no-repeat center center`, backgroundSize: '10%', borderBottom: "1px solid #ccc" }
+        if(MapperJsonPark.companyColor == EMPTY) {
+            return { height: 330, background: '#ccc' }
+        } else {
+            return { height: 330, background: `linear-gradient(180deg, ${MapperJsonPark.companyColor}, ${rootColors.colorGreenPrimary})` };
         }
     }
 
@@ -106,10 +106,11 @@ export default function EJParkModel({ MapperJsonPark }) {
                 </DialogActions>
             </Dialog>
 
-            <Card sx={{ maxWidth: "588px", borderRadius: 0, border: '1px solid #ccc' }}>
+            <Card sx={{ maxWidth: "1200px", maxHeight: '520px', borderRadius: 0, border: '1px solid #ccc' }}>
                 <CardMedia sx={generateBackgroundForCards()} />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
+                    <Typography gutterBottom variant="h5" component="div" display={"flex"} alignItems={"center"} gap={2}>
+                        <Avatar src={MapperJsonPark.companyLogo} sx={{ width: 56, height: 56 }} variant="square"/>
                         {MapperJsonPark.companyName}
                     </Typography>
                     <Typography variant="body2" sx={{ color: 'text.secondary' }}>
