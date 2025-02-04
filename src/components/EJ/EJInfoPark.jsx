@@ -1,6 +1,5 @@
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, LineElement, PointElement, Tooltip, Legend } from "chart.js";
-import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Tooltip, Legend);
