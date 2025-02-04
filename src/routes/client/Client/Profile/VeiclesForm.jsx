@@ -11,6 +11,8 @@ import { colorVeicle, modelVeicle } from "../../../../constants/Veicles";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { rootColors } from "../../../../constants/pallete";
+import NoVeiclesFounded from "../../../../components/errorPages/NoVeiclesFound";
+import FooterClient from "../../../../components/FooterClient";
 
 
 export default function VeiclesForm() {
@@ -185,8 +187,14 @@ export default function VeiclesForm() {
                             </Grid>
                         )
                     }
+
+                    {
+                        userData.userVeicles.length == 0 ? <NoVeiclesFounded /> : null
+                    }
                 </Grid>
             </section>
+
+            <FooterClient/>
 
         </React.Fragment>
     )
