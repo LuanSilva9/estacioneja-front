@@ -30,29 +30,6 @@
     margin: 20px auto;
 }
 
-.historys {
-    display: flex;
-    max-width: 1200px;
-    padding: 10px 0px;
-    width: 90%;
-    margin: 20px auto;
-    color: #333333;
-    border-radius: 5px;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.historys .cardsHistorys {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-}
-
-.vincular {
-    display: flex;
-    justify-content: center;
-}
 
 .history {
     margin:  0;
@@ -264,6 +241,58 @@
 .veiculos-form {
     max-width: 1200px;
     margin: 10px auto;
+}
+
+.notification-paper {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 15px auto;
+}
+
+.notification-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: space-between;
+    flex-direction: column;
+    max-width: 1200px;
+    width: 90%;
+    background: #f7f7f7;
+    box-shadow: 0px 0px 1px #050505;
+    padding: 10px 15px;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.sender-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.notification-body p, .notification-timestamp p {
+    margin: 0 !important;
+}
+
+.notification-body p, .notification-body a {
+    color: #333333;
+    font-weight: 500;
+}
+
+.profile-page-form {
+    max-width: 1200px;
+    margin: 25px auto;
+}
+
+
+.profile-page-form .image {
+    margin: 20px ;
+    width: 200px;
+    height: 200px;
 }
 
 
