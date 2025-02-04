@@ -9,6 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { MdNavigateNext } from "react-icons/md";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
+import { users } from "../../../cache/Users";
 
 export default function SignUpClient({ type }) {    
     const [dddPhone, setDddPhone] = useState('');
@@ -26,7 +27,13 @@ export default function SignUpClient({ type }) {
         e.preventDefault();
 
         if(!equalsPassword) alert("Confirme a senha");
-        else navigate("/client");
+        else {
+            users.push(userData);
+
+            localStorage.setItem('sessionId', process.env.REACT_APP_AUTH_KEY_USER);
+
+            navigate('/'); 
+        };
     }
 
     function handleDdd(e) {

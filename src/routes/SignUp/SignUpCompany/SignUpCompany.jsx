@@ -5,7 +5,7 @@ import { companys } from "../../../constants/Companys";
 
 import '../SignUp.css';
 
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { MdNavigateNext } from "react-icons/md";
 
