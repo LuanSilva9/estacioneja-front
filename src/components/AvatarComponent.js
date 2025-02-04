@@ -5,14 +5,13 @@ import { Link, Navigate } from 'react-router-dom';
 import { Avatar, Divider, IconButton, Menu, MenuItem } from "@mui/material";
 
 import { Button, Nav } from "react-bootstrap";
-import { FaBell, FaRegUserCircle, FaUserAlt } from 'react-icons/fa';
-import { RiSettings4Fill, RiSettingsFill } from 'react-icons/ri';
+import { FaBell, FaUserAlt } from 'react-icons/fa';
+import { RiSettingsFill } from 'react-icons/ri';
 import { menuAdmin } from '../constants/menu/menuAdmin';
 import { isAdmin } from '../RouterPaper';
-import EJNotifyBox from './EJ/EJNotifyBox';
-import { FaCar, FaCarOn } from 'react-icons/fa6';
+
+import { FaCar } from 'react-icons/fa6';
 import { BiLogOut } from 'react-icons/bi';
-import { IoCar } from 'react-icons/io5';
 
 export default function AvatarComponent({ avatar, menuItensProfile, styles }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -60,7 +59,7 @@ export default function AvatarComponent({ avatar, menuItensProfile, styles }) {
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
             >
-                <Button href="/notificacoes" variant='text' style={{ color: styles ? styles.color : '#ccc', fontWeight: 500, fontSize: "25px" }}><FaBell /></Button>
+                <Button href="/client/notificacoes" variant='text' style={{ color: styles ? styles.color : '#ccc', fontWeight: 500, fontSize: "25px" }}><FaBell /></Button>
             </IconButton>
             
 
