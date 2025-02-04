@@ -1,13 +1,27 @@
-.box-error {
-    color: var(--color-green-shade);
+.box-error-simple {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.box-error-simple img {
+    width: 200px;
+}
+
+.box-error-wb {
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 30px;
+    margin: 20px;
 }
 
-.box-error img {
+.box-error-wb img {
     width: 500px;
 }
