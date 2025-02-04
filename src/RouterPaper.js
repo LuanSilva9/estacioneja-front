@@ -23,6 +23,8 @@ import { ReservationProvider } from './contexts/ReservationContext';
 import ReservationConfigureData from './routes/client/Client/Reservation/ReservationConfigureData';
 import VeiclesForm from './routes/client/Client/Profile/VeiclesForm';
 import Error404 from './components/errorPages/Error404';
+import Notifications from './routes/client/Client/Notificacations';
+import ProfilePage from './routes/client/Client/Profile/ProfilePage';
 
 function isAuth() {
     const sessionId = localStorage.getItem('sessionId');
@@ -170,7 +172,16 @@ export default function RouterPaper() {
                 </UserProvider>
             } />
 
+            {/* Página de notificações */}
+            <Route path="/client/notificacoes" element={
+                <UserProvider>
+                    <PrivateRouter>
+                        <Notifications />
+                    </PrivateRouter>
+                </UserProvider>
+            } />
 
+            {/* Dashboard administrativo */}
             <Route path="/dashboard" element={
                 <CompanyProvider>
                     <AdminRouter>
@@ -178,6 +189,15 @@ export default function RouterPaper() {
                     </AdminRouter>
                 </CompanyProvider>
             } />
+
+            {/* Pagina de perfil */}
+            <Route path={"/client/perfil"} element={
+                <UserProvider>
+                    <PrivateRouter>
+                        <ProfilePage/>
+                    </PrivateRouter>
+                </UserProvider>
+            }/>
             
             {/* <Route path="/*" element={<PublicRouter><Error404/></PublicRouter>}/> */}
         </Routes>
