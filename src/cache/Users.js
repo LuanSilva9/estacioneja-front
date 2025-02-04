@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 var users = [
     {
         "userName": "Luan Freire Alves da Silva",
@@ -60,6 +62,52 @@ var users = [
             }
         ],
         "userReservation": [],
+        "userNotification": [
+            {
+                headers: {
+                    sender: "Sistema",
+                    timeStamp: dayjs(),
+                },
+
+                body: {
+                    message: "Bem vindo ao sistema EstacioneJá, aproveite! Em caso de duvidas, nos procure ou entre em contato :D",
+                    href: {
+                        enabled: false,
+                        linkAddress: ""
+                    }
+                }
+            },
+
+            {
+                headers: {
+                    sender: "Sistema",
+                    timeStamp: dayjs(),
+                },
+
+                body: {
+                    message: "Nada é mais importante do que estar seguro e sem preocupações, o EstacioneJá tem isso como lema!",
+                    href: {
+                        enabled: false,
+                        linkAddress: ""
+                    }
+                }
+            },
+
+            {
+                headers: {
+                    sender: "Sistema",
+                    timeStamp: dayjs(),
+                },
+
+                body: {
+                    message: "É programador? Conheça nosso repositório!",
+                    href: {
+                        enabled: true,
+                        linkAddress: "https://github.com/LuanSilva9/estacioneja-prototype"
+                    }
+                }
+            }
+        ],
         "userReservationHistory": [
             {
                 "status": 0,
