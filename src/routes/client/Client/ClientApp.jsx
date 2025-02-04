@@ -99,21 +99,6 @@ export default function ClientApp() {
                     }
                 </div>
             </div>
-
-            {
-                userData.userReservationHistory.length != 0 ? (
-                    <div className="historys">
-                        <Typography align="center" variant="h4">Historico de Reservas</Typography>
-
-                        <div className="cardsHistorys">
-                            {
-                                userData.userReservationHistory.map((history, index) => <EJHistory key={index} MapperJsonHistory={history}/>)
-                            }
-                        </div>
-                    </div>
-                ) : null
-            } 
-
             <FooterClient />
         </main>
     )
