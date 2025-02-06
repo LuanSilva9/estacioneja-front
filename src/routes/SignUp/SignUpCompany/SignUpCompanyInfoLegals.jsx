@@ -146,7 +146,7 @@ export default function SignUpInfoLegals() {
                 </form>
             </div>
 
-            <div className="image-side" style={{ background: "url(/assets/image_2_generated_by_ai.png) no-repeat center center" }}></div>
+            <div className="image-side" style={{ background: "url(/assets/bg-signin-company.jpg) no-repeat center center" }}></div>
         </section>
     )
 }

@@ -5,6 +5,7 @@ html, body {
 body {
     overflow-x: hidden;
     padding-right: 0px !important;
+    scroll-behavior: smooth;
 }
 
 .logo {
@@ -60,6 +61,7 @@ body {
     overflow: hidden;
     background: url(/public/assets/images-freepik/tech-bg.png) no-repeat, 
                 url(/public/assets/images-freepik/security-bg.png) no-repeat, 
-                url(/public/assets/images-freepik/relatorios-bg.png) no-repeat, 
+                url(/public/assets/images-freepik/relatorios-bg.png) no-repeat,
+                url(/public/assets/bg-signin-company.jpg) no-repeat, 
                 url(/public/assets/images-freepik/dashboard-bg.png) no-repeat;
 }

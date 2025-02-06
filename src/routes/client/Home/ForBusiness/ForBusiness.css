@@ -1,0 +1,228 @@
+.hero-section-business {
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    background: url("../../../../../public/assets/bg-business.jpg") no-repeat center center;
+    background-size: cover;
+    padding: 20px;
+}
+
+.hero-section-business h2 {
+    font-size: 60px;
+    font-weight: 500;
+}
+
+.text-business {
+    text-align: center;
+}
+
+.text-business p {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.hero-section-business .icon-down {
+    font-size: 50px;
+    color: #fff;
+}
+
+.card-single-staff {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-single-staff .photo {
+    width: 200px;
+    height: 300px;
+    background: #777777;
+}
+
+.card-single-staff h4 {
+    margin-top: 10px;
+}
+
+.staff {
+    text-align: center;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.staff h2 {
+    color: var(--color-green-primary);
+}
+
+.cards-photos-staff {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.seguranca {
+    text-align: center;
+    padding: 40px;
+    background: var(--color-green-primary);
+    
+}
+
+.seguranca h2 {
+    color: #fff;
+}
+
+.content-seguranca {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.content-seguranca p {
+    max-width: 700px;
+    text-align: justify;
+    font-size: 18px;
+    font-weight: 450;
+    color: #f0f0f0;
+}
+
+.content-seguranca img {
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.controle {
+    text-align: center;
+    padding: 40px;
+    background: var(--color-green-tint);
+}
+
+.controle h2 {
+    color: #3b3b3b;
+}
+
+.content-controle {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.content-controle p {
+    max-width: 700px;
+    text-align: justify;
+    font-size: 18px;
+    font-weight: 450;
+    color: #3b3b3b;
+}
+
+.content-controle img {
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.relatorios {
+    text-align: center;
+    padding: 40px;
+    background: #fff;
+}
+
+.relatorios h2 {
+    color: var(--color-green-shade);
+}
+
+.content-relatorios {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.content-relatorios p {
+    max-width: 700px;
+    text-align: justify;
+    font-size: 18px;
+    font-weight: 450;
+    color: #3b3b3b;
+}
+
+.content-relatorios img {
+    max-width: 500px;
+    max-height: 500px;
+}
+
+
+.dashboards {
+    text-align: center;
+    padding: 40px;
+    background: #fff;
+    border-top: 2px solid var(--color-green-primary);
+}
+
+.dashboards h2 {
+    color: var(--color-green-primary);
+}
+
+.content-dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-dashboard img {
+    max-width: 800px;
+    max-height: 800px;
+}
+
+.content-dashboard p {
+    max-width: 1000px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 450;
+    color: #3b3b3b;
+}
+
+.plans h2 {
+    text-align: center;
+}
+
+.cards-plans {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.card-single-plans {
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.card-single-plans h4 {
+    font-size: 30px;
+}
+
+.card-single-plans ul {
+    list-style-type:decimal;
+}
+
+.linebar-diviser {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.linebar-diviser div {
+    height: 3px;
+    width: 500px;
+    background: var(--color-green-primary);
+}

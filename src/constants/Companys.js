@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { citys } from "./Citys";
 
 const companys = [
@@ -29,7 +30,66 @@ const companys = [
                 subTitle: 'Esse pacote é feito para estacionamentos grandes (+ 100 Vagas)'
             }
         },
+        companyNotification: [
+                    {
+                        headers: {
+                            sender: "Luan/Paulo/Joao",
+                            timeStamp: dayjs(),
+                        },
 
+                        body: {
+                            message: "Se você está vendo essa notificação significa que o projeto está sendo apresentado na feira!",
+                            href: {
+                                enabled: false,
+                                linkAddress: ""
+                            }
+                        }
+                    },
+                    {
+                        headers: {
+                            sender: "Sistema",
+                            timeStamp: dayjs(),
+                        },
+        
+                        body: {
+                            message: "Bem vindo ao sistema EstacioneJá, aproveite! Em caso de duvidas, nos procure ou entre em contato :D",
+                            href: {
+                                enabled: false,
+                                linkAddress: ""
+                            }
+                        }
+                    },
+        
+                    {
+                        headers: {
+                            sender: "Sistema",
+                            timeStamp: dayjs(),
+                        },
+        
+                        body: {
+                            message: "Nada é mais importante do que estar seguro e sem preocupações, o EstacioneJá tem isso como lema!",
+                            href: {
+                                enabled: false,
+                                linkAddress: ""
+                            }
+                        }
+                    },
+        
+                    {
+                        headers: {
+                            sender: "Sistema",
+                            timeStamp: dayjs(),
+                        },
+        
+                        body: {
+                            message: "É programador? Conheça nosso repositório!",
+                            href: {
+                                enabled: true,
+                                linkAddress: "https://github.com/LuanSilva9/estacioneja-prototype"
+                            }
+                        }
+                    }
+                ],
         companyAccess: {
             email: 'contato@ifms.edu.br',
             password: 'senha123'
@@ -63,7 +123,52 @@ const companys = [
                 subTitle: 'Esse pacote é feito para estacionamentos grandes (+ 100 Vagas)'
             }
         },
+        companyNotification: [
+            {
+                headers: {
+                    sender: "Sistema",
+                    timeStamp: dayjs(),
+                },
 
+                body: {
+                    message: "Bem vindo ao sistema EstacioneJá, aproveite! Em caso de duvidas, nos procure ou entre em contato :D",
+                    href: {
+                        enabled: false,
+                        linkAddress: ""
+                    }
+                }
+            },
+
+            {
+                headers: {
+                    sender: "Sistema",
+                    timeStamp: dayjs(),
+                },
+
+                body: {
+                    message: "Nada é mais importante do que estar seguro e sem preocupações, o EstacioneJá tem isso como lema!",
+                    href: {
+                        enabled: false,
+                        linkAddress: ""
+                    }
+                }
+            },
+
+            {
+                headers: {
+                    sender: "Sistema",
+                    timeStamp: dayjs(),
+                },
+
+                body: {
+                    message: "É programador? Conheça nosso repositório!",
+                    href: {
+                        enabled: true,
+                        linkAddress: "https://github.com/LuanSilva9/estacioneja-prototype"
+                    }
+                }
+            }
+        ],
         companyAccess: {
             email: 'contato@copasul.com.br',
             password: 'senha456'
@@ -97,7 +202,52 @@ const companys = [
                 subTitle: 'Esse pacote é feito para estacionamentos grandes (+ 100 Vagas)'
             }
         },
+        companyNotification: [
+            {
+                headers: {
+                    sender: "Sistema",
+                    timeStamp: dayjs(),
+                },
 
+                body: {
+                    message: "Bem vindo ao sistema EstacioneJá, aproveite! Em caso de duvidas, nos procure ou entre em contato :D",
+                    href: {
+                        enabled: false,
+                        linkAddress: ""
+                    }
+                }
+            },
+
+            {
+                headers: {
+                    sender: "Sistema",
+                    timeStamp: dayjs(),
+                },
+
+                body: {
+                    message: "Nada é mais importante do que estar seguro e sem preocupações, o EstacioneJá tem isso como lema!",
+                    href: {
+                        enabled: false,
+                        linkAddress: ""
+                    }
+                }
+            },
+
+            {
+                headers: {
+                    sender: "Sistema",
+                    timeStamp: dayjs(),
+                },
+
+                body: {
+                    message: "É programador? Conheça nosso repositório!",
+                    href: {
+                        enabled: true,
+                        linkAddress: "https://github.com/LuanSilva9/estacioneja-prototype"
+                    }
+                }
+            }
+        ],
         companyAccess: {
             email: 'contato@ayrtonsenna.ms.gov.br',
             password: 'senha789'
@@ -131,7 +281,52 @@ const companys = [
                 subTitle: 'Esse pacote é feito para estacionamentos grandes (+ 100 Vagas)'
             }
         },
+        companyNotification: [
+            {
+                headers: {
+                    sender: "Sistema",
+                    timeStamp: dayjs(),
+                },
 
+                body: {
+                    message: "Bem vindo ao sistema EstacioneJá, aproveite! Em caso de duvidas, nos procure ou entre em contato :D",
+                    href: {
+                        enabled: false,
+                        linkAddress: ""
+                    }
+                }
+            },
+
+            {
+                headers: {
+                    sender: "Sistema",
+                    timeStamp: dayjs(),
+                },
+
+                body: {
+                    message: "Nada é mais importante do que estar seguro e sem preocupações, o EstacioneJá tem isso como lema!",
+                    href: {
+                        enabled: false,
+                        linkAddress: ""
+                    }
+                }
+            },
+
+            {
+                headers: {
+                    sender: "Sistema",
+                    timeStamp: dayjs(),
+                },
+
+                body: {
+                    message: "É programador? Conheça nosso repositório!",
+                    href: {
+                        enabled: true,
+                        linkAddress: "https://github.com/LuanSilva9/estacioneja-prototype"
+                    }
+                }
+            }
+        ],
         companyAccess: {
             email: 'contato@sesc.com.br',
             password: 'senha1011'
@@ -165,7 +360,52 @@ const companys = [
                 subTitle: 'Esse pacote é feito para estacionamentos grandes (+ 100 Vagas)'
             }
         },
+        companyNotification: [
+            {
+                headers: {
+                    sender: "Sistema",
+                    timeStamp: dayjs(),
+                },
 
+                body: {
+                    message: "Bem vindo ao sistema EstacioneJá, aproveite! Em caso de duvidas, nos procure ou entre em contato :D",
+                    href: {
+                        enabled: false,
+                        linkAddress: ""
+                    }
+                }
+            },
+
+            {
+                headers: {
+                    sender: "Sistema",
+                    timeStamp: dayjs(),
+                },
+
+                body: {
+                    message: "Nada é mais importante do que estar seguro e sem preocupações, o EstacioneJá tem isso como lema!",
+                    href: {
+                        enabled: false,
+                        linkAddress: ""
+                    }
+                }
+            },
+
+            {
+                headers: {
+                    sender: "Sistema",
+                    timeStamp: dayjs(),
+                },
+
+                body: {
+                    message: "É programador? Conheça nosso repositório!",
+                    href: {
+                        enabled: true,
+                        linkAddress: "https://github.com/LuanSilva9/estacioneja-prototype"
+                    }
+                }
+            }
+        ],
         companyAccess: {
             email: 'contato@prefeitura.navirai.ms.gov.br',
             password: 'senha1213'
@@ -199,7 +439,52 @@ const companys = [
                 subTitle: 'Esse pacote é feito para estacionamentos grandes (+ 100 Vagas)'
             }
         },
+        companyNotification: [
+            {
+                headers: {
+                    sender: "Sistema",
+                    timeStamp: dayjs(),
+                },
 
+                body: {
+                    message: "Bem vindo ao sistema EstacioneJá, aproveite! Em caso de duvidas, nos procure ou entre em contato :D",
+                    href: {
+                        enabled: false,
+                        linkAddress: ""
+                    }
+                }
+            },
+
+            {
+                headers: {
+                    sender: "Sistema",
+                    timeStamp: dayjs(),
+                },
+
+                body: {
+                    message: "Nada é mais importante do que estar seguro e sem preocupações, o EstacioneJá tem isso como lema!",
+                    href: {
+                        enabled: false,
+                        linkAddress: ""
+                    }
+                }
+            },
+
+            {
+                headers: {
+                    sender: "Sistema",
+                    timeStamp: dayjs(),
+                },
+
+                body: {
+                    message: "É programador? Conheça nosso repositório!",
+                    href: {
+                        enabled: true,
+                        linkAddress: "https://github.com/LuanSilva9/estacioneja-prototype"
+                    }
+                }
+            }
+        ],
         companyAccess: {
             email: 'contato@bb.com.br',
             password: 'senha1415'
@@ -233,7 +518,52 @@ const companys = [
                 subTitle: 'Esse pacote é feito para estacionamentos grandes (+ 100 Vagas)'
             }
         },
+        companyNotification: [
+            {
+                headers: {
+                    sender: "Sistema",
+                    timeStamp: dayjs(),
+                },
 
+                body: {
+                    message: "Bem vindo ao sistema EstacioneJá, aproveite! Em caso de duvidas, nos procure ou entre em contato :D",
+                    href: {
+                        enabled: false,
+                        linkAddress: ""
+                    }
+                }
+            },
+
+            {
+                headers: {
+                    sender: "Sistema",
+                    timeStamp: dayjs(),
+                },
+
+                body: {
+                    message: "Nada é mais importante do que estar seguro e sem preocupações, o EstacioneJá tem isso como lema!",
+                    href: {
+                        enabled: false,
+                        linkAddress: ""
+                    }
+                }
+            },
+
+            {
+                headers: {
+                    sender: "Sistema",
+                    timeStamp: dayjs(),
+                },
+
+                body: {
+                    message: "É programador? Conheça nosso repositório!",
+                    href: {
+                        enabled: true,
+                        linkAddress: "https://github.com/LuanSilva9/estacioneja-prototype"
+                    }
+                }
+            }
+        ],
         companyAccess: {
             email: 'contato@universidade.ms.gov.br',
             password: 'senha1617'
@@ -271,12 +601,24 @@ const emptyCompany =  {
             text: {
                 title: '',
                 subTitle: ''
-            }
-        },
-        companyAccess: {
-            email: '',
-            password: '',
-        },
+            },
+            companyNotification: [
+            {
+                headers: {
+                    sender: "",
+                    timeStamp: "",
+                },
+
+                body: {
+                    message: "",
+                    href: {
+                        enabled: false,
+                        linkAddress: ""
+                    }
+                }
+            },
+        ]
     }
+}
 
 export { companys, emptyCompany };

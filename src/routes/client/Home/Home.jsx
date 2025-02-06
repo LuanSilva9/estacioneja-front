@@ -62,16 +62,16 @@ export default function Home() {
                 </div>
 
                 <div className="cards-empresa">
-                    <div className="card-maior card-empresa-single" onClick={() => navigate("/para-empresas/staff")}>
+                    <div className="card-maior card-empresa-single" onClick={() => navigate("/para-empresas/#staff")}>
                         <h2>Equipe pronta e preparada para lidar com imprevistos</h2>
                     </div>
                     <div className="card-agrupados">
                         <div className="card-agrupados-tr">
-                            <div className="card-menor card-empresa-single card-seguranca" onClick={() => navigate("/para-empresas/seguranca")}>
+                            <div className="card-menor card-empresa-single card-seguranca" onClick={() => navigate("/para-empresas/#seguranca")}>
                                 <MdSecurity className="card-menor-icon" />
                                 <h2>Mais praticidade e segurança.</h2>
                             </div>
-                            <div className="card-menor card-empresa-single card-controle" onClick={() => navigate("/para-empresas/controle")}>
+                            <div className="card-menor card-empresa-single card-controle" onClick={() => navigate("/para-empresas/#controle")}>
                                 <FaLayerGroup className="card-menor-icon" />
                                 <h2>Controle automatizado para uma gestão eficiente de vagas.</h2>
                             </div>
@@ -79,11 +79,11 @@ export default function Home() {
                         </div>
 
                         <div className="card-agrupados-tr">
-                            <div className="card-menor card-empresa-single card-relatorios" onClick={() => navigate("/para-empresas/relatorios")}>
+                            <div className="card-menor card-empresa-single card-relatorios" onClick={() => navigate("/para-empresas/#relatorios")}>
                                 <HiDocumentReport className="card-menor-icon" />
                                 <h2>Relatórios completos </h2>
                             </div>
-                            <div className="card-menor card-empresa-single card-dashboard" onClick={() => navigate("/para-empresas/dashboards")}>
+                            <div className="card-menor card-empresa-single card-dashboard" onClick={() => navigate("/para-empresas/#dashboards")}>
                                 <MdSpaceDashboard className="card-menor-icon" />
                                 <h2>Dashboards interativos e facil de usar</h2>
                             </div>
