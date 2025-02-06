@@ -20,11 +20,11 @@ import SearchPark from './routes/client/Client/Panel/SearchPark';
 import Admin from './routes/admin/Admin';
 import ReservationStepper from './routes/client/Client/Reservation/ReservationStepper';
 import { ReservationProvider } from './contexts/ReservationContext';
-import ReservationConfigureData from './routes/client/Client/Reservation/ReservationConfigureData';
 import VeiclesForm from './routes/client/Client/Profile/VeiclesForm';
-import Error404 from './components/errorPages/Error404';
-import Notifications from './routes/client/Client/Notificacations';
+import NotificationsClient from './routes/client/Client/NotificacationsClient';
 import ProfilePage from './routes/client/Client/Profile/ProfilePage';
+import ForBusiness from './routes/client/Home/ForBusiness/ForBusiness';
+import NotificationsAdmin from './routes/admin/NotificationsAdmin';
 
 function isAuth() {
     const sessionId = localStorage.getItem('sessionId');
@@ -73,6 +73,10 @@ export default function RouterPaper() {
             <Route path="/sobre-nos" element={<AboutUs />} />
             <Route path="/politica" element={<Policy />} />
             <Route path="/funcionalidades" element={<Features />} />
+
+
+            {/* Página de mensagens para administradores */}
+            <Route path="/para-empresas" element={<PublicRouter><ForBusiness/></PublicRouter>}/>
 
 
             {/* Cadastro - Selecionar Perfil */}
@@ -176,9 +180,18 @@ export default function RouterPaper() {
             <Route path="/client/notificacoes" element={
                 <UserProvider>
                     <PrivateRouter>
-                        <Notifications />
+                        <NotificationsClient />
                     </PrivateRouter>
                 </UserProvider>
+            } />
+
+            {/* Página de notificações */}
+            <Route path="/admin/notificacoes" element={
+                <CompanyProvider>
+                    <AdminRouter>
+                        <NotificationsAdmin />
+                    </AdminRouter>
+                </CompanyProvider>
             } />
 
             {/* Dashboard administrativo */}
