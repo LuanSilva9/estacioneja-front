@@ -59,7 +59,9 @@ export default function AvatarComponent({ avatar, menuItensProfile, styles }) {
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
             >
-                <Button href="/client/notificacoes" variant='text' style={{ color: styles ? styles.color : '#ccc', fontWeight: 500, fontSize: "25px" }}><FaBell /></Button>
+               {
+                    isAdmin() ?  <Button href="/admin/notificacoes" variant='text' style={{ color: styles ? styles.color : '#ccc', fontWeight: 500, fontSize: "25px" }}><FaBell /></Button> :  <Button href="/client/notificacoes" variant='text' style={{ color: styles ? styles.color : '#ccc', fontWeight: 500, fontSize: "25px" }}><FaBell /></Button>
+               }
             </IconButton>
             
 
