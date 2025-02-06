@@ -8,11 +8,13 @@ import dayjs from "dayjs";
 import { Link } from "react-router-dom";
 import { AiOutlineExport } from "react-icons/ai";
 
-export default function Notifications() {
-    const { userData, updateUserData } = useUser();
+export default function NotificationsClient() {
+    const { userData } = useUser();
+
 
     return (
         <React.Fragment>
+
             <HeaderbarClient userProps={userData}/>
 
             <section className="notification-paper">
