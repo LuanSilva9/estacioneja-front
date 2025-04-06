@@ -25,6 +25,8 @@ import NotificationsClient from './routes/client/Client/NotificacationsClient';
 import ProfilePage from './routes/client/Client/Profile/ProfilePage';
 import ForBusiness from './routes/client/Home/ForBusiness/ForBusiness';
 import NotificationsAdmin from './routes/admin/NotificationsAdmin';
+import SupportPage from './routes/client/Client/Panel/SupportPage';
+import SignUpCompanyGlobal from './routes/SignUp/SignUpCompany/SignUpGlobal';
 
 function isAuth() {
     const sessionId = localStorage.getItem('sessionId');
@@ -89,14 +91,14 @@ export default function RouterPaper() {
                     <PublicRouter>
                         <CompanyProvider>
                             <Routes>
-                                <Route path="/" element={<SignUpCompany />} />
-                                <Route path="passo-2" element={<SignUpCompanyInfoLegals />} />
-                                <Route path="passo-3" element={<SignUpCompanyPayment />} />
+                                <Route path="/" element={<SignUpCompanyGlobal />} />
                             </Routes>
                         </CompanyProvider>
                     </PublicRouter>
                 }
             />
+
+
 
             {/* Cadastro para aluno e funcionario */}
             <Route
@@ -143,6 +145,15 @@ export default function RouterPaper() {
                 <UserProvider>
                     <PrivateRouter>
                         <PanelPark />
+                    </PrivateRouter>
+                </UserProvider>
+            } />
+
+            {/* Suporte do estacionamento */}
+            <Route path="/client/estacionamento/:nome-estacionamento/suporte" element={
+                <UserProvider>
+                    <PrivateRouter>
+                        <SupportPage/>
                     </PrivateRouter>
                 </UserProvider>
             } />
