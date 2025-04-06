@@ -1,40 +1,18 @@
-import { Autocomplete, Box, Grid, TextField, Typography } from "@mui/material";
-
-
-import { companys } from "../../../constants/Companys";
+import { Autocomplete, Grid, TextField, Typography } from "@mui/material";
 
 import '../SignUp.css';
 
 import { Link, useNavigate } from "react-router-dom";
 
-import { MdNavigateNext } from "react-icons/md";
-
 import { useCompany } from "../../../contexts/CompanyContext";
 import { citys } from "../../../constants/Citys";
-import { Button } from "react-bootstrap";
 
 const type = ["EMPRESA", "ESCOLA", "OUTROS"]
 
-export default function SignUpCompany() {
+export default function SignUpCompany({ errors }) {
     const { companyData, updateCompanyData } = useCompany();
 
-    const navigate = useNavigate();
-
-    function handleSubmit(e) {
-        e.preventDefault();
-
-        navigate("../passo-2");
-    }
-
     return (
-        <section className="sign-up-company">
-            <div className="form">
-                <form onSubmit={handleSubmit}>
-                    <div className="form-text">
-                        <img src="/logo-white.svg" alt="logo-estacioneja" className="logo" />
-                        <h2>Venha ser EstacioneJá!</h2>
-                        <p>Já existem <b>{companys.length} empresas</b> usando nossos serviços, vai ficar de fora?</p>
-                    </div>
                     <Grid container spacing={2} sx={{ mb: 1 }}>
                         <Grid item xs={12}>
                             <Typography textAlign="start" sx={{ fontSize: "17px", fontWeight: "bold" }}>Informações da Empresa</Typography>
@@ -45,35 +23,46 @@ export default function SignUpCompany() {
                                 required
                                 label="Nome da empresa"
                                 variant="outlined"
+                                error={!!errors.companyName}
+                                helperText={errors.companyName}
                                 fullWidth
                                 value={companyData.companyName}
                                 onChange={(e) => updateCompanyData({ companyName: e.target.value })}
                             />
                         </Grid>
                         <Grid item xs={8}>
-                            <Autocomplete
+                        <Autocomplete
+                            value={companyData.companyCity}
+                            options={citys}
+                            getOptionLabel={(option) => option.name || ''}
+                            renderInput={(params) => (
+                                <TextField
+                                required
+                                {...params}
                                 label="Cidade da empresa"
                                 variant="outlined"
                                 fullWidth
-                                value={companyData.companyCity.name}
-                                options={citys}
-                                getOptionLabel={(option) => option.name || ''}
-                                renderInput={(params) => <TextField
-                                        required {...params} label="Cidade da empresa" variant="outlined" fullWidth />}
-                                onChange={(event, newValue) => {
-                                    updateCompanyData({
-                                        companyCity: newValue ? {
-                                            name: newValue,
-                                            uf: newValue.uf || '',
-                                            cep: newValue.cep,
-                                        } : {
-                                            name: '',
-                                            uf: '',
-                                            cep: '',
-                                        }
-                                    });
-                                }}
+                                error={!!errors.companyCity}
+                                helperText={errors.companyCity}
+                                />
+                            )}
+                            onChange={(event, newValue) => {
+                                updateCompanyData({
+                                companyCity: newValue
+                                    ? {
+                                        name: newValue.name,
+                                        uf: newValue.uf || '',
+                                        cep: newValue.cep || '',
+                                    }
+                                    : {
+                                        name: '',
+                                        uf: '',
+                                        cep: '',
+                                    }
+                                });
+                            }}
                             />
+
                             <Typography textAlign="start" sx={{ mt: 1, fontSize: "14px", fontWeight: "bold" }}>
                                 <Link>Minha cidade não está aqui...</Link>
                             </Typography>
@@ -105,6 +94,8 @@ export default function SignUpCompany() {
                                 renderInput={(params) => <TextField required {...params} label="Selecionar Tipo" variant="outlined" fullWidth />}
                                 value={companyData.companyType.toLowerCase()}
                                 onChange={(event, newValue) => updateCompanyData({ companyType: newValue })}
+                                error={!!errors.companyType}
+                                helperText={errors.companyType}
                             />
                         </Grid>
 
@@ -117,6 +108,8 @@ export default function SignUpCompany() {
                                 fullWidth
                                 value={companyData.companyParkSlots}
                                 onChange={(e) => updateCompanyData({ companyParkSlots: e.target.value })}
+                                error={!!errors.parkSlots}
+                                helperText={errors.parkSlots}
                             />
                         </Grid>
 
@@ -137,6 +130,8 @@ export default function SignUpCompany() {
                                         street: e.target.value 
                                     } 
                                 })}
+                                error={!!errors.companyStreet}
+                                helperText={errors.companyStreet}
                             />
                         </Grid>
 
@@ -153,22 +148,10 @@ export default function SignUpCompany() {
                                         neighborhood: e.target.value 
                                     } 
                                 })}
+                                error={!!errors.companyNeighborhood}
+                                helperText={errors.companyNeighborhood}
                             />
                         </Grid>
-                    
-                        <Grid item xs={12} sx={{ mt: 3 }}>
-                            <Box display="flex" justifyContent="space-between">
-                                <Link to="/cadastrar"  className="btn btn-dark">Voltar</Link>
-                                <Button type="submit" className="btn btn-primary">Proximo Passo <MdNavigateNext/></Button>
-                            </Box>
-                        </Grid>
                     </Grid>
-
-
-                </form>
-            </div>
-
-            <div className="image-side" style={{ background: "url(/assets/bg-signin-company.jpg) no-repeat center center" }}></div>
-        </section>
     )
 }

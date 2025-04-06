@@ -618,6 +618,10 @@ const emptyCompany =  {
                 }
             },
         ]
+    },
+    companyAccess: {
+        email: '',
+        password: ''
     }
 }
 

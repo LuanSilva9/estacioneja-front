@@ -9,7 +9,7 @@ import { MdNumbers } from "react-icons/md";
 import { formatString } from "../getNameFormatted";
 import { Button } from "react-bootstrap";
 
-export default function SignUpInfoLegals() {
+export default function SignUpInfoLegals({errors}) {
     const { companyData, updateCompanyData } = useCompany();
     const navigate = useNavigate();
 
@@ -20,14 +20,6 @@ export default function SignUpInfoLegals() {
     }
 
     return (
-        <section className="sign-up-company">
-            <div className="form">
-                <form onSubmit={handleSubmit}>
-                    <div className="form-text">
-                        <img src="/logo-white.svg" alt="logo-estacioneja" className="logo" />
-                        <h2>Informações Legais e Acesso</h2>
-                    </div>
-
                     <Grid container spacing={2} sx={{ mb: 1 }}>
 
                         <Grid item xs={12}>
@@ -52,6 +44,8 @@ export default function SignUpInfoLegals() {
                                 value={companyData.companyCnpj}
                                 onChange={(e) => updateCompanyData({ companyCnpj: e.target.value })}
                                 fullWidth
+                                error={!!errors.companyCnpj}
+                                helperText={errors.companyCnpj}
                             />
                         </Grid>
 
@@ -76,6 +70,8 @@ export default function SignUpInfoLegals() {
                                 value={companyData.companyLegalRepresentative}
                                 onChange={(e) => updateCompanyData({ companyLegalRepresentative: e.target.value })}
                                 fullWidth
+                                error={!!errors.companyRepresentative}
+                                helperText={errors.companyRepresentative}
                             />
                         </Grid>
 
@@ -107,6 +103,8 @@ export default function SignUpInfoLegals() {
                                     }
                                 })}
                                 fullWidth
+                                error={!!errors.companyEmail}
+                                helperText={errors.companyEmail}
                             />
                         </Grid>
 
@@ -133,20 +131,10 @@ export default function SignUpInfoLegals() {
                                     }
                                 })}
                                 fullWidth
+                                error={!!errors.companyPassword}
+                                helperText={errors.companyPassword}
                             />
                         </Grid>
-
-                        <Grid item xs={12} sx={{ mt: 3 }}>
-                            <Box display="flex" justifyContent="space-between">
-                                <Link to="/cadastrar/empresa/" className="btn btn-dark">Voltar</Link>
-                                <Button type="submit" className="btn btn-primary">Proximo Passo <MdNavigateNext /></Button>
-                            </Box>
-                        </Grid>
                     </Grid>
-                </form>
-            </div>
-
-            <div className="image-side" style={{ background: "url(/assets/bg-signin-company.jpg) no-repeat center center" }}></div>
-        </section>
     )
 }

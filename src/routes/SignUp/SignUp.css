@@ -123,15 +123,11 @@
 
 .form-text h2 {
     color: rgb(47, 155, 46);
-    font-size: 50px;
+    font-size: 30px;
 }
 
 .form-text img {
     user-select: none;
-}
-
-.form-text p {
-    font-size: 20px;
 }
 
 .inputs .input {
@@ -145,8 +141,8 @@
     align-items: center;
     justify-content: space-between;
     gap: 10px;
+    padding: 16px;
     width: 100%;
-    padding: 20px;
 }
 
 .paymentMethods .textLefts {

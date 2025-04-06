@@ -1,6 +1,8 @@
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, LineElement, PointElement, Tooltip, Legend } from "chart.js";
 import { Link } from "react-router-dom";
+import { BsDoorOpenFill, BsPersonVcardFill } from "react-icons/bs";
+import { BiSupport } from "react-icons/bi";
 
 ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Tooltip, Legend);
 
@@ -65,14 +67,21 @@ export default function EJInfoPark({ MapperPark, no_controls }) {
                 {
                     !no_controls ? <div className="atividade-btns">
                                         <Link
-                                            className="btn btn-primary rounded-0"
+                                            className="btn btn-success rounded-0 d-flex gap-2 align-items-center justify-content-center"
                                             disabled={MapperPark.companyParkSlotsFilled === MapperPark.companyParkSlots}
                                             to={`reserva`}
                                             onClick={generateStoragePark}
                                         >
+                                            <BsPersonVcardFill />
+
                                             Fazer uma reserva
                                         </Link>
-                                        <Link className="btn btn-primary rounded-0" to={`suporte`}>Falar com o suporte</Link>
+                                        <Link 
+                                            className="btn btn-outline-dark rounded-0  d-flex gap-2 align-items-center justify-content-center"
+                                            to={`suporte`}>
+                                            <BiSupport />
+                                            Falar com o suporte
+                                        </Link>
                                     </div>
                     : null
                 }

@@ -13,6 +13,7 @@ import { AiOutlineExport } from "react-icons/ai";
 import dayjs from 'dayjs';
 import { TOLERANCE } from '../../defaultValues';
 import { useUser } from '../../contexts/UserContext';
+import { rootColors } from '../../constants/pallete';
 
 export default function EJReservation({ MapperJsonReservation, onlyInfo }) {
     const { userData, updateUserData } = useUser();
@@ -132,29 +133,27 @@ export default function EJReservation({ MapperJsonReservation, onlyInfo }) {
                 </DialogActions>
             </Dialog>
         
-            <section className="reservation" style={{ borderBottom: `2px solid rgb(0, 100, 0)` }}>
-                
-
+            <section className="reservation">
                 <Box className="control" gap={2}>
-                    <Box className="card-info-single" sx={{ bgcolor: 'success.light', color: "rgb(0,0,0)" }}>
+                    <Box className="card-info-single" sx={{ bgcolor: 'light', borderTop: `3px solid ${rootColors.colorGreenPrimary}`, borderRadius: 2, color: "dark" }}>
                         <Typography align='center' variant="h6">Local</Typography>
                         <IoMdNavigate className='card-info-icon' />
                         <Typography align='center' variant='body3'>{MapperJsonReservation.reservationPark.companyName}</Typography>
                     </Box>
 
-                    <Box className="card-info-single" sx={{ bgcolor: 'success.light', color: "rgb(0,0,0)" }}>
+                    <Box className="card-info-single" sx={{ bgcolor: 'light', borderTop: `3px solid ${rootColors.colorGreenPrimary}`,  borderRadius: 2, color: "dark" }}>
                         <Typography align='center' variant="h6">Horario Chegada</Typography>
                         <FaIdCardClip className='card-info-icon' />
                         <Typography align='center' variant='body3'>{getFormattedTime(MapperJsonReservation.reservationDateEntry)}</Typography>
                     </Box>
 
-                    <Box className="card-info-single" sx={{ bgcolor: 'success.light', color: "rgb(0,0,0)" }}>
+                    <Box className="card-info-single" sx={{ bgcolor: 'light', borderTop: `3px solid ${rootColors.colorGreenPrimary}`, borderRadius: 2, color: "dark" }}>
                         <Typography align='center' variant="h6">Horario Saida</Typography>
                         <IoExit className='card-info-icon' />
                         <Typography align='center' variant='body3'>{getFormattedTime(MapperJsonReservation.reservationDateExit)}</Typography>
                     </Box>
 
-                    <Box className="card-info-single" sx={{ bgcolor: 'success.light', color: "rgb(0,0,0)" }}>
+                    <Box className="card-info-single" sx={{ bgcolor: 'light', borderTop: `3px solid ${rootColors.colorGreenPrimary}`, borderRadius: 2, color: "dark" }}>
                         <Typography align='center' variant="h6">Veiculo</Typography>
                         <FaCar className='card-info-icon' />
                         <Typography align='center' variant='body3'>{MapperJsonReservation.reservationVeicle}</Typography>

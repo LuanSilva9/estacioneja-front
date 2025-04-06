@@ -106,16 +106,15 @@ export default function EJParkModel({ MapperJsonPark }) {
                 </DialogActions>
             </Dialog>
 
-            <Card sx={{ maxWidth: "1200px", maxHeight: '100%', borderRadius: 0, border: '1px solid #ccc' }}>
+            <Card sx={{ maxWidth: "1200px", maxHeight: '100%', borderRadius: 0 }}>
                 <CardMedia sx={generateBackgroundForCards()} />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="div" display={"flex"} alignItems={"center"} gap={2}>
+                    <Typography gutterBottom variant="h5" component="div" display={"flex"} alignItems={"flex-end"} gap={2}>
                         <Avatar src={MapperJsonPark.companyLogo} sx={{ width: 56, height: 56 }} variant="square"/>
                         {MapperJsonPark.companyName}
                     </Typography>
-                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                        Deseja estacionar aqui? No momento, este estacionamento está com{" "}
-                        <b>{MapperJsonPark.companyParkSlots}</b> vagas disponíveis.
+                    <Typography variant="body2" sx={{ color: 'text.primary' }}>
+                        {MapperJsonPark.companyAddress.street} - {MapperJsonPark.companyAddress.neighborhood}, {MapperJsonPark.companyCity.name}, {MapperJsonPark.companyCity.uf}
                     </Typography>
                 </CardContent>
                 <CardActions sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
@@ -123,14 +122,14 @@ export default function EJParkModel({ MapperJsonPark }) {
                         href={`/client/estacionamento/${MapperJsonPark.companyNameFormated}`}
                         variant="contained"
                         color="success"
-                        sx={{ borderRadius: 0 }}
+                        sx={{ borderRadius: 0, fontSize: '16px', textTransform: 'capitalize'}}
                     >
                         Acessar Estacionamento
                     </Button>
                     <Button
-                        variant="outlined"
+                        variant="contained"
                         color="error"
-                        sx={{ margin: "0 !important", borderRadius: 0 }}
+                        sx={{ margin: "0 !important", borderRadius: 0, fontSize: '16px', textTransform: 'capitalize' }}
                         onClick={handleClickOpen}
                     >
                         Desvincular

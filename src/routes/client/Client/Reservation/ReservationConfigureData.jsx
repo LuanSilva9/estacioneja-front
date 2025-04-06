@@ -88,9 +88,6 @@ export default function ReservationConfigureData() {
                 />
             </Grid>
 
-
-
-
             <Grid item xs={12}>
                 <Autocomplete
                     fullWidth
@@ -106,19 +103,39 @@ export default function ReservationConfigureData() {
 
             <Grid item xs={6}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DemoContainer components={['TimeField']}>
-                        <TimeField value={reservationData.reservationDateEntry ? dayjs(reservationData.reservationDateEntry) : null} fullWidth label="Horario de chegada" onChange={(newValue) => {
-                            if (newValue) {
-                                setDateEntry(newValue);
+                        <DemoContainer components={['TimeField']}>
+                            <TimeField
+                                value={reservationData.reservationDateEntry ? dayjs(reservationData.reservationDateEntry) : null}
+                                fullWidth
+                                label="Horário de chegada"
+                                onChange={(newValue) => {
+                                    if (!newValue) return;
 
-                                updateReservationData({
-                                    ...reservationData,
-                                    reservationDateEntry: newValue,
-                                })
-                            }
-                        }} />
-                    </DemoContainer>
-                </LocalizationProvider>
+                                    const today = dayjs();
+                                    const selectedDay = dayjs().date(reservationData.reservationDay); // monta uma data com o mesmo mês/ano de hoje e o dia escolhido
+
+                                    const isToday = selectedDay.isSame(today, 'day');
+
+                                    // Junta a data da reserva com o horário selecionado
+                                    const selectedDateTime = selectedDay.hour(newValue.hour()).minute(newValue.minute());
+
+                                    if (!isToday || selectedDateTime.isAfter(today)) {
+                                    setDateEntry(newValue);
+
+                                    updateReservationData({
+                                        ...reservationData,
+                                        reservationDateEntry: selectedDateTime.toISOString(),
+                                    });
+
+                                    console.log("registrado");
+                                    } else {
+                                    console.log("Horário inválido: precisa ser depois do horário atual.");
+                                    }
+                                }}
+                            />
+
+                        </DemoContainer>
+                    </LocalizationProvider>
             </Grid>
 
             <Grid item xs={6}>

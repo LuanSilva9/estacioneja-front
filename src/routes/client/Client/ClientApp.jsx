@@ -2,17 +2,12 @@ import * as React from 'react';
 
 import './Client.css'
 
-import { Button,  Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 
-import EJHistory from "../../../components/EJ/EJHistory";
 import EJParkModel from "../../../components/EJ/EJParkModel";
 import EJReservation from "../../../components/EJ/EJReservation";
 import FooterClient from "../../../components/FooterClient";
 import HeaderbarClient from "../../../components/HeaderbarClient.js";
-
-import { MdCorporateFare } from "react-icons/md";
-
-import { history } from "../../../constants/MapperJsonHistory";
 
 import { useUser } from "../../../contexts/UserContext.js";
 
@@ -20,11 +15,11 @@ import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 
-import { MdOutlineAddCircle } from "react-icons/md";
 
 import NoLinkedParking from '../../../components/errorPages/NoLinkedParking.jsx';
 import { useNavigate } from 'react-router-dom';
-import Error404 from '../../../components/errorPages/Error404.jsx';
+import { FaSearch } from 'react-icons/fa';
+import { rootColors } from '../../../constants/pallete.js';
 
 export default function ClientApp() {
     const { userData, updateUserData } = useUser();
@@ -58,7 +53,7 @@ export default function ClientApp() {
             {
                 userData.userReservation.length != 0 ? (
                     <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
-                        <Typography align='center' variant="h4" component="div" sx={{ mt: 5, mb: 3}}>Olá, Confira suas reservas!</Typography>
+                        <Typography align='center' variant="h4" component="div" sx={{ mt: 5}}>Olá {(userData.userName).split(' ')[0]}, Confira suas reservas</Typography>
 
                         <Tabs value={valueReservation} onChange={handleChangeReservation} centered TabIndicatorProps={{style: { backgroundColor: "rgb(0, 100, 0)"}}}>
                             {userData.userReservation.map((reservation, index) => (
@@ -88,7 +83,7 @@ export default function ClientApp() {
                                         )) 
                                     }
 
-                                        <Tab onClick={() => navigate("pesquisar-estacionamentos")} label={<span style={{fontSize: '20px'}}><MdOutlineAddCircle/></span>}/>
+                                        <Tab onClick={() => navigate("pesquisar-estacionamentos")} label={<span style={{fontSize: '20px', color: rootColors.colorGreenShade}}><FaSearch /></span>}/>
                                 </Tabs>
 
                                 {userData.userCompanyVincles[valueVincle] && (

@@ -123,8 +123,11 @@ export default function ReservationStepper() {
                                 <Button color="inherit" onClick={handleBack} sx={{
                                     mr: 1,
                                     display: ([0, 4].includes(activeStep)) ? 'none' : 'flex',
-                                    bgcolor: "error.light", 
-                                    color: "white"
+                                    bgcolor: "error.main", 
+                                    borderRadius: 0,
+                                    color: "white",
+                                    fontSize: '15px',
+                                    textTransform: 'capitalize'
                                 }}
                                 >
                                     Voltar
@@ -134,7 +137,7 @@ export default function ReservationStepper() {
                                     onClick={buttonLabel.type == "button" ? handleNext : null}
                                     type={buttonLabel.type}
                                     variant='filled'
-                                    sx={{ bgcolor: "success.main", color: "white" }}
+                                    sx={{ bgcolor: "success.main", color: "white", borderRadius: 0, textTransform: 'capitalize', fontSize: '15px'}}
                                 >
                                     {buttonLabel.label}
                                 </Button>

@@ -62,25 +62,21 @@ export default function ReservationConfirmData() {
             <Box className="data-show-single">
                 <FaCarSide className="confirmData-icon"/>
                 <Typography variant="h5" sx={{color: "rgb(36, 36, 36)"}}>{ reservationData.reservationVeicle || null }</Typography>
-                <Box></Box>
             </Box>
 
             <Box className="data-show-single">
                 <IoMdNavigate className="confirmData-icon"/>
                 <Typography variant="h5" sx={{color: "rgb(36, 36, 36)"}}>{ reservationData.reservationPark.companyName || null }</Typography>
-                <Box></Box>
             </Box>
 
             <Box className="data-show-single">
                 <IoTime className="confirmData-icon"/>
                 { getTimeFormattedEntry() }
-                <Box></Box>
             </Box>
 
             <Box className="data-show-single">
                 <IoTime className="confirmData-icon"/>
                 { getTimeFormattedExit() }
-                <Box></Box>
             </Box>
         </Box>
     )
