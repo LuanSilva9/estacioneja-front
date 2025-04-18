@@ -2,31 +2,27 @@ import React from 'react';
 
 import { Link, Navigate } from 'react-router-dom';
 
-import { Avatar, Divider, IconButton, Menu, MenuItem } from "@mui/material";
+import { Avatar, Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from "@mui/material";
 
 import { Button, Nav } from "react-bootstrap";
-import { FaBell, FaUserAlt } from 'react-icons/fa';
-import { RiSettingsFill } from 'react-icons/ri';
-import { menuAdmin } from '../constants/menu/menuAdmin';
+import { FaBell } from 'react-icons/fa';
+import { menuAdmin, menuItemsProfileAdmin } from '../constants/menu/menuAdmin';
+
+
 import { isAdmin } from '../RouterPaper';
 
-import { FaCar } from 'react-icons/fa6';
-import { BiLogOut } from 'react-icons/bi';
+import { TbLayoutSidebarLeftExpandFilled } from 'react-icons/tb';
+import { IoLogOut } from 'react-icons/io5';
+import { menuClient, menuItemsProfileClient } from '../constants/menu/menuClient';
 
-export default function AvatarComponent({ avatar, menuItensProfile, styles }) {
-    const [anchorEl, setAnchorEl] = React.useState(null);
+export default function AvatarComponent({ avatar, name, slug, styles }) {
     const [isLoggedOut, setIsLoggedOut] = React.useState(false);
     
-    const open = Boolean(anchorEl);
-    
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+    const [open, setOpen] = React.useState(false);
 
+    const toggleDrawer = (newOpen) => () => {
+        setOpen(newOpen);
+    };
 
     function logout() {
         localStorage.removeItem('userData');
@@ -39,11 +35,120 @@ export default function AvatarComponent({ avatar, menuItensProfile, styles }) {
         return <Navigate to="/" />;
     }
 
+    const boxDrawer = (
+        <Box sx={{ width: 450 }}>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              px: 2,
+              py: 1.5
+            }}
+          >
+
+            <Box  sx={{ display: 'flex', alignItems: 'center' }}>
+                <IconButton
+                    onClick={toggleDrawer(true)}
+                    size="large"
+                    aria-controls={open ? 'account-menu' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? 'true' : undefined}
+                >
+                    <Avatar sx={{ width: 52, height: 52, objectFit: 'cover' }} className={styles ? styles.avatar : null} src={avatar || null}></Avatar>
+                </IconButton>
+                
+                <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                    <Typography fontSize={20}>{name}</Typography>
+                    <Typography fontSize={14}>{slug}</Typography>
+                </Box>
+
+            </Box>
+
+            <IconButton onClick={toggleDrawer(false)}>
+                <TbLayoutSidebarLeftExpandFilled />
+            </IconButton>
+          </Box>
+      
+          <Box sx={{ borderTop: '1px solid #e0e0e0' }} />
+   
+          <List>
+            {isAdmin() ? menuAdmin.map((menuItem, index) => (
+              <ListItem key={index} disablePadding>
+                <ListItemButton component={Link} to={menuItem.href}>
+                  {menuItem.icon && (
+                    <ListItemIcon sx={{ fontSize: 18 }} >
+                      <menuItem.icon />
+                    </ListItemIcon>
+                  )}
+                  <ListItemText primary={menuItem.label} primaryTypographyProps={{ fontSize: 15, fontWeight: 550, color: 'rgb(61, 61, 61)' }}  />
+                </ListItemButton>
+              </ListItem>
+            )) : 
+            menuClient.map((menuItem, index) => (
+                <ListItem key={index} disablePadding>
+                  <ListItemButton component={Link} to={menuItem.href}>
+                    {menuItem.icon && (
+                      <ListItemIcon sx={{ fontSize: 18 }} >
+                        <menuItem.icon />
+                      </ListItemIcon>
+                    )}
+                    <ListItemText primary={menuItem.label} primaryTypographyProps={{ fontSize: 15, fontWeight: 550, color: 'rgb(61, 61, 61)' }}  />
+                  </ListItemButton>
+                </ListItem>
+              )) 
+            }
+          </List>
+
+          <Box sx={{ borderTop: '1px solid #e0e0e0', my: 1 }} />
+
+          <List>
+            {isAdmin() ? menuItemsProfileAdmin && menuItemsProfileAdmin.map((menuItem, index) => (
+              <ListItem key={index} disablePadding>
+                <ListItemButton component={Link} to={menuItem.href}>
+                  {menuItem.icon && (
+                    <ListItemIcon sx={{ fontSize: 18 }} >
+                      <menuItem.icon />
+                    </ListItemIcon>
+                  )}
+                  <ListItemText primary={menuItem.label} primaryTypographyProps={{ fontSize: 15, fontWeight: 550, color: 'rgb(61, 61, 61)' }}  />
+                </ListItemButton>
+              </ListItem>
+            )) : menuItemsProfileClient && menuItemsProfileClient.map((menuItem, index) => (
+                <ListItem key={index} disablePadding>
+                  <ListItemButton component={Link} to={menuItem.href}>
+                    {menuItem.icon && (
+                      <ListItemIcon sx={{ fontSize: 18 }} >
+                        <menuItem.icon />
+                      </ListItemIcon>
+                    )}
+                    <ListItemText primary={menuItem.label} primaryTypographyProps={{ fontSize: 15, fontWeight: 550, color: 'rgb(61, 61, 61)' }}  />
+                  </ListItemButton>
+                </ListItem>))}
+          </List>
+
+          <Box sx={{ borderTop: '1px solid #e0e0e0', my: 1 }} />
+
+        <List>
+            <ListItem disablePadding>
+                <ListItemButton sx={{color: 'rgb(163, 50, 50)'}} onClick={logout}>
+                    <ListItemIcon sx={{ fontSize: 18, color: 'rgb(163, 50, 50)' }}>
+                        <IoLogOut />
+                    </ListItemIcon>
+
+                    <ListItemText primary={'Sign Out'} primaryTypographyProps={{ fontSize: 15, fontWeight: 550 }}/>
+                </ListItemButton>
+            </ListItem>
+        </List>
+
+        </Box>
+      );
+
 
     return (
         <Nav className='d-flex align-items-center gap-2'>
             <IconButton
-                onClick={handleClick}
+                onClick={toggleDrawer(true)}
                 size="large"
                 aria-controls={open ? 'account-menu' : undefined}
                 aria-haspopup="true"
@@ -63,65 +168,11 @@ export default function AvatarComponent({ avatar, menuItensProfile, styles }) {
                     isAdmin() ?  <Button href="/admin/notificacoes" variant='text' style={{ color: styles ? styles.color : '#ccc', fontWeight: 500, fontSize: "25px" }}><FaBell /></Button> :  <Button href="/client/notificacoes" variant='text' style={{ color: styles ? styles.color : '#ccc', fontWeight: 500, fontSize: "25px" }}><FaBell /></Button>
                }
             </IconButton>
-            
-
-
-            <Menu
-                anchorEl={anchorEl}
-                id="account-menu"
-                open={open}
-                onClose={handleClose}
-                onClick={handleClose}
-                slotProps={{
-                    paper: {
-                        elevation: 0,
-                        sx: {
-                            overflow: 'visible',
-                            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-                            mt: 1.5,
-                            width: 200,
-                            '& .MuiAvatar-root': {
-                                width: 32,
-                                height: 32,
-                                ml: -0.5,
-                                mr: 1,
-                            },
-                            '&::before': {
-                                content: '""',
-                                display: 'block',
-                                position: 'absolute',
-                                top: 0,
-                                right: 14,
-                                width: 14,
-                                height: 10,
-                                bgcolor: 'background.paper',
-                                transform: 'translateY(-50%) rotate(45deg)',
-                                zIndex: 0,
-                            },
-                        },
-                    },
-                }}
-
-                transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-                anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-            >
-                <MenuItem><Link className="menu-a-drop" to="/client/perfil"><FaUserAlt /> Perfil</Link></MenuItem>
-                <MenuItem><Link className="menu-a-drop" to="/client/perfil/veiculos"><FaCar />Veiculos</Link></MenuItem>
-                <MenuItem><Link className="menu-a-drop" to="/client/configuracoes"><RiSettingsFill /> Configurações</Link></MenuItem>
-                
-                {
-                    isAdmin() ? menuAdmin ? menuAdmin.map((item, index) => <MenuItem className="itens-menu-mobile" key={index}><Link className="menu-a-drop" to={item.href}>{item.icon ? <item.icon/> : null}{item.label}</Link></MenuItem>) : null : null
-                }
-
-                {
-                    menuItensProfile ? menuItensProfile.map((item, index) => <MenuItem key={index}><Link className="menu-a-drop" to={item.href}>{item.icon ? <item.icon/> : null}{item.label}</Link></MenuItem>) : null
-                }
-
-                <Divider />
-                <MenuItem onClick={logout} sx={{ color: 'red', gap: 1}}><BiLogOut/>  Sair</MenuItem>
-            </Menu>
 
            
+            <Drawer variant='dark' open={open} anchor={'right'} onClose={toggleDrawer(false)}>
+                {boxDrawer}
+            </Drawer>
         </Nav>
     )
 }

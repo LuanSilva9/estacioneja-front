@@ -6,6 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import AvatarComponent from './AvatarComponent';
 
 export default function HeaderbarClient({ userProps }) {
+    const firstNameUser = (userProps.userName).split(" ")[0];
 
     return (
         <Navbar style={{ background: '#222', width: "100vw" }} className="p-0 m-0" data-bs-theme="dark">
@@ -15,8 +16,7 @@ export default function HeaderbarClient({ userProps }) {
                 </Navbar.Brand>
 
 
-                <AvatarComponent avatar={userProps.userImage}/>
-
+                <AvatarComponent avatar={userProps.userImage} name={firstNameUser} slug={userProps.userEmail}/>
             </Container>
         </Navbar>
     );
