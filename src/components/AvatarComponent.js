@@ -36,7 +36,7 @@ export default function AvatarComponent({ avatar, name, slug, styles }) {
     }
 
     const boxDrawer = (
-        <Box sx={{ width: 450 }}>
+        <Box sx={{ width: { xs: '100%',  sm: 450 } }}>
           <Box
             sx={{
               display: 'flex',
