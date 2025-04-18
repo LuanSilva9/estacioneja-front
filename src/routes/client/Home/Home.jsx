@@ -18,6 +18,14 @@ export default function Home() {
 
     const navigate = useNavigate();
 
+    if(localStorage.getItem('sessionId')) {
+        localStorage.removeItem('sessionId');
+    } else if (localStorage.getItem('companyData')) {
+        localStorage.removeItem('companyData');
+    } else if (localStorage.getItem('userData')) {
+        localStorage.removeItem('userData');
+    }
+    
     return (
         <main className='home'>
             <HeaderbarGuest />
