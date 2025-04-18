@@ -1,13 +1,11 @@
 import { Box, Divider, Grid, InputAdornment, TextField, Typography } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
-import { MdNavigateNext } from "react-icons/md";
+import {  useNavigate } from "react-router-dom";
 import { useCompany } from "../../../contexts/CompanyContext";
 import { TbLockFilled } from "react-icons/tb";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { RiUserLocationFill } from "react-icons/ri";
 import { MdNumbers } from "react-icons/md";
-import { formatString } from "../getNameFormatted";
-import { Button } from "react-bootstrap";
+
 
 export default function SignUpInfoLegals({errors}) {
     const { companyData, updateCompanyData } = useCompany();

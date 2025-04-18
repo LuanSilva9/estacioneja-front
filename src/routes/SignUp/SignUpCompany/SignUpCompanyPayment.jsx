@@ -24,17 +24,15 @@ export default function SignUpCompanyPayment() {
     function handleMarkPayments(Package, index) {
         setSelectedPackage(Package);
         setSelectedCategory(index);
-    }
-
-    function getStyleMark(index) {
-        return selectedCategory == index ? styleCategory : null;
-    }
-
-    async function handleSubmit(e) {
+        
         updateCompanyData({
             ...companyData,
             companyPackagePayment: selectedPackage 
         })
+    }
+
+    function getStyleMark(index) {
+        return selectedCategory == index ? styleCategory : null;
     }
 
     return (
