@@ -4,10 +4,13 @@ import HeaderbarClient from "../../../../components/HeaderbarClient";
 
 import { useState, useEffect } from "react";
 import { companys } from "../../../../constants/Companys";
-import { Autocomplete, Divider, Grid, TextField } from "@mui/material";
+import { Autocomplete, Box, Divider, Grid, InputAdornment, TextField, Typography } from "@mui/material";
 import EJCardCompany from "../../../../components/EJ/EJCardCompany";
 import FooterClient from "../../../../components/FooterClient";
 import { Button } from "react-bootstrap";
+import { MdNumbers } from "react-icons/md";
+import { CiSearch } from "react-icons/ci";
+import { rootColors } from "../../../../constants/pallete";
 
 export default function SearchPark() {
     const { userData, updateUserData } = useUser();
@@ -51,42 +54,61 @@ export default function SearchPark() {
 
             <div className="parks">
 
-                <div className="parks-form">
-                    <h2>Selecionar um Estacionamento</h2>
-                    <Autocomplete
-                        required
-                        multiple
-                        options={filteredCompanies}
-                        getOptionLabel={(option) => option.companyName}
-                        value={companies}
-                        onChange={(event, newValue) => setCompanies(newValue)}
-                        renderInput={(params) => (
-                            <TextField
-                                {...params}
-                                label="Selecionar o estacionamento que você irá estacionar"
-                                variant="outlined"
-                                fullWidth
-                            />
-                        )}
-                        renderOption={(props, option) => (
-                            <li {...props}>
-                                {option.companyName} / {option.companyCity.name}, {option.companyCity.uf}
-                            </li>
-                        )}
-                    />
+            <Grid container mb={6} justifyContent="center" textAlign="center">
+                    <Grid item xs={6}>
+                        <Typography variant="h4" gutterBottom>
+                            <span style={{ color: rootColors.colorGreenShade }}>Descubra Novos </span>
+                            <span style={{ color: rootColors.colorOrangePrimary }}>Estacionamentos</span>
+                        </Typography>
 
-                    <div className="add-new-btn">
-                        <Button onClick={handlePark}>Adicionar novo Estacionamento</Button>
-                    </div>
-                </div>
+                        <TextField
+                            placeholder="Procurar por instituições ou campus"
+                            variant="outlined"
+                            fullWidth
+                            sx={{
+                                '& .MuiOutlinedInput-root': {
+                                    borderRadius: '50px',
+                                },
+                            }}
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start" sx={{ fontSize: '25px' }}>
+                                        <CiSearch />
+                                    </InputAdornment>
+                                ),
+                            }}
+                        />
+                    </Grid>
+                </Grid>
 
-                <div className="parks-vincles">
-                    <Divider>Estacionamentos vinculados</Divider>
+                <Grid container spacing={2} px={2} gap={4}>
+                    {/* Filtros */}
+                    <Grid item xs={12}>
+                        <Typography variant="h6" gutterBottom>Filtrar por:</Typography>
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexWrap: 'wrap',
+                                gap: 2,
+                                alignItems: 'center'
+                            }}
+                        >
+                            <Box sx={{ border: '1px solid #545454', padding: '5px 15px', borderRadius: 50 }}>Empresas</Box>
+                            <Box sx={{ border: '1px solid #545454', padding: '5px 15px', borderRadius: 50 }}>Escolas</Box>
+                            <Box sx={{ border: '1px solid #545454', padding: '5px 15px', borderRadius: 50 }}>Outros</Box>
+                        </Box>
+                    </Grid>
 
-                    {
-                        userData.userCompanyVincles.map((company, i) => <EJCardCompany key={i} MapperCompany={company} />)
-                    }
-                </div>
+                    {/* Cards */}
+                    <Grid item xs={12}>
+                        <Grid container spacing={2} justifyContent="center" gap={1}>
+                            {companys.map((company, i) => (
+                                <EJCardCompany  key={i} MapperCompany={company} />
+                            ))}
+                        </Grid>
+                    </Grid>
+                </Grid>
+
             </div>
 
 
