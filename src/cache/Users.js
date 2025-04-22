@@ -1,4 +1,6 @@
 import dayjs from "dayjs";
+import { citys } from "../constants/Citys";
+import { companys } from "../constants/Companys";
 
 var users = [
     {
@@ -22,44 +24,7 @@ var users = [
             }
         ],
         "userCompanyVincles": [
-            {
-                companyName: "SESC",
-                companyNameFormated: "sesc",
-                companyLogo: '/assets/camera.svg',
-                companyColor: '',
-                companyCity: {
-                    name: "Navirai",
-                    cep: "79950000",
-                    uf: "MS"
-                },
-                companyRepresentative: "Carlos Alberto",
-                companyParkImageMap: '/assets/ParkMapperImg.svg',
-                companyAddress: {
-                    street: 'Av. Afonso Pena, 4321',
-                    neighborhood: 'Amambaí'
-                },
-                companyCnpj: '04236718000192',
-                companyType: "EMPRESA",
-                companyStructs: {
-                    structsInstalled: true,
-                    structsHealth: 100,
-                },
-                companyParkSlots: 150,
-                companyParkSlotsFilled: 0,
-                companyPackagePayment: {
-                    cost_total: 2900,
-                    cost_support_per_mounth: 250,
-                    text: {
-                        title: 'Pacote Super',
-                        subTitle: 'Esse pacote é feito para estacionamentos grandes (+ 100 Vagas)'
-                    }
-                },
-
-                companyAccess: {
-                    email: 'contato@sesc.com.br',
-                    password: 'senha1011'
-                }
-            }
+           companys[0]
         ],
         "userReservation": [],
         "userNotification": [
@@ -148,7 +113,7 @@ var users = [
                                 subTitle: 'Esse pacote é feito para estacionamentos grandes (+ 100 Vagas)'
                             }
                         },
-        
+
                         companyAccess: {
                             email: 'contato@sesc.com.br',
                             password: 'senha1011'
@@ -195,7 +160,7 @@ var users = [
                                 subTitle: 'Esse pacote é feito para estacionamentos grandes (+ 100 Vagas)'
                             }
                         },
-        
+
                         companyAccess: {
                             email: 'contato@sesc.com.br',
                             password: 'senha1011'
@@ -207,4 +172,4 @@ var users = [
     }
 ]
 
-export {users};
+export { users };
