@@ -18,11 +18,10 @@ import { EMPTY } from '../../defaultValues';
 import { useUser } from '../../contexts/UserContext';
 import { rootColors } from '../../constants/pallete';
 
-export default function EJParkModel({ MapperJsonPark }) {
+export default function EJParkModel({ MapperJsonPark, exibirSnackbar }) {
     const { userData, updateUserData } = useUser();
 
     const [open, setOpen] = React.useState(false);
-    const [openSnackbar, setOpenSnackbar] = React.useState(false);
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -32,35 +31,14 @@ export default function EJParkModel({ MapperJsonPark }) {
         setOpen(false);
     };
 
-    
-
-    const handleClickSnackbar = () => {
-        setOpenSnackbar(true);
-    };
-
-    const handleCloseSnackbar = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-
-        setOpenSnackbar(false);
-    };
-
-    const action = (
-          <Button color="secondary" size="small" onClick={handleClose}>
-            OK
-          </Button>
-      );
-    
-
     function desvincularEstacionamento() {
         const estacionamento = MapperJsonPark.companyName;
     
         const novoArray = userData.userCompanyVincles.filter((e) => e.companyName !== estacionamento);
     
-        if (novoArray.length !== userData.userCompanyVincles.length) {
-            handleClickSnackbar();
+        if (novoArray.length !== userData.userCompanyVincles.length) { 
             updateUserData({...userData, userCompanyVincles: novoArray });
+            exibirSnackbar();
         }
     }
 
@@ -95,8 +73,8 @@ export default function EJParkModel({ MapperJsonPark }) {
                     </Button>
                     <Button
                         onClick={() => {
-                            desvincularEstacionamento();
                             handleClose();
+                            desvincularEstacionamento();
                         }}
                         color="error"
                         autoFocus
@@ -136,8 +114,6 @@ export default function EJParkModel({ MapperJsonPark }) {
                     </Button>
                 </CardActions>
             </Card>
-
-            <Snackbar open={openSnackbar} onClose={handleCloseSnackbar} message="Snackbar-test" action={action}/>
         </React.Fragment>
     )
 }
