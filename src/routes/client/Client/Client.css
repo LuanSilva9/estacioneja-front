@@ -67,11 +67,10 @@
 }
 
 .cardsParks {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
 }
 
 .control {
@@ -207,13 +206,6 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-}
-
-.parks .parks-form, .parks .parks-vincles{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
 }
 
 .stepper-form {
