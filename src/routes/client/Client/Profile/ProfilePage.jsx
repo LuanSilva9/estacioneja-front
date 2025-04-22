@@ -53,14 +53,14 @@ export default function ProfilePage() {
                                     label="Cidade da empresa"
                                     variant="outlined"
                                     fullWidth
-                                    value={userData.userCity.name}
+                                    value={userData.userCity}
                                     options={citys}
                                     getOptionLabel={(option) => option.name || ''}
                                     renderInput={(params) => <TextField required {...params} label="Cidade" variant="outlined" fullWidth />}
                                     onChange={(event, newValue) => {
                                         updateUserData({
                                             userCity: newValue ? {
-                                                name: newValue,
+                                                name: newValue.name,
                                                 uf: newValue.uf || '',
                                                 cep: newValue.cep,
                                             } : {
